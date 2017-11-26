@@ -1,3 +1,9 @@
-<p>
-  navigation works!
-</p>
+<nav class="wt-navigation-wrapper">
+  <ul class="wt-navigation">
+    <li *ngFor="let item of navigationItems" routerLinkActive="active" class="wt-navigation__item">
+      <a [routerLink]="item.name" class="row align-center justify-center">
+        {{ item.title }}
+      </a>
+    </li>
+  </ul>
+</nav>
