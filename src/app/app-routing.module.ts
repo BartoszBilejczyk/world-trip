@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   { path: 'flights', component: FlightsComponent },
   { path: 'map', component: MapComponent },
   { path: 'timeline', component: TimelineComponent },
-  { path: 'useful-info', component: UsefulInfoComponent },
+  { path: 'info', component: UsefulInfoComponent },
 ];
 
 @NgModule({

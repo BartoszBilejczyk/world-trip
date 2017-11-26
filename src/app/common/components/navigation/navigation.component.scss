@@ -1,10 +1,14 @@
 @import '../../../../styles.scss';
 
 .wt-navigation {
-  width: 120px;
-  background-color: pal(dashboard, dark);
-  height: 100vh;
-  @include font-size(16);
+
+  &-wrapper {
+    width: 120px;
+    background-color: pal(dashboard, dark);
+    height: 100vh;
+    @include font-size(16);
+    display: inline-block;
+  }
 
   &__item {
     width: 120px;
