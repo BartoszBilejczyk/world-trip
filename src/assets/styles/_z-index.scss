@@ -1,0 +1,83 @@
+.wt-heading {
+  //color: pal(navy);
+
+  &--hero {
+    @include font(64, bold);
+    line-height: 1.11;
+  }
+
+  &--primary {
+    @include font(30, bold);
+    letter-spacing: -0.1px;
+  }
+
+  &--secondary {
+    @include font(16, bold);
+  }
+
+  &--white {
+    color: pal(white);
+  }
+
+  &--faded {
+    //color: pal(navy, faded);
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+}
+
+.wt-copy {
+  color: pal(gray, semi-dark);
+  @include font(13, normal);
+
+  &--large {
+    @include font(14, medium);
+    line-height: 1.57;
+  }
+
+  &--small {
+    @include font(12, normal);
+  }
+
+  &--x-small {
+    @include font(10, normal);
+  }
+
+  &--light {
+    color: pal(gray);
+  }
+
+  &--dark {
+    color: pal(gray, dark);
+  }
+
+  &--x-dark {
+    //color: pal(navy, light);
+  }
+
+  &--blue {
+    //color: pal(blue);
+  }
+
+  &--red {
+    //color: pal(red);
+  }
+
+  &--semi {
+    @include font-weight(semi);
+  }
+
+  &--bold {
+    @include font-weight(bold);
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
