@@ -14,6 +14,39 @@ $palette-colors: (
   ),
   white: (
     base: #fff,
+  ),
+  red: (
+    x-light: #f85A44,
+    light: #d44c46,
+    base: #c5424d,
+    dark: #9f3351,
+    x-dark: #912b54
+  ),
+  blue: (
+    ultra-light: #6dd2bf,
+    x-light: #2aa8a7,
+    light: #289fa7,
+    base: #268298,
+    mid-dark: #26698D,
+    dark: #275584,
+    x-dark: #2a4475,
+  ),
+  purple: (
+    x-light: #a74473,
+    light: #a04157,
+    base: #7c395c,
+    dark: #663264,
+    x-dark: #593166
+  ),
+  salmon: (
+    light: #de9174,
+    base: #d8a487
+  ),
+  dashboard: (
+    x-light: #485057,
+    light: #2c343a,
+    base: #22272b,
+    dark: #16119c,
   )
 );
 
