@@ -19,7 +19,7 @@ import { environment} from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
 
 export const firebaseConfig = environment.firebaseConfig;
-import { AngularFirestoreModule } from "angularfire2/firestore";
+import { AngularFireDatabaseModule } from "angularfire2/database";
 import { CountriesComponent } from './countries/countries.component';
 
 
@@ -40,7 +40,7 @@ import { CountriesComponent } from './countries/countries.component';
     AmChartsModule,
     CountriesModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
