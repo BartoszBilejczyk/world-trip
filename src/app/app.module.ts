@@ -8,15 +8,25 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { UsefulInfoModule } from './useful-info/useful-info.module';
 import { FlightsModule } from './flights/flights.module';
-import { CountryModule } from './country/country.module';
+import { CountryModule } from './countries/country/country.module';
 import { AppCommonModule } from './common/common.module';
 import { DashboardModule } from "./dashboard/dashboard.module";
+import { CountriesModule } from "./countries/countries.module";
 
 import { AppComponent } from './app.component';
+
+import { environment} from "../environments/environment";
+import { AngularFireModule } from 'angularfire2';
+
+export const firebaseConfig = environment.firebaseConfig;
+import { AngularFirestoreModule } from "angularfire2/firestore";
+import { CountriesComponent } from './countries/countries.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    CountriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +37,10 @@ import { AppComponent } from './app.component';
     CountryModule,
     DashboardModule,
     AppCommonModule,
-    AmChartsModule
+    AmChartsModule,
+    CountriesModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
