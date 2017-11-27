@@ -1,0 +1,26 @@
+@import '../../../../styles.scss';
+
+.wt-navigation {
+
+  &-wrapper {
+    width: 120px;
+    background-color: pal(dashboard, dark);
+    height: 100vh;
+    @include font-size(16);
+    display: inline-block;
+  }
+
+  &__item {
+    width: 120px;
+    height: 100px;
+
+    a {
+      width: inherit;
+      height: inherit;
+    }
+
+    &.active {
+      background-color: pal(purple, dark);
+    }
+  }
+}
