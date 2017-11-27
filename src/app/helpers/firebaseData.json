@@ -146,3 +146,71 @@
     }
   ]
 }
+
+COUNTRIES
+numberOfDays
+Total basic cost
+Cities Array
+  Daily living cost
+  Daily airbnb cost
+Places to see
+Basic Info Object
+  waluta
+  notka o kulturze
+  jakieś dziwne zabronione rzeczy
+
+FLIGHTS
+Array z obiektami TO i FROM
+[
+  {
+    From: 'asdasd'
+    To: 'asdas'
+    Min Price
+    Max Price
+    Duration
+    Airline
+    luggageCost
+  }
+]
+
+AIRBNB
+  city: {
+    priceForOne
+    priceForTwo
+    lowLevelprice
+    Goodprice
+    offers: [
+      ''
+      ''
+    ]
+  }
+
+COSTS
+  Total Airbnb cost
+  Total Living cost
+  Total Useful Things cost
+  Total flights and luggage COSTS
+  BUDGET - amCharts
+
+Timeline
+  Timeline
+  Kalendarz
+
+
+usefulinfo
+
+  vaccines
+    name
+    price
+
+  eq
+    name
+    price
+
+  visas
+    country
+    price
+    deadline
+    difficulty
+
+  totalCost
