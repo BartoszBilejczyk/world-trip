@@ -21,7 +21,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
     UsefulInfoModule,
     FlightsModule,
     CountryModule,

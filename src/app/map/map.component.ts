@@ -28,14 +28,12 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   handleCountryClick = el => {
     setTimeout(() => {
-      console.log(el.chart.selectedObject.title)
-      let country = el.chart.selectedObject.title;
-      this.router.navigate([`country/${country}`]);
+      let selectedCountry = el.chart.selectedObject.title.toLowerCase();
+      this.router.navigate([`country`], { queryParams: {country: selectedCountry} });
     }, 1000)
   }
 
   ngAfterViewInit() {
-    // this.router.navigate(['country'])
     this.chart = this.AmCharts.makeChart( "chartdiv", {
       "type": "map",
       "theme": "light",
@@ -117,7 +115,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
         "alpha": 0.4
       },
       "listeners": [{
-        "event": "click",
+        "event": "clickMapObject",
         "method": this.handleCountryClick
       }],
       "smallMap": {},
