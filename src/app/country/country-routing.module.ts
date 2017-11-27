@@ -26,8 +26,7 @@ const countryRoutes: Routes = [
       {
         path: 'sightseeing',
         component: SightseeingComponent
-      },
-
+      }
     ]
   }
 ];

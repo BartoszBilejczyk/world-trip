@@ -8,6 +8,7 @@ import { BasicInfoComponent } from './basic-info/basic-info.component';
 import { LivingCostsComponent } from './living-costs/living-costs.component';
 import { BudgetComponent } from './budget/budget.component';
 import { SightseeingComponent } from './sightseeing/sightseeing.component';
+import { CountryMapComponent } from './country-map/country-map.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { SightseeingComponent } from './sightseeing/sightseeing.component';
     LivingCostsComponent,
     BudgetComponent,
     SightseeingComponent,
+    CountryMapComponent
   ],
   exports: [
     CountryComponent,
@@ -27,6 +29,7 @@ import { SightseeingComponent } from './sightseeing/sightseeing.component';
     LivingCostsComponent,
     BudgetComponent,
     SightseeingComponent,
+    CountryMapComponent
   ]
 })
 export class CountryModule { }
