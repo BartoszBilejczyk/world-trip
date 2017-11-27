@@ -8,7 +8,7 @@ import { SightseeingComponent} from './sightseeing/sightseeing.component';
 
 const countryRoutes: Routes = [
   {
-    path: 'country',
+    path: 'country/Kazakhstan',
     component: CountryComponent,
     children: [
       {

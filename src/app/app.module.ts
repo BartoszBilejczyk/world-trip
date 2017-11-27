@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { AmChartsModule } from "@amcharts/amcharts3-angular";
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { UsefulInfoModule } from './useful-info/useful-info.module';
@@ -24,7 +26,8 @@ import { AppComponent } from './app.component';
     FlightsModule,
     CountryModule,
     DashboardModule,
-    AppCommonModule
+    AppCommonModule,
+    AmChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
