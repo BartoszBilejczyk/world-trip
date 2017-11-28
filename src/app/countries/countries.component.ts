@@ -8,14 +8,14 @@ import { Observable } from "rxjs/Observable";
   styleUrls: ['./countries.component.scss']
 })
 export class CountriesComponent implements OnInit {
-  countriesObservable: Observable<any[>
+  countries: Observable<any>;
 
   constructor(private db: AngularFireDatabase) {
 
   }
 
   ngOnInit() {
-    this.countriesObservable = this.getCountries('/countries')
+    this.countries = this.getCountries('/countries')
   }
 
   getCountries(listPath): Observable<any[]> {

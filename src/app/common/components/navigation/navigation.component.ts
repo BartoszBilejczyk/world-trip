@@ -10,12 +10,12 @@ export class NavigationComponent implements OnInit {
     { name: 'dashboard', title: 'Dashboard'},
     { name: 'airbnb', title: 'Airbnb'},
     { name: 'costs', title: 'Costs'},
-    { name: 'country', title: 'Country'},
+    { name: 'countries', title: 'Countries'},
     { name: 'flights', title: 'Flights'},
     { name: 'map', title: 'Map'},
     { name: 'timeline', title: 'Timeline'},
     { name: 'info', title: 'Useful Info'}
-  ]
+  ];
 
   constructor() { }
 

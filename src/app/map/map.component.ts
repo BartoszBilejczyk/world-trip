@@ -1,5 +1,5 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 
 
@@ -8,7 +8,7 @@ import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements AfterViewInit, OnDestroy {
+export class MapComponent implements OnInit, OnDestroy {
   private chart: AmChart;
   /**
    * SVG path for target icon
@@ -23,17 +23,16 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   constructor(
     private AmCharts: AmChartsService,
     private router: Router,
-    private route: ActivatedRoute,
   ) { }
 
   handleCountryClick = el => {
     setTimeout(() => {
       let selectedCountry = el.chart.selectedObject.title.toLowerCase();
-      this.router.navigate([`country`], { queryParams: {country: selectedCountry} });
+      this.router.navigate([`country/${selectedCountry}`]);
     }, 1000)
-  }
+  };
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.chart = this.AmCharts.makeChart( "chartdiv", {
       "type": "map",
       "theme": "light",

@@ -1,5 +1,5 @@
-<ul>
-  <div *ngFor="let country of countriesObservable | async">
-    <h3>{{ country.name }}</h3>
+  <div *ngFor="let country of countries | async">
+    <a [routerLink]="['/country', country.name.split(' ').join('').toLowerCase()]">
+      <p>{{ country.name }}</p>
+    </a>
   </div>
-</ul>

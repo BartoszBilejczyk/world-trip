@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnChanges, AfterViewInit, AfterContentChecked, AfterViewChecked, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 
 
@@ -8,7 +8,7 @@ import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
   templateUrl: './country-map.component.html',
   styleUrls: ['./country-map.component.scss']
 })
-export class CountryMapComponent {
+export class CountryMapComponent implements OnInit, OnChanges, AfterViewInit, AfterContentChecked, AfterViewChecked, OnDestroy {
   chart: AmChart;
 
   sub: any;
@@ -16,18 +16,15 @@ export class CountryMapComponent {
 
   constructor(
     private AmCharts: AmChartsService,
-    private router: Router,
     private route: ActivatedRoute,
   ) {
-    this.sub = this.route.queryParams.subscribe(params => {
-      this.countryName = params.country + 'Low';
-      this.generateChart()
+    this.sub = this.route.paramMap.subscribe(params => {
+      this.countryName = params.params.id + 'Low';
     });
   }
 
   generateChart = () => {
     console.log(this.countryName);
-    console.log(this.chart)
     this.chart = this.AmCharts.makeChart( "chart", {
       "type": "map",
       "theme": "light",
@@ -61,7 +58,33 @@ export class CountryMapComponent {
 
   };
 
+  ngOnInit() {
+    this.generateChart();
+    console.log('a')
+  }
+  ngOnChanges() {
+    this.generateChart();
+    console.log('b')
+
+  }
   ngAfterViewInit() {
     this.generateChart();
+    console.log('c')
+
+  }
+  ngAfterContentChecked() {
+    this.generateChart();
+    console.log('d')
+
+  }
+  ngAfterViewChecked() {
+    this.generateChart();
+    console.log('e')
+
+  }
+  ngOnDestroy() {
+    if (this.chart) {
+      this.AmCharts.destroyChart(this.chart);
+    }
   }
 }

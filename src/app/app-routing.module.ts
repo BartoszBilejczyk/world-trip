@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   { path: 'airbnb', component: AirbnbComponent },
   { path: 'costs', component: CostsComponent },
   { path: 'countries', component: CountriesComponent },
-  { path: 'country', component: CountryComponent },
+  { path: 'country/:id', component: CountryComponent },
   { path: 'flights', component: FlightsComponent },
   { path: 'map', component: MapComponent },
   { path: 'timeline', component: TimelineComponent },
