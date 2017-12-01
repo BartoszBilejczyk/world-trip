@@ -28,8 +28,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { EffectsModule }             from '@ngrx/effects';
 import { StoreModule }               from '@ngrx/store';
 import { StoreDevtoolsModule }       from '@ngrx/store-devtools';
-import { PostEffects }               from './store/post.effects';
-import { postReducer }               from './store/post.reducer';
+import { CountryEffects }            from './store/countries.effects';
+import { countriesReducer }          from './store/countries.reducer';
 
 @NgModule({
   declarations: [
@@ -49,9 +49,9 @@ import { postReducer }               from './store/post.reducer';
     CountriesModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    EffectsModule.forRoot([PostEffects]),
+    EffectsModule.forRoot([CountryEffects]),
     StoreModule.forRoot({
-      post: postReducer
+      countries: countriesReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],

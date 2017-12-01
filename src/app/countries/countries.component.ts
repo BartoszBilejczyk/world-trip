@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Store }        from '@ngrx/store';
 import { Observable }   from 'rxjs/Observable';
-import { Post }         from '../models/post.model';
-import * as postActions from '../store/post.actions';
+import { Country }         from '../models/country.model';
+import * as countryActions from '../store/countries.actions';
+
 interface AppState {
-  post: Post;
+  countries: Country[];
 }
 
 @Component({
@@ -14,13 +15,14 @@ interface AppState {
 })
 
 export class CountriesComponent {
-  post$: Observable<Post>;
+  countries$: any;
 
   constructor(private store: Store<AppState>) {
-    this.post$ = this.store.select('post');
+    this.countries$ = this.store.select('countries');
   }
 
-  getPost() {
-    this.store.dispatch(new postActions.GetPost('/posts/testPost'));
+  getCountries() {
+    this.store.dispatch(new countryActions.GetCountries('/countries'));
+    console.log(this.countries$)
   }
 }
