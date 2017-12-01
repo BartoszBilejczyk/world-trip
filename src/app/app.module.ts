@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 
 import { CountriesComponent } from './countries/countries.component';
 
+import { FirebaseService } from "./firebase.service";
 // store and firebase
 
 
@@ -28,7 +29,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { EffectsModule }             from '@ngrx/effects';
 import { StoreModule }               from '@ngrx/store';
 import { StoreDevtoolsModule }       from '@ngrx/store-devtools';
-import { CountryEffects }            from './store/countries.effects';
 import { countriesReducer }          from './store/countries.reducer';
 
 @NgModule({
@@ -49,13 +49,12 @@ import { countriesReducer }          from './store/countries.reducer';
     CountriesModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    EffectsModule.forRoot([CountryEffects]),
     StoreModule.forRoot({
-      countries: countriesReducer
+      state: countriesReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

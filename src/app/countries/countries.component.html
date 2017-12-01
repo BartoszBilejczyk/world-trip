@@ -1,2 +1,6 @@
-
-<button (click)="getCountries()">Load Countries from Firebase</button>
+<ul *ngIf="items">
+  <li *ngFor="let item of items | async">
+    {{ item.name }}
+  </li>
+</ul>
+sadads

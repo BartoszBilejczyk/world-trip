@@ -1,10 +1,18 @@
 import * as CountriesActions from './countries.actions';
-import { Country } from '../models/country.model';
+import { storeClass } from "./store";
 
 export type Action = CountriesActions.All;
 
+const initialState = {
+  userData: {
+    isAdvertiser: true,
+    isPublisher: true,
+    isAdmin: false
+  }
+}
+
 /// Reducer function
-export function countriesReducer(state: Country, action: Action) {
+export function countriesReducer(state = initialState, action: Action) {
 
   switch (action.type) {
 

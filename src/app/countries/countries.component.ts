@@ -1,12 +1,8 @@
-import { Component } from '@angular/core';
-import { Store }        from '@ngrx/store';
-import { Observable }   from 'rxjs/Observable';
-import { Country }         from '../models/country.model';
-import * as countryActions from '../store/countries.actions';
-
-interface AppState {
-  countries: Country[];
-}
+import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../firebase.service';
+import { AngularFireList} from "angularfire2/database";
+import { Observable } from 'rxjs/Observable';
+import { Store } from "@ngrx/store";
 
 @Component({
   selector: 'app-countries',
@@ -14,15 +10,21 @@ interface AppState {
   styleUrls: ['./countries.component.scss']
 })
 
-export class CountriesComponent {
-  countries$: any;
-  countries: any;
+export class CountriesComponent implements OnInit {
+  items: AngularFireList<any[]>;
+  state: any;
 
-  constructor(private store: Store<AppState>) {
-    this.countries$ = this.store.select('countries')
+
+  constructor(private firebaseService: FirebaseService,
+              private store: Store<any>) {
+    const sub  = store.select('state').subscribe(state => {
+      this.state = state;
+    })
+    console.log(this.state);
   }
 
-  getCountries() {
-    this.store.dispatch(new countryActions.GetCountries('/countries'));
+  ngOnInit() {
+    this.items = this.firebaseService.get().valueChanges()
+    console.log(this.items)
   }
 }
