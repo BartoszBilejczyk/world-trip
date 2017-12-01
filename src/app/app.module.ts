@@ -15,13 +15,21 @@ import { CountriesModule } from "./countries/countries.module";
 
 import { AppComponent } from './app.component';
 
-import { environment} from "../environments/environment";
-import { AngularFireModule } from 'angularfire2';
-
-export const firebaseConfig = environment.firebaseConfig;
-import { AngularFireDatabaseModule } from "angularfire2/database";
 import { CountriesComponent } from './countries/countries.component';
 
+// store and firebase
+
+
+import { environment} from "../environments/environment";
+export const firebaseConfig = environment.firebaseConfig;
+
+import { AngularFireModule }         from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { EffectsModule }             from '@ngrx/effects';
+import { StoreModule }               from '@ngrx/store';
+import { StoreDevtoolsModule }       from '@ngrx/store-devtools';
+import { PostEffects }               from './store/post.effects';
+import { postReducer }               from './store/post.reducer';
 
 @NgModule({
   declarations: [
@@ -40,7 +48,12 @@ import { CountriesComponent } from './countries/countries.component';
     AmChartsModule,
     CountriesModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    EffectsModule.forRoot([PostEffects]),
+    StoreModule.forRoot({
+      post: postReducer
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
-  <div *ngFor="let country of countries | async">
-    <a [routerLink]="['/country', country.name.split(' ').join('').toLowerCase()]">
-      <p>{{ country.name }}</p>
-    </a>
-  </div>
+<div *ngIf="post$ | async as post">
+  <i *ngIf="post.loading" class="fa fa-spin fa-refresh"></i>
+  <h2>{{ post.text }}</h2>
+</div>
+
+<button (click)="getPost()">Load Post from Firebase</button>

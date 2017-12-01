@@ -1,24 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from "angularfire2/database";
-import { Observable } from "rxjs/Observable";
+import { Component } from '@angular/core';
+import { Store }        from '@ngrx/store';
+import { Observable }   from 'rxjs/Observable';
+import { Post }         from '../models/post.model';
+import * as postActions from '../store/post.actions';
+interface AppState {
+  post: Post;
+}
 
 @Component({
   selector: 'app-countries',
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.scss']
 })
-export class CountriesComponent implements OnInit {
-  countries: Observable<any>;
 
-  constructor(private db: AngularFireDatabase) {
+export class CountriesComponent {
+  post$: Observable<Post>;
 
+  constructor(private store: Store<AppState>) {
+    this.post$ = this.store.select('post');
   }
 
-  ngOnInit() {
-    this.countries = this.getCountries('/countries')
-  }
-
-  getCountries(listPath): Observable<any[]> {
-    return this.db.list(listPath).valueChanges();
+  getPost() {
+    this.store.dispatch(new postActions.GetPost('/posts/testPost'));
   }
 }
