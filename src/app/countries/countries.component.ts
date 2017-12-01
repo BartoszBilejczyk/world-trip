@@ -16,13 +16,13 @@ interface AppState {
 
 export class CountriesComponent {
   countries$: any;
+  countries: any;
 
   constructor(private store: Store<AppState>) {
-    this.countries$ = this.store.select('countries');
+    this.countries$ = this.store.select('countries')
   }
 
   getCountries() {
     this.store.dispatch(new countryActions.GetCountries('/countries'));
-    console.log(this.countries$)
   }
 }

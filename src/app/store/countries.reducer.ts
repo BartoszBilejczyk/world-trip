@@ -9,10 +9,10 @@ export function countriesReducer(state: Country, action: Action) {
   switch (action.type) {
 
     case CountriesActions.GET_COUNTRIES:
-      return { ...state, loading: true };
+      return { ...state };
 
     case CountriesActions.GET_COUNTRIES_SUCCESS:
-      return { ...state, ...action.payload, loading: false };
+      return { ...state, ...action.payload};
 
     default:
       return state;

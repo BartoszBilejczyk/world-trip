@@ -11,7 +11,7 @@ export class GetCountries implements Action {
 
 export class GetCountriesSuccess implements Action {
   readonly type = GET_COUNTRIES_SUCCESS;
-  constructor(public payload: Country) {}
+  constructor(public payload: Country[]) {}
 }
 
 export type All
