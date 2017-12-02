@@ -17,9 +17,12 @@ import { AppComponent } from './app.component';
 
 import { CountriesComponent } from './countries/countries.component';
 
-import { FirebaseService } from "./firebase.service";
 // store and firebase
 
+import { CountriesService, FlightsService } from './services';
+
+import {CountriesActions, FlightsActions} from './store/actions';
+import {CountriesEffects, FlightsEffects} from './store/effects';
 
 import { environment} from "../environments/environment";
 export const firebaseConfig = environment.firebaseConfig;
@@ -29,7 +32,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { EffectsModule }             from '@ngrx/effects';
 import { StoreModule }               from '@ngrx/store';
 import { StoreDevtoolsModule }       from '@ngrx/store-devtools';
-import { countriesReducer }          from './store/countries.reducer';
+import { default as reducer } from './store/app-store';
 
 @NgModule({
   declarations: [
@@ -50,11 +53,16 @@ import { countriesReducer }          from './store/countries.reducer';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     StoreModule.forRoot({
-      state: countriesReducer
+      reducer
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25 })
+    StoreDevtoolsModule.instrument({ maxAge: 25 }),
+    EffectsModule.forRoot([CountriesEffects]),
+    EffectsModule.forRoot([FlightsEffects])
   ],
-  providers: [FirebaseService],
+  providers: [
+    CountriesService, FlightsService,
+    CountriesActions, FlightsActions
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

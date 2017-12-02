@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../firebase.service';
-import { AngularFireList} from "angularfire2/database";
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from "@ngrx/store";
+import { AppStore } from "../store/app-store";
+import { Country } from "../models/country.model";
 
 @Component({
   selector: 'app-countries',
@@ -10,21 +10,23 @@ import { Store } from "@ngrx/store";
   styleUrls: ['./countries.component.scss']
 })
 
-export class CountriesComponent implements OnInit {
-  items: AngularFireList<any[]>;
-  state: any;
+export class CountriesComponent implements OnInit, OnDestroy {
+  countriesObs: Observable<Country[]>;
+  countries: Country[];
+  sub: any;
 
 
-  constructor(private firebaseService: FirebaseService,
-              private store: Store<any>) {
-    const sub  = store.select('state').subscribe(state => {
-      this.state = state;
-    })
-    console.log(this.state);
+  constructor(private store: Store<AppStore>) {
+    this.countriesObs = store.select(s => s.countries);
   }
 
   ngOnInit() {
-    this.items = this.firebaseService.get().valueChanges()
-    console.log(this.items)
+    this.sub = this.countriesObs.subscribe(countries => this.countries = countries);
+    console.log(this.countries)
+  }
+
+  ngOnDestroy() {
+    if (this.sub)
+      this.sub.unsubscribe();
   }
 }
