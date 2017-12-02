@@ -1,5 +1,5 @@
-import { FlightsActions } from './flights.actions';
-import { CountriesActions } from './countries.actions';
+import * as FlightsActions from '../actions/flights.actions';
+import * as CountriesActions from '../actions/countries.actions';
 
 export {
   FlightsActions,
@@ -8,5 +8,5 @@ export {
 
 export default [
   FlightsActions,
-  CountriesActions,
+  CountriesActions
 ];

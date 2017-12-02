@@ -11,6 +11,7 @@ export class FlightsService {
   }
 
   getFlights(): any {
+    console.log(typeof this.db.object('/flights').valueChanges())
     return this.db.list('/flights').valueChanges()
   }
 }

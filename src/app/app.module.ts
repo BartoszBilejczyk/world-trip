@@ -21,7 +21,6 @@ import { CountriesComponent } from './countries/countries.component';
 
 import { CountriesService, FlightsService } from './services';
 
-import {CountriesActions, FlightsActions} from './store/actions';
 import {CountriesEffects, FlightsEffects} from './store/effects';
 
 import { environment} from "../environments/environment";
@@ -32,7 +31,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { EffectsModule }             from '@ngrx/effects';
 import { StoreModule }               from '@ngrx/store';
 import { StoreDevtoolsModule }       from '@ngrx/store-devtools';
-import { default as reducer } from './store/app-store';
+import { default as state } from './store/app-store';
 
 @NgModule({
   declarations: [
@@ -53,15 +52,15 @@ import { default as reducer } from './store/app-store';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     StoreModule.forRoot({
-      reducer
+      state
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
     EffectsModule.forRoot([CountriesEffects]),
     EffectsModule.forRoot([FlightsEffects])
   ],
   providers: [
-    CountriesService, FlightsService,
-    CountriesActions, FlightsActions
+    CountriesService,
+    FlightsService
   ],
   bootstrap: [AppComponent]
 })

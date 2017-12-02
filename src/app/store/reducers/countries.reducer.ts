@@ -2,14 +2,31 @@ import { Observable } from 'rxjs/Observable';
 import '../../rxjs-extensions';
 import {Action} from '@ngrx/store';
 
-import { CountriesActions } from '../actions/countries.actions';
-import { Country } from '../../models/country.model';
+import * as CountriesActions from '../actions/countries.actions';
 
-export const countries = (state: any = [], action: Action): Country[] => {
+const initialState = {
+  userData: {
+    email: '',
+    isAdvertiser: true,
+    isAdmin: false
+  }
+};
+
+export const countries = (state = initialState, action: Action) => {
   switch (action.type) {
     case CountriesActions.LOAD_COUNTRIES_SUCCESS:
-      return action.payload;
+      console.log('case')
+      return { ...state, ...action.payload };
     default:
       return state;
   }
 };
+
+// export function postReducer(state: Post, action: Action) {
+//   switch (action.type) {
+//     case PostActions.GET_POST:
+//       return { ...state, loading: true };
+//     case PostActions.GET_POST_SUCCESS:
+//       return { ...state, ...action.payload, loading: false };
+//     case PostActions.VOTE_UPDATE:
+//       return { ...state, ...action.payload, loading: true };
