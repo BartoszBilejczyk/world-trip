@@ -1,7 +1,10 @@
 <button (click)="loadFlights()">Load</button>
+<br>
+<br>
+<button (click)="loadFlights2()">Load2</button>
 
 <ul *ngIf="flights">
-  <li *ngFor="let flight of flights | async">
+  <li *ngFor="let flight of flights">
     {{ flight.airline }}
   </li>
 </ul>

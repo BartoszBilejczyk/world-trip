@@ -11,31 +11,28 @@ import * as flightsActions from '../store/actions/flights.actions';
 })
 export class FlightsComponent implements OnInit, OnDestroy {
   flightsObs: Observable<any>;
-  flights: string[];
+  flights = [];
   sub: any;
 
   constructor(private store: Store<AppStore>) {
     this.flightsObs = store.select(store => store.state.flights);
-    console.log(this.flightsObs)
   }
 
   ngOnInit() {
+    this.store.dispatch(new flightsActions.LoadFlights('/flights'));
+
     this.sub = this.flightsObs.subscribe(flights => {
-      console.log(flights);
-      this.flights = flights
-      console.log(this.flights);
+      for(let o in flights) {
+        this.flights.push(flights[o])
+      }
+
+      this.flights2 = Object.keys(flights).map(arg => flights[arg])
     });
+
   }
 
   ngOnDestroy() {
     if (this.sub)
       this.sub.unsubscribe();
   }
-
-  loadFlights() {
-    this.store.dispatch(new flightsActions.LoadFlights('/flights'));
-    setTimeout(function(){ console.log(this.flights)
-      console.log(typeof this.flights) }, 5000);
-
-  }
-}
+ }
