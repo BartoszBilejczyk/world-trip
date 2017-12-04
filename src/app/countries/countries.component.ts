@@ -25,7 +25,6 @@ export class CountriesComponent implements OnInit, OnDestroy {
 
     this.sub = this.countriesObs.subscribe(countries => {
       for(let country in countries) {
-        console.log(country)
         this.countries.push(countries[country])
       }
     });

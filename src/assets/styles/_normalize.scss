@@ -63,3 +63,9 @@ select {
 a:-webkit-any-link {
   color: pal(white);
 }
+
+.amcharts-main-div {
+  a {
+    visibility: hidden !important;
+  }
+}
