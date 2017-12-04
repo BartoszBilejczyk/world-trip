@@ -1,0 +1,21 @@
+@import '../../styles.scss';
+
+ul.flights {
+  min-height: 200px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  @include font (16, 500)
+
+  li {
+    padding: 10px;
+  }
+}
+
+.odd {
+  background-color: pal(dashboard, light);
+}
+
+.even {
+  background-color: pal(dashboard, x-light);
+}

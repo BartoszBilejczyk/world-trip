@@ -1,9 +1,12 @@
 <div class="container">
-  <ul *ngIf="flights">
+  <ul class="flights" *ngIf="flights">
     <app-flights-nav></app-flights-nav>
-    <app-flights-item
-      *ngFor="let flight of flights"
-      [flight]="flight">
-    </app-flights-item>
+    <li
+      *ngFor="let flight of flights let even = even; let odd = odd"
+      [ngClass]="{odd: odd, even: even}">
+      <app-flights-item
+        [flight]="flight">
+      </app-flights-item>
+    </li>
   </ul>
 </div>
