@@ -4,7 +4,7 @@ import { Action } from '@ngrx/store';
 
 import * as FlightsActions from '../actions/flights.actions';
 
-export const flights = (state: any = [], action: Action): string[] => {
+export const flights = (state: any = [], action: Action) => {
   switch (action.type) {
     case FlightsActions.LOAD_FLIGHTS_SUCCESS:
       return { ...state, ...action.payload };

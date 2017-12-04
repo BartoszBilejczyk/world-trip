@@ -22,11 +22,9 @@ export class FlightsComponent implements OnInit, OnDestroy {
     this.store.dispatch(new flightsActions.LoadFlights('/flights'));
 
     this.sub = this.flightsObs.subscribe(flights => {
-      for(let o in flights) {
-        this.flights.push(flights[o])
+      for(let flight in flights) {
+        this.flights.push(flights[flight])
       }
-
-      this.flights2 = Object.keys(flights).map(arg => flights[arg])
     });
 
   }

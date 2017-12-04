@@ -4,6 +4,7 @@ import { FlightsComponent } from './flights.component';
 import { FlightsItemComponent } from './flights-item/flights-item.component';
 import { AirlinesComponent } from './airlines/airlines.component';
 import { AirlinesItemComponent } from './airlines/airlines-item/airlines-item.component';
+import { FlightsNavComponent } from './flights-nav/flights-nav.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { AirlinesItemComponent } from './airlines/airlines-item/airlines-item.co
     FlightsItemComponent,
     AirlinesComponent,
     AirlinesItemComponent,
+    FlightsNavComponent,
   ],
   exports: [
     FlightsComponent,

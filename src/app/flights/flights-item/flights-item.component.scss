@@ -1,0 +1,5 @@
+.flights-table-wrapper {
+  > div {
+    flex-basis: calc(100%/9)
+  }
+}

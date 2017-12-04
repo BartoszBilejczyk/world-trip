@@ -5,8 +5,6 @@ import {AppStore} from '../app-store';
 import * as flightsActions from '../actions/flights.actions';
 import {FlightsService} from '../../services/flights.service'
 
-export type Action = flightsActions.All;
-
 @Injectable()
 export class FlightsEffects {
   constructor (

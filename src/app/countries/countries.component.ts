@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from "@ngrx/store";
 import { AppStore } from "../store/app-store";
-import { Country } from "../models/country.model";
+import * as countriesActions from '../store/actions/countries.actions';
+
 
 @Component({
   selector: 'app-countries',
@@ -11,18 +12,23 @@ import { Country } from "../models/country.model";
 })
 
 export class CountriesComponent implements OnInit, OnDestroy {
-  countriesObs: Observable<Country[]>;
-  countries: Country[];
+  countriesObs: Observable<any>;
+  countries = [];
   sub: any;
 
-
   constructor(private store: Store<AppStore>) {
-    this.countriesObs = store.select(s => s.countries);
+    this.countriesObs = store.select(store => store.state.countries);
   }
 
   ngOnInit() {
-    this.sub = this.countriesObs.subscribe(countries => this.countries = countries);
-    console.log(this.countries)
+    this.store.dispatch(new countriesActions.LoadCountries('/countries'));
+
+    this.sub = this.countriesObs.subscribe(countries => {
+      for(let country in countries) {
+        console.log(country)
+        this.countries.push(countries[country])
+      }
+    });
   }
 
   ngOnDestroy() {

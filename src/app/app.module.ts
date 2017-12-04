@@ -55,8 +55,7 @@ import { default as state } from './store/app-store';
       state
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
-    EffectsModule.forRoot([CountriesEffects]),
-    EffectsModule.forRoot([FlightsEffects])
+    EffectsModule.forRoot([CountriesEffects, FlightsEffects])
   ],
   providers: [
     CountriesService,

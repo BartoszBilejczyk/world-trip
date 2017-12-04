@@ -13,6 +13,6 @@ export class LoadCountriesSuccess implements Action {
   constructor(public payload: any) { }
 }
 
-export type CountriesActions =
+export type All =
   | LoadCountries
   | LoadCountriesSuccess
