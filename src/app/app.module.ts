@@ -21,7 +21,7 @@ import { CountriesComponent } from './countries/countries.component';
 
 import { CountriesService, FlightsService } from './services';
 
-import {CountriesEffects, FlightsEffects} from './store/effects';
+import { CountriesEffects, FlightsEffects} from './store/effects';
 
 import { environment} from "../environments/environment";
 export const firebaseConfig = environment.firebaseConfig;

@@ -1,0 +1,10 @@
+@import '../../../styles.scss';
+
+.flights-table-wrapper {
+  padding: 10px;
+  background-color: pal(dashboard, dark);
+
+  > div {
+    flex-basis: calc(100%/9);
+  }
+}

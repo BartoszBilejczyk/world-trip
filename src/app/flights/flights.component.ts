@@ -26,7 +26,6 @@ export class FlightsComponent implements OnInit, OnDestroy {
         this.flights.push(flights[flight])
       }
     });
-
   }
 
   ngOnDestroy() {

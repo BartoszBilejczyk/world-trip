@@ -1,0 +1,357 @@
+{
+  "countries": [
+    {
+      "id": "1",
+      "name": "Poland",
+      "cities": [
+        {
+          "city": "city1"
+        },
+        {
+          "city": "city2"
+        },
+        {
+          "city": "city3"
+        },
+        {
+          "city": "city4"
+        }
+      ],
+      "dailyLivingCost": "",
+      "dailyAirbnbCost": "",
+      "sightseeing": [
+        {
+          "sight": "sight1"
+        },
+        {
+          "sight": "sight2"
+        },
+        {
+          "sight": "sight3"
+        },
+        {
+          "sight": "sight4"
+        }
+      ],
+      "basicInfo": "",
+      "currency": "",
+      "cultureNote": "",
+      "additionalInfo": ""
+    },
+    {
+      "id": "2",
+      "name": "UAE",
+      "cities": [
+        {
+          "city": "city1"
+        },
+        {
+          "city": "city2"
+        },
+        {
+          "city": "city3"
+        },
+        {
+          "city": "city4"
+        }
+      ],
+      "dailyLivingCost": "",
+      "dailyAirbnbCost":"",
+      "sightseeing": [
+        {
+          "sight": "sight1"
+        },
+        {
+          "sight": "sight2"
+        },
+        {
+          "sight": "sight3"
+        },
+        {
+          "sight": "sight4"
+        }
+      ],
+      "basicInfo": "",
+      "currency": "",
+      "cultureNote": "",
+      "additionalInfo": ""
+    },
+    {
+      "id": "3",
+      "name": "Oman",
+      "cities": [
+        {
+          "city": "city1"
+        },
+        {
+          "city": "city2"
+        },
+        {
+          "city": "city3"
+        },
+        {
+          "city": "city4"
+        }
+      ],
+      "dailyLivingCost": "",
+      "dailyAirbnbCost": "",
+      "sightseeing": [
+        {
+          "sight": "sight1"
+        },
+        {
+          "sight": "sight2"
+        },
+        {
+          "sight": "sight3"
+        },
+        {
+          "sight": "sight4"
+        }
+      ],
+      "basicInfo": "",
+      "currency": "",
+      "cultureNote": "",
+      "additionalInfo": ""
+    },
+    {
+      "id": "4",
+      "name": "Qatar",
+      "cities": [
+        {
+          "city": "city1"
+        },
+        {
+          "city": "city2"
+        },
+        {
+          "city": "city3"
+        },
+        {
+          "city": "city4"
+        }
+      ],
+      "dailyLivingCost": "",
+      "dailyAirbnbCost": "",
+      "sightseeing": [
+        {
+          "sight": "sight1"
+        },
+        {
+          "sight": "sight2"
+        },
+        {
+          "sight": "sight3"
+        },
+        {
+          "sight": "sight4"
+        }
+      ],
+      "basicInfo": "",
+      "currency": "",
+      "cultureNote": "",
+      "additionalInfo": ""
+    },
+    {
+      "id": "5",
+      "name": "Kenya",
+      "cities": [
+        {
+          "city": "city1"
+        },
+        {
+          "city": "city2"
+        },
+        {
+          "city": "city3"
+        },
+        {
+          "city": "city4"
+        }
+      ],
+      "dailyLivingCost": "",
+      "dailyAirbnbCost": "",
+      "sightseeing": [
+        {
+          "sight": "sight1"
+        },
+        {
+          "sight": "sight2"
+        },
+        {
+          "sight": "sight3"
+        },
+        {
+          "sight": "sight4"
+        }
+      ],
+      "basicInfo": "",
+      "currency": "",
+      "cultureNote": "",
+      "additionalInfo": ""
+    }
+  ],
+  "flights": [
+    {
+      "from": "Warsaw",
+      "to": "Ad-Dauha",
+      "minCost": "300",
+      "maxCost": "320",
+      "duration": "5",
+      "airline": "LOT",
+      "luggageCost": "500"
+    },
+    {
+      "from": "Ad-Dauha",
+      "to": "Dubai",
+      "minCost": "300",
+      "maxCost": "320",
+      "duration": "5",
+      "airline": "LOT",
+      "luggageCost": "500"
+    },
+    {
+      "from": "Dubai",
+      "to": "Oman",
+      "minCost": "300",
+      "maxCost": "320",
+      "duration": "5",
+      "airline": "LOT",
+      "luggageCost": "500"
+    },
+    {
+      "from": "Oman",
+      "to": "Nairobi",
+      "minCost": "300",
+      "maxCost": "320",
+      "duration": "5",
+      "airline": "LOT",
+      "luggageCost": "500"
+    }
+  ]
+}
+
+//    {
+//      "id": "6",
+//      "name": "RSA"
+//    },
+//    {
+//      "id": "7",
+//      "name": "Botswana"
+//    },
+//    {
+//      "id": "8",
+//      "name": "India"
+//    },
+//    {
+//      "id": "9",
+//      "name": "Nepal"
+//    },
+//    {
+//      "id": "10",
+//      "name": "Bangladesh"
+//    },
+//    {
+//      "id": "11",
+//      "name": "Birma"
+//    },
+//    {
+//      "id": "12",
+//      "name": "Thailand"
+//    },
+//    {
+//      "id": "13",
+//      "name": "Cambodia"
+//    },
+//    {
+//      "id": "14",
+//      "name": "Vietnam"
+//    },
+//    {
+//      "id": "15",
+//      "name": "Hong Kong"
+//    },
+//    {
+//      "id": "16",
+//      "name": "Taiwan"
+//    },
+//    {
+//      "id": "17",
+//      "name": "China"
+//    },
+//    {
+//      "id": "18",
+//      "name": "South Korea"
+//    },
+//    {
+//      "id": "19",
+//      "name": "Japan"
+//    },
+//    {
+//      "id": "20",
+//      "name": "Malaysia"
+//    },
+//    {
+//      "id": "21",
+//      "name": "Singapore"
+//    },
+//    {
+//      "id": "22",
+//      "name": "Indonesia"
+//    },
+//    {
+//      "id": "23",
+//      "name": "Australia"
+//    },
+//    {
+//      "id": "24",
+//      "name": "New Zealand"
+//    },
+//    {
+//      "id": "25",
+//      "name": "Chile"
+//    },
+//    {
+//      "id": "26",
+//      "name": "Argentina"
+//    },
+//    {
+//      "id": "27",
+//      "name": "Uruguay"
+//    },
+//    {
+//      "id": "28",
+//      "name": "Brasil"
+//    },
+//    {
+//      "id": "29",
+//      "name": "Peru"
+//    },
+//    {
+//      "id": "30",
+//      "name": "Ecuador"
+//    },
+//    {
+//      "id": "31",
+//      "name": "Colombia"
+//    },
+//    {
+//      "id": "32",
+//      "name": "Mexico"
+//    },
+//    {
+//      "id": "33",
+//      "name": "USA"
+//    },
+//    {
+//      "id": "34",
+//      "name": "Bahamas"
+//    },
+//    {
+//      "id": "35",
+//      "name": "Canada"
+//    },
+//    {
+//      "id": "36",
+//      "name": "Poland"
+//    }
