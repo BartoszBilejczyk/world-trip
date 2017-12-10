@@ -1,14 +1,25 @@
 import { Injectable }    from '@angular/core';
-import { AngularFireDatabase } from "angularfire2/database";
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "angularfire2/firestore";
+import { Observable } from "rxjs/Observable";
 import '../rxjs-extensions';
 
 @Injectable()
 export class FlightsService {
+  itemsCollection: AngularFirestoreCollection<Item>;
+  items: Observable<Item[]>;
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private afs: AngularFirestore) {
+    this.items = this.afs.collection('items').valueChanges();
   }
 
-  getFlights(): any {
-    return this.db.list('/flights').valueChanges()
+  getItems() {
+    return this.items;
+  }
+
+
+  interface Item {
+    id?: string;
+    title?: string;
+    description?: string;
   }
 }

@@ -17,21 +17,15 @@ import { AppComponent } from './app.component';
 
 import { CountriesComponent } from './countries/countries.component';
 
-// store and firebase
+// firebase
 
-import { CountriesService, FlightsService } from './services';
-
-import { CountriesEffects, FlightsEffects} from './store/effects';
+import { FlightsService } from './services';
 
 import { environment} from "../environments/environment";
 export const firebaseConfig = environment.firebaseConfig;
 
 import { AngularFireModule }         from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { EffectsModule }             from '@ngrx/effects';
-import { StoreModule }               from '@ngrx/store';
-import { StoreDevtoolsModule }       from '@ngrx/store-devtools';
-import { default as state } from './store/app-store';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
   declarations: [
@@ -50,18 +44,9 @@ import { default as state } from './store/app-store';
     AmChartsModule,
     CountriesModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    StoreModule.forRoot({
-      state
-    }),
-    StoreDevtoolsModule.instrument({ maxAge: 25 }),
-    EffectsModule.forRoot([
-      CountriesEffects,
-      FlightsEffects
-    ])
+    AngularFirestoreModule
   ],
   providers: [
-    CountriesService,
     FlightsService
   ],
   bootstrap: [AppComponent]
