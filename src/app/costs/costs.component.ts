@@ -12,7 +12,8 @@ export class CostsComponent implements OnInit, OnDestroy {
   private xCostChart2: AmChart;
   private xCostChart3: AmChart;
 
-  constructor(private AmCharts: AmChartsService) { }
+  constructor(private AmCharts: AmChartsService) {
+  }
 
   ngOnInit() {
     this.allCostChart = this.AmCharts.makeChart('allCostChart', {
@@ -62,7 +63,7 @@ export class CostsComponent implements OnInit, OnDestroy {
       ]
     });
 
-    this.xCostChart = this.AmCharts.makeChart( "xCostChart", {
+    this.xCostChart = this.AmCharts.makeChart("xCostChart", {
       "type": "pie",
       "marginBottom": 40,
       "allLabels": [{
@@ -91,7 +92,7 @@ export class CostsComponent implements OnInit, OnDestroy {
     });
 
 
-    this.xCostChart2 = this.AmCharts.makeChart( "xCostChart2", {
+    this.xCostChart2 = this.AmCharts.makeChart("xCostChart2", {
       "type": "pie",
       "marginBottom": 40,
       "allLabels": [{
@@ -120,7 +121,7 @@ export class CostsComponent implements OnInit, OnDestroy {
     });
 
 
-    this.xCostChart3 = this.AmCharts.makeChart( "xCostChart3", {
+    this.xCostChart3 = this.AmCharts.makeChart("xCostChart3", {
       "type": "pie",
       "marginBottom": 40,
       "allLabels": [{
@@ -161,3 +162,4 @@ export class CostsComponent implements OnInit, OnDestroy {
       this.AmCharts.destroyChart(this.xCostChart3);
     }
   }
+}

@@ -1,9 +1,9 @@
 <div class="container">
   <ul class="flights">
     <app-flights-nav></app-flights-nav>
-    <div class="flights-content">
+    <div class="flights-content" *ngIf="flights">
        <li
-        *ngFor="let flight of flightsObs | async let even = even; let odd = odd"
+        *ngFor="let flight of flights let even = even; let odd = odd"
         [ngClass]="{odd: odd, even: even}">
         <app-flights-item
           [flight]="flight">
@@ -11,38 +11,34 @@
       </li>
     </div>
     <div>
-      <div class="flights-table-wrapper row justify-between">
-        <div>
-          <p>24 October 2021</p>
-        </div>
-        <div>
-          <p>-</p>
-        </div>
-        <div>
-          <p>-</p>
-        </div>
+      <div class="flights-table-wrapper row justify-between" *ngIf="flights">
+        <div></div>
+        <div></div>
+        <div></div>
         <div>
           <p>{{ minCostTotal }}</p>
         </div>
         <div>
-          <p>{{ maxCostTotal}}</p>
+          <p>{{ maxCostTotal }}</p>
         </div>
         <div>
-          <p>{{ luggageCostTotal}}</p>
+          <p>{{ luggageCostTotal }}</p>
         </div>
         <div>
-          <p>{{ airportToCityCostTotal}}</p>
+          <p>{{ airportToCityCostTotal }}</p>
         </div>
         <div>
           <p>{{ durationTotal }}</p>
         </div>
-        <div>
-          <p>-</p>
-        </div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
   </ul>
 
   <div id="flightCostChart"></div>
+
+  <button mat-raised-button color="primary" (click)="openDialog()">Add Flight</button>
 
 </div>

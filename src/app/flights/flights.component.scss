@@ -31,7 +31,13 @@ ul.flights {
   color: pal(gray, light);
 
   > div {
-    flex-basis: calc(100%/9);
+    flex-basis: 10%;
+
+    &:nth-of-type(10),
+    &:nth-of-type(11) {
+      flex-basis: 5%;
+      cursor: pointer;
+    }
   }
 }
 

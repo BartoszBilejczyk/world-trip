@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+
 import { RouterModule } from '@angular/router';
 
 import { AmChartsModule } from "@amcharts/amcharts3-angular";
@@ -34,13 +36,14 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     RouterModule,
+    AppCommonModule,
     AppRoutingModule,
     UsefulInfoModule,
     FlightsModule,
     CountryModule,
     DashboardModule,
-    AppCommonModule,
     AmChartsModule,
     CountriesModule,
     AngularFireModule.initializeApp(firebaseConfig),
