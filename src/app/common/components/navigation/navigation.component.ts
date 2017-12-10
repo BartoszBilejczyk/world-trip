@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
   navigationItems: object[] = [
-    { name: 'dashboard', title: 'Dashboard'},
-    { name: 'airbnb', title: 'Airbnb'},
-    { name: 'costs', title: 'Costs'},
-    { name: 'countries', title: 'Countries'},
-    { name: 'flights', title: 'Flights'},
-    { name: 'map', title: 'Map'},
-    { name: 'timeline', title: 'Timeline'},
-    { name: 'info', title: 'Useful Info'}
+    { name: 'dashboard', title: 'Dashboard', icon: 'dashboard'},
+    { name: 'airbnb', title: 'Airbnb', icon: 'home'},
+    { name: 'costs', title: 'Costs', icon: 'attach_money'},
+    { name: 'countries', title: 'Countries', icon: 'room'},
+    { name: 'flights', title: 'Flights', icon: 'flight_takeoff'},
+    { name: 'map', title: 'Map', icon: 'map'},
+    { name: 'timeline', title: 'Timeline', icon: 'timeline'},
+    { name: 'info', title: 'Useful Info', icon: 'vpn_key'}
   ];
 
   constructor() { }
