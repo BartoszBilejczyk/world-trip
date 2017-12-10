@@ -2,7 +2,8 @@
 
 .flights-table-wrapper {
   padding: 10px;
-  background-color: pal(dashboard, dark);
+  background-color: pal(gray, dark);
+  color: pal(gray, light);
 
   > div {
     flex-basis: calc(100%/9);

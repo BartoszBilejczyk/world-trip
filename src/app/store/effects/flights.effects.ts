@@ -18,6 +18,7 @@ export class FlightsEffects {
     .map((action: flightsActions.LoadFlights) => action.payload )
     .switchMap(() => this.svc.getFlights())
     .map((flights) => {
-      return new flightsActions.LoadFlightsSuccess(flights);
+    console.log(flights)
+      return new flightsActions.LoadFlightsSuccess(flights)
     });
 }

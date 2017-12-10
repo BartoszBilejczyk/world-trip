@@ -11,6 +11,6 @@ export interface AppStore {
 }
 
 export default compose(combineReducers)({
-  countries: countries,
-  flights: flights,
+  countries,
+  flights,
 });

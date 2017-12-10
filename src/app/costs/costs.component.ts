@@ -78,7 +78,7 @@ export class CostsComponent implements OnInit, OnDestroy {
         "color": "#268298"
       }, {
         "value": 27.5,
-        "color": "#485057"
+        "color": "#d3d7dc"
       }],
       "startDuration": 0,
       "colorField": "color",
@@ -107,7 +107,7 @@ export class CostsComponent implements OnInit, OnDestroy {
         "color": "#d8a487"
       }, {
         "value": 9.5,
-        "color": "#485057"
+        "color": "#d3d7dc"
       }],
       "startDuration": 0,
       "colorField": "color",
@@ -136,7 +136,7 @@ export class CostsComponent implements OnInit, OnDestroy {
         "color": "#9f3351"
       }, {
         "value": 40.5,
-        "color": "#485057"
+        "color": "#d3d7dc"
       }],
       "startDuration": 0,
       "colorField": "color",
@@ -151,9 +151,6 @@ export class CostsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.allCostChart) {
-      this.AmCharts.destroyChart(this.allCostChart);
-    }
     if (this.xCostChart) {
       this.AmCharts.destroyChart(this.xCostChart);
     }

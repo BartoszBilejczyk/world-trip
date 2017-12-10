@@ -1,12 +1,48 @@
 <div class="container">
-  <ul class="flights" *ngIf="flights">
+  <ul class="flights">
     <app-flights-nav></app-flights-nav>
-    <li
-      *ngFor="let flight of flights let even = even; let odd = odd"
-      [ngClass]="{odd: odd, even: even}">
-      <app-flights-item
-        [flight]="flight">
-      </app-flights-item>
-    </li>
+    <div class="flights-content">
+       <li
+        *ngFor="let flight of flightsObs | async let even = even; let odd = odd"
+        [ngClass]="{odd: odd, even: even}">
+        <app-flights-item
+          [flight]="flight">
+        </app-flights-item>
+      </li>
+    </div>
+    <div>
+      <div class="flights-table-wrapper row justify-between">
+        <div>
+          <p>24 October 2021</p>
+        </div>
+        <div>
+          <p>-</p>
+        </div>
+        <div>
+          <p>-</p>
+        </div>
+        <div>
+          <p>{{ minCostTotal }}</p>
+        </div>
+        <div>
+          <p>{{ maxCostTotal}}</p>
+        </div>
+        <div>
+          <p>{{ luggageCostTotal}}</p>
+        </div>
+        <div>
+          <p>{{ airportToCityCostTotal}}</p>
+        </div>
+        <div>
+          <p>{{ durationTotal }}</p>
+        </div>
+        <div>
+          <p>-</p>
+        </div>
+      </div>
+    </div>
   </ul>
+
+  <div id="flightCostChart"></div>
+
 </div>

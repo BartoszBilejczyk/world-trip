@@ -12,10 +12,30 @@ ul.flights {
   }
 }
 
+.flights-content {
+  overflow: scroll;
+  max-height: 400px;
+}
+
 .odd {
   background-color: pal(dashboard, light);
 }
 
 .even {
   background-color: pal(dashboard, x-light);
+}
+
+.flights-table-wrapper {
+  padding: 10px;
+  background-color: pal(gray, dark);
+  color: pal(gray, light);
+
+  > div {
+    flex-basis: calc(100%/9);
+  }
+}
+
+#flightCostChart {
+  width: 300px;
+  height: 300px;
 }

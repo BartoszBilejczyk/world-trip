@@ -18,7 +18,7 @@ html, body {
   max-width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-  color: pal(white);
+  color: pal(dashboard, dark);
   @include font(13, medium);
 }
 
@@ -61,7 +61,7 @@ select {
 }
 
 a:-webkit-any-link {
-  color: pal(white);
+  color: pal(dashboard, dark);
 }
 
 .amcharts-main-div {
