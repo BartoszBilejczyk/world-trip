@@ -10,14 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { UsefulInfoModule } from './useful-info/useful-info.module';
 import { FlightsModule } from './flights/flights.module';
-import { CountryModule } from './countries/country/country.module';
+import { CountryModule } from './country/country.module';
 import { AppCommonModule } from './common/common.module';
 import { DashboardModule } from "./dashboard/dashboard.module";
-import { CountriesModule } from "./countries/countries.module";
 
 import { AppComponent } from './app.component';
 
-import { CountriesComponent } from './countries/countries.component';
 
 // firebase
 
@@ -32,7 +30,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 @NgModule({
   declarations: [
     AppComponent,
-    CountriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +42,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     CountryModule,
     DashboardModule,
     AmChartsModule,
-    CountriesModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule
   ],
