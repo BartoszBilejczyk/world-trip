@@ -1,0 +1,351 @@
+{
+  "countries": [
+    {
+      "id": "1",
+      "name": "Poland",
+      "cities": [
+        {
+          "city": "city1"
+        },
+        {
+          "city": "city2"
+        },
+        {
+          "city": "city3"
+        },
+        {
+          "city": "city4"
+        }
+      ],
+      "dailyLivingCost": "",
+      "dailyAirbnbCost": "",
+      "sightseeing": [
+        {
+          "sight": "sight1"
+        },
+        {
+          "sight": "sight2"
+        },
+        {
+          "sight": "sight3"
+        },
+        {
+          "sight": "sight4"
+        }
+      ],
+      "basicInfo": "",
+      "currency": "",
+      "currencyExchangeValue": "",
+      "cultureNote": "",
+      "additionalInfo": ""
+    },
+    {
+      "id": "2",
+      "name": "UAE",
+      "cities": [
+        {
+          "city": "city1"
+        },
+        {
+          "city": "city2"
+        },
+        {
+          "city": "city3"
+        },
+        {
+          "city": "city4"
+        }
+      ],
+      "dailyLivingCost": "",
+      "dailyAirbnbCost":"",
+      "sightseeing": [
+        {
+          "sight": "sight1"
+        },
+        {
+          "sight": "sight2"
+        },
+        {
+          "sight": "sight3"
+        },
+        {
+          "sight": "sight4"
+        }
+      ],
+      "basicInfo": "",
+      "currency": "",
+      "currencyExchangeValue": "",
+      "cultureNote": "",
+      "additionalInfo": ""
+    },
+    {
+      "id": "3",
+      "name": "Oman",
+      "cities": [
+        {
+          "city": "city1"
+        },
+        {
+          "city": "city2"
+        },
+        {
+          "city": "city3"
+        },
+        {
+          "city": "city4"
+        }
+      ],
+      "dailyLivingCost": "",
+      "dailyAirbnbCost": "",
+      "sightseeing": [
+        {
+          "sight": "sight1"
+        },
+        {
+          "sight": "sight2"
+        },
+        {
+          "sight": "sight3"
+        },
+        {
+          "sight": "sight4"
+        }
+      ],
+      "basicInfo": "",
+      "currency": "",
+      "currencyExchangeValue": "",
+      "cultureNote": "",
+      "additionalInfo": ""
+    },
+    {
+      "id": "4",
+      "name": "Qatar",
+      "cities": [
+        {
+          "city": "city1"
+        },
+        {
+          "city": "city2"
+        },
+        {
+          "city": "city3"
+        },
+        {
+          "city": "city4"
+        }
+      ],
+      "dailyLivingCost": "",
+      "dailyAirbnbCost": "",
+      "sightseeing": [
+        {
+          "sight": "sight1"
+        },
+        {
+          "sight": "sight2"
+        },
+        {
+          "sight": "sight3"
+        },
+        {
+          "sight": "sight4"
+        }
+      ],
+      "basicInfo": "",
+      "currency": "",
+      "currencyExchangeValue": "",
+      "cultureNote": "",
+      "additionalInfo": ""
+    },
+    {
+      "id": "5",
+      "name": "Kenya",
+      "cities": [
+        {
+          "city": "city1"
+        },
+        {
+          "city": "city2"
+        },
+        {
+          "city": "city3"
+        },
+        {
+          "city": "city4"
+        }
+      ],
+      "dailyLivingCost": "",
+      "dailyAirbnbCost": "",
+      "sightseeing": [
+        {
+          "sight": "sight1"
+        },
+        {
+          "sight": "sight2"
+        },
+        {
+          "sight": "sight3"
+        },
+        {
+          "sight": "sight4"
+        }
+      ],
+      "basicInfo": "",
+      "currency": "",
+      "currencyExchangeValue": "",
+      "cultureNote": "",
+      "additionalInfo": ""
+    }
+  ],
+  "flights": [
+    {
+      "from": "Warsaw",
+      "to": "Ad-Dauha",
+      "minCost": "300",
+      "maxCost": "320",
+      "duration": "5",
+      "airline": "LOT",
+      "luggageCost": "500",
+      "airportToCityCost": "100"
+    },
+    {
+      "from": "Ad-Dauha",
+      "to": "Dubai",
+      "minCost": "300",
+      "maxCost": "320",
+      "duration": "5",
+      "airline": "LOT",
+      "luggageCost": "500",
+      "airportToCityCost": "100"
+    },
+    {
+      "from": "Dubai",
+      "to": "Oman",
+      "minCost": "300",
+      "maxCost": "320",
+      "duration": "5",
+      "airline": "LOT",
+      "luggageCost": "500",
+      "airportToCityCost": "100"
+    },
+    {
+      "from": "Oman",
+      "to": "Nairobi",
+      "minCost": "300",
+      "maxCost": "320",
+      "duration": "5",
+      "airline": "LOT",
+      "luggageCost": "500",
+      "airportToCityCost": "100"
+    }
+  ],
+  "usefulInfo": [
+    {
+      "vaccines": [
+        {
+          "name": "Vaccine A",
+          "price": "1"
+        },
+        {
+          "name": "Vaccine B",
+          "price": "2"
+        },
+        {
+          "name": "Vaccine C",
+          "price": "3"
+        }
+      ]
+    },
+    {
+      "equipment": [
+        {
+          "name": "eq A",
+          "price": "1"
+        },
+        {
+          "name": "eq B",
+          "price": "2"
+        },
+        {
+          "name": "eq C",
+          "price": "3"
+        }
+      ]
+    },
+    {
+      "visas": [
+        {
+          "country": "visa A",
+          "price": "1",
+          "deadline": "deadline",
+          "difficulty": "difficult"
+        },
+        {
+          "country": "visa B",
+          "price": "2",
+          "deadline": "deadline",
+          "difficulty": "difficult"
+        },
+        {
+          "country": "visa C",
+          "price": "3",
+          "deadline": "deadline",
+          "difficulty": "difficult"
+        }
+      ]
+    }
+  ],
+  "costs": {
+    "budget": "100000",
+    "currency": "PLN",
+    "airbnbCosts": "25000",
+    "flightsCosts": "50000",
+    "usefulStuffCosts": "10000",
+    "livingCosts": "20000"
+  },
+  "timeline": [
+    {
+      "city": "Warsaw",
+      "numberOfDays": "5",
+      "flightIn": "dateIn",
+      "flightOut": "dateOut",
+      "address": "ul. XXX"
+    },
+    {
+      "city": "Ad-Dauha",
+      "numberOfDays": "3",
+      "flightIn": "dateIn",
+      "flightOut": "dateOut",
+      "address": "ul. YYY"
+    },
+    {
+      "city": "Nairobi",
+      "numberOfDays": "3",
+      "flightIn": "dateIn",
+      "flightOut": "dateOut",
+      "address": "ul. ZZZ"
+    }
+  ],
+  "airbnb": [
+    {
+      "city": "Warsaw",
+      "ountry": "5",
+      "minCost": "100",
+      "maxCost": "120",
+      "numberOfDays": "ul. XXX"
+    },
+    {
+      "city": "Ad-Dauha",
+      "ountry": "3",
+      "minCost": "500",
+      "maxCost": "520",
+      "numberOfDays": "ul. XXX"
+    },
+    {
+      "city": "Nairobi",
+      "ountry": "7",
+      "minCost": "120",
+      "maxCost": "140",
+      "numberOfDays": "ul. XXX"
+    }
+  ]
+}

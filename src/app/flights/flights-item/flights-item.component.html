@@ -1,3 +1,72 @@
-<p>
-  flights-item works!
-</p>
+<div class="flights-table-wrapper row justify-between">
+  <div>
+    <p>{{ flight.date }}</p>
+  </div>
+  <div>
+    <p>{{ flight.from }}</p>
+  </div>
+  <div>
+    <p>{{ flight.to }}</p>
+  </div>
+  <div>
+    <p>{{ flight.minCost }}</p>
+  </div>
+  <div>
+    <p>{{ flight.maxCost }}</p>
+  </div>
+  <div>
+    <p>{{ flight.luggageCost}}</p>
+  </div>
+  <div>
+    <p>{{ flight.airportToCityCost }}</p>
+  </div>
+  <div>
+    <p>{{ flight.duration }}</p>
+  </div>
+  <div>
+    <p>{{ flight.airline }}</p>
+  </div>
+  <div class="row align-center">
+    <mat-icon (click)="deleteFlight($event, flight)">delete</mat-icon>
+  </div>
+  <div class="row align-center">
+    <mat-icon (click)="editFlight($event, flight)">mode_edit</mat-icon>
+  </div>
+</div>
+
+<div *ngIf="editState && flightToEdit.id == flight.id">
+  <form (ngSubmit)="updateFlight(flight)" class="row">
+    <!--<mat-form-field>-->
+      <!--<input (click)="date.open()" matInput name="date" [matDatepicker]="date" placeholder="Date of flight" [(ngModel)]="flight.date">-->
+      <!--<mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>-->
+      <!--<mat-datepicker #date></mat-datepicker>-->
+    <!--</mat-form-field>-->
+    <mat-form-field>
+      <input matInput name="from" placeholder="From" [(ngModel)]="flight.from" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="to" placeholder="To" [(ngModel)]="flight.to" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="minCost" placeholder="Minimum Cost" [(ngModel)]="flight.minCost" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="maxCost" placeholder="Maximum Cost" [(ngModel)]="flight.maxCost" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="luggageCost" placeholder="Luggage Cost" [(ngModel)]="flight.luggageCost" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="airportToCityCost" placeholder="Airport 2 City Cost" [(ngModel)]="flight.airportToCityCost" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="duration" placeholder="Duration" [(ngModel)]="flight.duration" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="airline" placeholder="Airline" [(ngModel)]="flight.airline" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="secondary">Update Flight</button>
+
+  </form>
+</div>

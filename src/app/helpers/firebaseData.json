@@ -1,0 +1,216 @@
+{
+  "countries": [
+    {
+      "id": "1",
+      "name": "Poland"
+    },
+    {
+      "id": "2",
+      "name": "UAE"
+    },
+    {
+      "id": "3",
+      "name": "Oman"
+    },
+    {
+      "id": "4",
+      "name": "Qatar"
+    },
+    {
+      "id": "5",
+      "name": "Kenya"
+    }
+//    {
+//      "id": "6",
+//      "name": "RSA"
+//    },
+//    {
+//      "id": "7",
+//      "name": "Botswana"
+//    },
+//    {
+//      "id": "8",
+//      "name": "India"
+//    },
+//    {
+//      "id": "9",
+//      "name": "Nepal"
+//    },
+//    {
+//      "id": "10",
+//      "name": "Bangladesh"
+//    },
+//    {
+//      "id": "11",
+//      "name": "Birma"
+//    },
+//    {
+//      "id": "12",
+//      "name": "Thailand"
+//    },
+//    {
+//      "id": "13",
+//      "name": "Cambodia"
+//    },
+//    {
+//      "id": "14",
+//      "name": "Vietnam"
+//    },
+//    {
+//      "id": "15",
+//      "name": "Hong Kong"
+//    },
+//    {
+//      "id": "16",
+//      "name": "Taiwan"
+//    },
+//    {
+//      "id": "17",
+//      "name": "China"
+//    },
+//    {
+//      "id": "18",
+//      "name": "South Korea"
+//    },
+//    {
+//      "id": "19",
+//      "name": "Japan"
+//    },
+//    {
+//      "id": "20",
+//      "name": "Malaysia"
+//    },
+//    {
+//      "id": "21",
+//      "name": "Singapore"
+//    },
+//    {
+//      "id": "22",
+//      "name": "Indonesia"
+//    },
+//    {
+//      "id": "23",
+//      "name": "Australia"
+//    },
+//    {
+//      "id": "24",
+//      "name": "New Zealand"
+//    },
+//    {
+//      "id": "25",
+//      "name": "Chile"
+//    },
+//    {
+//      "id": "26",
+//      "name": "Argentina"
+//    },
+//    {
+//      "id": "27",
+//      "name": "Uruguay"
+//    },
+//    {
+//      "id": "28",
+//      "name": "Brasil"
+//    },
+//    {
+//      "id": "29",
+//      "name": "Peru"
+//    },
+//    {
+//      "id": "30",
+//      "name": "Ecuador"
+//    },
+//    {
+//      "id": "31",
+//      "name": "Colombia"
+//    },
+//    {
+//      "id": "32",
+//      "name": "Mexico"
+//    },
+//    {
+//      "id": "33",
+//      "name": "USA"
+//    },
+//    {
+//      "id": "34",
+//      "name": "Bahamas"
+//    },
+//    {
+//      "id": "35",
+//      "name": "Canada"
+//    },
+//    {
+//      "id": "36",
+//      "name": "Poland"
+//    }
+  ]
+}
+
+COUNTRIES
+numberOfDays
+Total basic cost
+Cities Array
+  Daily living cost
+  Daily airbnb cost
+Places to see
+Basic Info Object
+  waluta
+  notka o kulturze
+  jakieś dziwne zabronione rzeczy
+
+FLIGHTS
+Array z obiektami TO i FROM
+[
+  {
+    From: 'asdasd'
+    To: 'asdas'
+    Min Price
+    Max Price
+    Duration
+    Airline
+    luggageCost
+  }
+]
+
+AIRBNB
+  city: {
+    priceForOne
+    priceForTwo
+    lowLevelprice
+    Goodprice
+    offers: [
+      ''
+      ''
+    ]
+  }
+
+COSTS
+  Total Airbnb cost
+  Total Living cost
+  Total Useful Things cost
+  Total flights and luggage COSTS
+  BUDGET - amCharts
+
+Timeline
+  Timeline
+  Kalendarz
+
+
+usefulinfo
+
+  vaccines
+    name
+    price
+
+  eq
+    name
+    price
+
+  visas
+    country
+    price
+    deadline
+    difficulty
+
+  totalCost

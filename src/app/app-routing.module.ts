@@ -7,12 +7,12 @@ import { FlightsComponent } from './flights/flights.component';
 import { MapComponent } from './map/map.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { UsefulInfoComponent } from './useful-info/useful-info.component';
-
+ 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'airbnb', component: AirbnbComponent },
   { path: 'costs', component: CostsComponent },
-  { path: 'country', component: CountryComponent },
+  { path: 'country/:id', component: CountryComponent },
   { path: 'flights', component: FlightsComponent },
   { path: 'map', component: MapComponent },
   { path: 'timeline', component: TimelineComponent },

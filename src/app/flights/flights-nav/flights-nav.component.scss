@@ -1,0 +1,17 @@
+@import '../../../styles.scss';
+
+.flights-table-wrapper {
+  padding: 10px;
+  background-color: pal(gray, dark);
+  color: pal(gray, light);
+
+  > div {
+    flex-basis: 10%;
+
+    &:nth-of-type(10),
+    &:nth-of-type(11) {
+      flex-basis: 5%;
+      cursor: pointer;
+    }
+  }
+}
