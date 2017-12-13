@@ -11,8 +11,6 @@ export class FlightsService {
   flightsDoc: AngularFirestoreDocument<Flight>
 
   constructor(private afs: AngularFirestore) {
-    // this.flights = this.afs.collection('flights').valueChanges();
-
     this.flightsCollection = this.afs.collection('flights', ref => ref.orderBy('date', 'asc'))
 
     this.flights = this.flightsCollection.snapshotChanges().map(changes => {

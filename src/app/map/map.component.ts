@@ -26,10 +26,10 @@ export class MapComponent implements OnInit, OnDestroy {
   ) { }
 
   handleCountryClick = el => {
-    setTimeout(() => {
+    // setTimeout(() => {
       let selectedCountry = el.chart.selectedObject.title.toLowerCase();
       this.router.navigate([`country/${selectedCountry}`]);
-    }, 1000)
+    // }, 1000)
   };
 
   ngOnInit() {

@@ -1,1 +1,16 @@
 <app-country-map></app-country-map>
+
+<ul>
+  <li *ngFor="let country of countries">
+    {{ country.name }}
+    <hr>
+    <div>
+      <ul>
+        <li *ngFor="let city of country.cities">
+          {{ city.address }}
+          {{ city.name }}
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
