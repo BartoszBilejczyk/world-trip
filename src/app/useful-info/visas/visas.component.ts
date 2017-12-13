@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsefulService } from "../../services/useful.service";
 
 @Component({
   selector: 'app-visas',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./visas.component.scss']
 })
 export class VisasComponent implements OnInit {
+  visas: any
 
-  constructor() { }
+  constructor(private usefulService: UsefulService) { }
 
   ngOnInit() {
+    const sub = this.usefulService.getVisas().subscribe(visas => {
+      this.visas = visas;
+    })
   }
 
 }

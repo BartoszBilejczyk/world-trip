@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsefulService } from "../../services/useful.service";
 
 @Component({
   selector: 'app-vaccinations',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vaccinations.component.scss']
 })
 export class VaccinationsComponent implements OnInit {
+  vaccinations: any;
 
-  constructor() { }
+  constructor(private usefulService: UsefulService) { }
 
   ngOnInit() {
+    const sub = this.usefulService.getVaccinations().subscribe(vaccinations => {
+      this.vaccinations = vaccinations;
+    })
   }
 
 }

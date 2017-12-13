@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralService } from "../services/general.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  generalInfo: any;
 
-  constructor() { }
+  constructor(private generalService: GeneralService) { }
 
   ngOnInit() {
+    const sub = this.generalService.getGeneral().subscribe(generalInfo => {
+      this.generalInfo = generalInfo
+    })
   }
 
 }

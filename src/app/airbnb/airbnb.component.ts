@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AirbnbService } from "../services/airbnb.service";
 
 @Component({
   selector: 'app-airbnb',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./airbnb.component.scss']
 })
 export class AirbnbComponent implements OnInit {
+  airbnb: any;
 
-  constructor() { }
+  constructor(private airbnbService: AirbnbService) {}
 
   ngOnInit() {
+    this.airbnbService.getAirbnb().subscribe(airbnbItems => {
+      this.airbnb = airbnbItems;
+    })
   }
 
 }

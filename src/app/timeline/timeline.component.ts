@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TimelineService } from "../services/timeline.service";
 
 @Component({
   selector: 'app-timeline',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timeline.component.scss']
 })
 export class TimelineComponent implements OnInit {
+  timelineItems: any;
 
-  constructor() { }
+  constructor(private timelineService: TimelineService) { }
 
   ngOnInit() {
+    const sub = this.timelineService.getTimeline().subscribe(timelineItems => {
+      this.timelineItems = timelineItems
+    })
   }
 
 }
