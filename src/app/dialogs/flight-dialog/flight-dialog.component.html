@@ -1,0 +1,36 @@
+<div>
+  <form (ngSubmit)="onSubmit()" #flightForm="ngForm" class="col">
+    <mat-form-field>
+      <input (click)="date.open()" matInput name="date" [matDatepicker]="date" placeholder="Date of flight" [(ngModel)]="flight.date">
+      <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+      <mat-datepicker #date></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="from" placeholder="From" [(ngModel)]="flight.from" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="to" placeholder="To" [(ngModel)]="flight.to" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="minCost" placeholder="Minimum Cost" [(ngModel)]="flight.minCost" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="maxCost" placeholder="Maximum Cost" [(ngModel)]="flight.maxCost" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="luggageCost" placeholder="Luggage Cost" [(ngModel)]="flight.luggageCost" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="airportToCityCost" placeholder="Airport 2 City Cost" [(ngModel)]="flight.airportToCityCost" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="duration" placeholder="Duration" [(ngModel)]="flight.duration" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="airline" placeholder="Airline" [(ngModel)]="flight.airline" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Add Flight</button>
+
+  </form>
+</div>

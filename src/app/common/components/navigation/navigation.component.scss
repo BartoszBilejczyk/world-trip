@@ -5,7 +5,7 @@
   &-wrapper {
     width: 120px;
     background-color: pal(dashboard, dark);
-    height: 100vh;
+    min-height: 100vh;
     @include font-size(16);
     display: inline-block;
   }
