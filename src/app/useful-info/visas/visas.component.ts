@@ -7,7 +7,7 @@ import { UsefulService } from "../../services/useful.service";
   styleUrls: ['./visas.component.scss']
 })
 export class VisasComponent implements OnInit {
-  visas: any
+  visas;
 
   constructor(private usefulService: UsefulService) { }
 

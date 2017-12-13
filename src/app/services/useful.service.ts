@@ -5,60 +5,50 @@ import '../rxjs-extensions';
 
 @Injectable()
 export class UsefulService {
-  equipmentCollection: AngularFirestoreCollection<any>;
-  equipment: Observable<any>;
-  equipmentDoc: AngularFirestoreDocument<any>
-
+  usefulCollection: AngularFirestoreCollection<any>;
   vaccinationsCollection: AngularFirestoreCollection<any>;
+  equipment: Observable<any>;
   vaccinations: Observable<any>;
-  vaccinationsDoc: AngularFirestoreDocument<any>
-
-  visasCollection: AngularFirestoreCollection<any>;
   visas: Observable<any>;
-  visasDoc: AngularFirestoreDocument<any>
 
   constructor(private afs: AngularFirestore) {
-    this.equipmentCollection = this.afs.collection('useful/equipment')
-    this.vaccinationsCollection = this.afs.collection('useful/vaccinations')
-    this.visasCollection = this.afs.collection('useful/visas')
+    this.usefulCollection = this.afs.collection('useful');
+    this.vaccinationsCollection = this.afs.collection('useful/niNijrJydxrN3QNvvBpn/vaccinations')
 
-    this.equipment = this.equipmentCollection.snapshotChanges().map(changes => {
+    this.equipment = this.usefulCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data();
-        console.log(data);
-        data.id = a.payload.doc.id;
-        return data;
+        const eq = data.equipment;
+        return eq;
+      })
+    })
+
+    this.visas = this.usefulCollection.snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data();
+        const visas = data.visa
+        return visas;
       })
     })
 
     this.vaccinations = this.vaccinationsCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data();
-        console.log(data);
-        data.id = a.payload.doc.id;
         return data;
       })
     })
 
-    this.visas = this.visasCollection.snapshotChanges().map(changes => {
-      return changes.map(a => {
-        const data = a.payload.doc.data();
-        console.log(data);
-        data.id = a.payload.doc.id;
-        return data;
-      })
-    })
   }
 
   getEquipment() {
     return this.equipment;
   }
-
-  getVaccinations() {
-    return this.vaccinations;
-  }
-
   getVisas() {
     return this.visas;
   }
+  getVaccinations() {
+    console.log(this.vaccinations)
+    return this.vaccinations;
+  }
 }
+

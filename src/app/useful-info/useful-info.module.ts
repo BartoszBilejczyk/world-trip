@@ -9,6 +9,7 @@ import { VisasComponent } from './visas/visas.component';
 import { VisasItemComponent } from './visas/visas-item/visas-item.component';
 import { VaccinationsComponent } from './vaccinations/vaccinations.component';
 import { VaccinationsItemComponent } from './vaccinations/vaccinations-item/vaccinations-item.component';
+import {UsefulService} from "../services/useful.service";
 
 @NgModule({
   imports: [
@@ -30,6 +31,9 @@ import { VaccinationsItemComponent } from './vaccinations/vaccinations-item/vacc
     VisasItemComponent,
     VaccinationsComponent,
     VaccinationsItemComponent
+  ],
+  providers: [
+    UsefulService
   ]
 })
 export class UsefulInfoModule { }

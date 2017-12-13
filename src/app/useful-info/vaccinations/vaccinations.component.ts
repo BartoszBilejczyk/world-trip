@@ -13,7 +13,9 @@ export class VaccinationsComponent implements OnInit {
 
   ngOnInit() {
     const sub = this.usefulService.getVaccinations().subscribe(vaccinations => {
-      this.vaccinations = vaccinations;
+      this.vaccinations = vaccinations
+      console.log(vaccinations)
+      console.log(this.vaccinations)
     })
   }
 
