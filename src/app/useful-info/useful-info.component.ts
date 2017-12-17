@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsefulService } from "../services/useful.service";
 
 @Component({
   selector: 'app-useful-info',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsefulInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private usefulService: UsefulService) { }
 
   ngOnInit() {
   }

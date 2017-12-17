@@ -9,6 +9,7 @@ import { MapComponent } from '../map/map.component';
 import { CostsComponent } from '../costs/costs.component';
 import { AirbnbComponent } from '../airbnb/airbnb.component';
 import { TimelineItemComponent } from '../timeline/timeline-item/timeline-item.component';
+import { GeneralService } from "../services/general.service";
 
 
 @NgModule({
@@ -31,6 +32,9 @@ import { TimelineItemComponent } from '../timeline/timeline-item/timeline-item.c
     CostsComponent,
     AirbnbComponent,
     TimelineItemComponent
+  ],
+  providers: [
+    GeneralService
   ]
 })
 export class DashboardModule { }

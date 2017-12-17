@@ -1,14 +1,13 @@
-import { Component, OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CountriesService } from "../services/countries.service";
 import { ActivatedRoute } from "@angular/router";
-import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.scss']
 })
-export class CountryComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, OnDestroy {
+export class CountryComponent implements OnInit {
   countries: any;
   countryName;
 
@@ -22,10 +21,6 @@ export class CountryComponent implements OnChanges, OnInit, DoCheck, AfterConten
     });
   }
 
-  ngOnChanges() {
-    console.log('ngOnChanges')
-  }
-
   ngOnInit() {
     this.countriesService.getCountries().subscribe(countries => {
       console.log(countries);
@@ -34,25 +29,4 @@ export class CountryComponent implements OnChanges, OnInit, DoCheck, AfterConten
     });
     console.log('ngOnInit')
   }
-
-  ngDoCheck() {
-    console.log('ngDoCheck')
-  }
-
-  ngAfterContentInit() {
-    console.log('ngAfterContentInit')
-  }
-
-  ngAfterContentChecked() {
-    console.log('ngAfterContentChecked')
-  }
-
-  ngAfterViewInit() {
-    console.log('ngAfterViewInit')
-  }
-
-  ngOnDestroy() {
-    console.log('ngOnDestroy')
-  }
-
 }
