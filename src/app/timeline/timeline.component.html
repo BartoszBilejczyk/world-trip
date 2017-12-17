@@ -1,3 +1,5 @@
-<p>
-  timeline works!
+<p *ngFor="let item of timelineItems">
+  {{ item.date }}
+  {{ item.departure }}
+  {{ item.arrival }}
 </p>

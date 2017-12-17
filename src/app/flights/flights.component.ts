@@ -4,13 +4,14 @@ import { FlightsService } from "../services/flights.service";
 import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { FlightDialogComponent } from "../dialogs/flight-dialog/flight-dialog.component";
+import {HandleSubscription} from "../helpers/handle-subscriptions";
 
 @Component({
   selector: 'app-flights',
   templateUrl: './flights.component.html',
   styleUrls: ['./flights.component.scss']
 })
-export class FlightsComponent implements OnInit, OnDestroy {
+export class FlightsComponent extends HandleSubscription implements OnInit, OnDestroy {
   private flightsCostChart: AmChart;
   flights;
   minCostTotal = 0;
@@ -25,16 +26,18 @@ export class FlightsComponent implements OnInit, OnDestroy {
     private flightsService: FlightsService,
     public dialog: MatDialog
   ) {
-
+    super(null)
   }
 
   ngOnInit() {
-    this.sub = this.flightsService.getFlights().subscribe( flights => {
+    const sub = this.flightsService.getFlights().subscribe( flights => {
       this.flights = flights;
 
       this.calculateTotals();
       this.createCostChart();
     })
+
+    this.subscriptions.push(sub);
   }
 
   openDialog(): void {
@@ -87,10 +90,6 @@ export class FlightsComponent implements OnInit, OnDestroy {
         "enabled": true
       }
     });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
   }
 
 }
