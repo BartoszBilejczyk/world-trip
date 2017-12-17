@@ -2,13 +2,13 @@ import { Injectable }    from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "angularfire2/firestore";
 import { Observable } from "rxjs/Observable";
 import '../rxjs-extensions';
-import { Timeline } from "../models/timeline.model";
+import { TimelineItem } from "../models/timeline.model";
 
 @Injectable()
 export class TimelineService {
   timelineCollection: AngularFirestoreCollection<any>;
   timeline: Observable<any>;
-  timelineDoc: AngularFirestoreDocument<Timeline>
+  timelineDoc: AngularFirestoreDocument<TimelineItem>
 
   constructor(private afs: AngularFirestore) {
     this.timelineCollection = this.afs.collection('timeline')
