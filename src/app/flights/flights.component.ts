@@ -19,7 +19,6 @@ export class FlightsComponent extends HandleSubscription implements OnInit, OnDe
   luggageCostTotal = 0;
   airportToCityCostTotal = 0;
   durationTotal = 0;
-  sub: any;
 
   constructor(
     private AmCharts: AmChartsService,
