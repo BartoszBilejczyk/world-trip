@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppCommonModule } from "../common/common.module";
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
@@ -15,7 +16,8 @@ import { GeneralService } from "../services/general.service";
 @NgModule({
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    AppCommonModule
   ],
   declarations: [
     DashboardComponent,

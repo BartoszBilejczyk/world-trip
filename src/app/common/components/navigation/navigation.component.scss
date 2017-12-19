@@ -6,8 +6,10 @@
     width: 120px;
     background-color: pal(dashboard, dark);
     min-height: 100vh;
+    height: 100%;
     @include font-size(16);
     display: inline-block;
+    position: fixed;
   }
 
   &__item {
