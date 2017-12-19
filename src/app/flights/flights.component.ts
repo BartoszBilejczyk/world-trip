@@ -2,9 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FlightsService } from "../services/flights.service";
 
 import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { FlightDialogComponent } from "../dialogs/flight-dialog/flight-dialog.component";
-import {HandleSubscription} from "../helpers/handle-subscriptions";
+import { HandleSubscription } from "../helpers/handle-subscriptions";
 
 @Component({
   selector: 'app-flights',
@@ -41,7 +41,7 @@ export class FlightsComponent extends HandleSubscription implements OnInit, OnDe
   }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(FlightDialogComponent);
+    const dialogRef = this.dialog.open(FlightDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
