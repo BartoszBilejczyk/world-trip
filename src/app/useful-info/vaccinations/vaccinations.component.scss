@@ -1,0 +1,11 @@
+@import '../../../styles.scss';
+
+.vaccine {
+  margin: 10px 0;
+  padding: 5px 0;
+  border-bottom: 1px solid pal(gray, light);
+
+  .mat-icon {
+    margin-left: 20px;
+  }
+}
