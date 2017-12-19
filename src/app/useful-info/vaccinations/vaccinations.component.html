@@ -1,8 +1,13 @@
-<div *ngFor="let vaccine of vaccinations">
+<div class="vaccine row align-center justify-between" *ngFor="let vaccine of vaccinations">
   <p>{{ vaccine.name }}</p>
-  <p>{{ vaccine.link }}</p>
-  <p>{{ vaccine.price }}</p>
-  let
-</div>
 
-sadsad
+  <div class="row align-center">
+    <mat-icon>attach_money</mat-icon>
+    <p>{{ vaccine.price | currency:'PLN' }}</p>
+
+    <a [href]="vaccine.link" target="_blank">
+      <mat-icon>info_outline</mat-icon>
+    </a>
+  </div>
+
+</div>

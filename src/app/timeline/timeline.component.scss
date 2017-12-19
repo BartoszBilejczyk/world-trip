@@ -24,6 +24,8 @@
 }
 
 .wt-box {
+  width: calc((100vw - 180px) / 2 - 60px);
+
   &:after {
     position: absolute;
     content: '';

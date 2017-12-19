@@ -1,4 +1,15 @@
-<div *ngFor="let item of equipment">
-  {{ item.price }}
-  {{ item.link }}
+<div class="eq-item row align-center justify-between" *ngFor="let item of equipment">
+  <div class="row align-center">
+    <img [src]="item.imageURL" alt="" class="thumbnail">
+    <p>{{ item.name }}</p>
+  </div>
+
+  <div class="row align-center">
+    <mat-icon>attach_money</mat-icon>
+    <p>{{ item.price | currency:'PLN' }}</p>
+
+    <a [href]="item.link" target="_blank">
+      <mat-icon>info_outline</mat-icon>
+    </a>
+  </div>
 </div>

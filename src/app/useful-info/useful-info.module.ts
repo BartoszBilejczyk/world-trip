@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {AppCommonModule} from "../common/common.module";
 
 import { UsefulInfoRoutingModule } from './useful-info-routing.module';
 
@@ -12,6 +13,7 @@ import {UsefulService} from "../services/useful.service";
 @NgModule({
   imports: [
     CommonModule,
+    AppCommonModule
     UsefulInfoRoutingModule
   ],
   declarations: [
