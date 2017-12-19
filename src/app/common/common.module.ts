@@ -12,8 +12,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule}  from '@angular/material/progress-spinner';
 
-import { MatFormField, MatInput, MatButton, MatDatepicker, MatIcon} from "@angular/material";
+
+import { MatFormField, MatInput, MatButton, MatDatepicker, MatIcon, MatProgressSpinner, MatSpinner} from "@angular/material";
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { FlightDialogComponent } from '../dialogs/flight-dialog/flight-dialog.component';
@@ -31,7 +33,8 @@ import { FlightDialogComponent } from '../dialogs/flight-dialog/flight-dialog.co
     MatButtonModule,
     MatMomentDateModule,
     MatDatepickerModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     NavigationComponent,
@@ -46,7 +49,9 @@ import { FlightDialogComponent } from '../dialogs/flight-dialog/flight-dialog.co
     MatInput,
     MatButton,
     MatDatepicker,
-    MatIcon
+    MatIcon,
+    MatProgressSpinner,
+    MatSpinner
   ]
 })
 export class AppCommonModule { }
