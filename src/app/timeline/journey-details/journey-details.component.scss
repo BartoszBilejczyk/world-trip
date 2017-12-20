@@ -1,0 +1,53 @@
+@import '../../../styles.scss';
+
+.journey-wrapper {
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
+.description {
+  width: calc(35vw - 60px);
+
+  h1 {
+    @include font(130, semi);
+  }
+
+  p {
+    max-width: 400px;
+    @include font(20, medium);
+  }
+}
+
+.landscape {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 75vh;
+  width: calc(55vw - 60px);
+  background-size: cover;
+  background-position: center center;
+}
+
+.sightseeing-wrapper {
+  position: absolute;
+  height: 100vh;
+  left: 45vw;
+  top: 65vh;
+  width: 30vw;
+  color: pal(white);
+  background: pal(dashboard, dark);
+  transition: 1s;
+
+  &:hover {
+    top: 0;
+  }
+}
+
+.more {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 25vh;
+  width: 25vw;
+  background: pal(red, x-light);
+}

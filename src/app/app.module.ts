@@ -13,6 +13,7 @@ import { FlightsModule } from './flights/flights.module';
 import { CountryModule } from './country/country.module';
 import { AppCommonModule } from './common/common.module';
 import { DashboardModule } from "./dashboard/dashboard.module";
+import { TimelineModule } from './timeline/timeline.module';
 
 import { AppComponent } from './app.component';
 
@@ -26,8 +27,8 @@ export const firebaseConfig = environment.firebaseConfig;
 
 import { AngularFireModule }         from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import {TimelineService} from "./services/timeline.service";
-import {AirbnbService} from "./services/airbnb.service";
+import { TimelineService} from "./services/timeline.service";
+import { AirbnbService } from "./services/airbnb.service";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {AirbnbService} from "./services/airbnb.service";
     FlightsModule,
     CountryModule,
     DashboardModule,
+    TimelineModule,
     AmChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule

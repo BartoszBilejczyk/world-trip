@@ -9,7 +9,7 @@ import { TimelineComponent } from '../timeline/timeline.component';
 import { MapComponent } from '../map/map.component';
 import { CostsComponent } from '../costs/costs.component';
 import { AirbnbComponent } from '../airbnb/airbnb.component';
-import { TimelineItemComponent } from '../timeline/timeline-item/timeline-item.component';
+
 import { GeneralService } from "../services/general.service";
 
 
@@ -25,7 +25,6 @@ import { GeneralService } from "../services/general.service";
     MapComponent,
     CostsComponent,
     AirbnbComponent,
-    TimelineItemComponent
   ],
   exports: [
     DashboardComponent,
@@ -33,7 +32,6 @@ import { GeneralService } from "../services/general.service";
     MapComponent,
     CostsComponent,
     AirbnbComponent,
-    TimelineItemComponent
   ],
   providers: [
     GeneralService
