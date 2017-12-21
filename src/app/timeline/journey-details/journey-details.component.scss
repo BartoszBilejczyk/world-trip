@@ -3,10 +3,12 @@
 .journey-wrapper {
   max-height: 100vh;
   overflow-y: hidden;
+  position: relative;
 }
 
 .description {
   width: calc(35vw - 60px);
+  margin-top: 50px;
 
   h1 {
     @include font(130, semi);
@@ -36,7 +38,7 @@
   width: 30vw;
   color: pal(white);
   background: pal(dashboard, dark);
-  transition: 1s;
+  transition: 1s ease;
 
   &:hover {
     top: 0;
@@ -50,4 +52,10 @@
   height: 25vh;
   width: 25vw;
   background: pal(red, x-light);
+}
+
+.back-to-timeline {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

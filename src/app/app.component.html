@@ -1,6 +1,8 @@
 <div class="row">
   <app-navigation></app-navigation>
+  <!--<div class="wt-main container" [@fadeAnimation]="getRouterOutletState(o)">-->
   <div class="wt-main container">
-    <router-outlet></router-outlet>
+    <router-outlet #o="outlet"></router-outlet>
   </div>
 </div>
+w

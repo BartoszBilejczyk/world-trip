@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TimelineItem } from '../../models/timeline.model';
 
 @Component({
@@ -7,7 +7,7 @@ import { TimelineItem } from '../../models/timeline.model';
   styleUrls: ['./timeline-navigation.component.scss']
 })
 export class TimelineNavigationComponent implements OnInit {
-  @Input() timelineList: TimelineItem[];
+  @Input() timelineItems: TimelineItem[];
 
   constructor() { }
 

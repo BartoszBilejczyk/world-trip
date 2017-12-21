@@ -11,3 +11,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/*
+ router animations
+ width is smaller because of container (90%) and navigation (120px)
+ */
+//
+//router-outlet ~ * {
+//  position: absolute;
+//  width: calc(90% - 120px) ;
+//  min-height: calc(100vh - 100px) ;
+//}

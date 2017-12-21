@@ -10,5 +10,29 @@
     position: fixed;
     top: 0;
     left: 120px;
+    box-shadow: 5px 0px 14px pal(gray, mid-light);
   }
+}
+
+.timeline-item {
+  text-align: left;
+  border-top: 1px solid pal(gray, mid-light);
+  transition: 0.3s ease;
+
+  &:last-of-type {
+    border-bottom: 1px solid pal(gray, mid-light);
+  }
+
+  &:hover {
+    box-shadow: 0 2px 40px pal(gray, mid-light);
+    z-index: 10;
+  }
+
+  &-content {
+    padding: 10px;
+  }
+}
+
+a {
+  display: block;
 }
