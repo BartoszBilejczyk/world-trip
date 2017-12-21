@@ -2,11 +2,17 @@
   dakjhdsakjldsa
 </section>
 
-<div id="budgetChart"></div>
+<div id="budgetChart">
+  <mat-spinner *ngIf="!budgetChart"></mat-spinner>
+</div>
 
 <div class="row">
-  <div id="costGaugeChart"></div>
-  <div class="days-left">
+  <div id="costGaugeChart">
+    <mat-spinner *ngIf="!costGaugeChart"></mat-spinner>
+  </div>
+
+  <div class="days-left" *ngIf="budgetChart && costGaugeChart">
+    <mat-spinner *ngIf="!budgetChart && !costGaugeChart"></mat-spinner>
     <div class="value">
       <p>
         899

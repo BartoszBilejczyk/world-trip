@@ -19,7 +19,7 @@
 }
 
 .landscape {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   height: 75vh;
@@ -29,7 +29,7 @@
 }
 
 .sightseeing-wrapper {
-  position: absolute;
+  position: fixed;
   height: 100vh;
   left: 45vw;
   top: 65vh;
@@ -44,7 +44,7 @@
 }
 
 .more {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   height: 25vh;

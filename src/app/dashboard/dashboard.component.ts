@@ -11,8 +11,8 @@ import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 })
 export class DashboardComponent extends HandleSubscription implements OnInit, OnDestroy {
   generalInfo: any;
-  private budgetChart: AmChart;
-  private costGaugeChart: AmChart;
+  budgetChart: AmChart = null;
+  costGaugeChart: AmChart = null;
 
   constructor(
     private AmCharts: AmChartsService,
@@ -34,6 +34,7 @@ export class DashboardComponent extends HandleSubscription implements OnInit, On
 
 
   createBudgetChart() {
+    console.log(this.budgetChart)
     console.log(this.generalInfo.accountState)
     this.budgetChart = this.AmCharts.makeChart("budgetChart", {
       "type": "serial",

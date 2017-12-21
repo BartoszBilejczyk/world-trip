@@ -7,12 +7,14 @@ import { TimelineListComponent } from './timeline-list/timeline-list.component';
 import { TimelineItemComponent } from './timeline-item/timeline-item.component';
 import { JourneyDetailsComponent } from './journey-details/journey-details.component';
 
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
     CommonModule,
     AppCommonModule,
-    RouterModule
+    RouterModule,
+    MatButtonModule,
   ],
   declarations: [
     TimelineListComponent,
