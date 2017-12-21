@@ -1,0 +1,14 @@
+@import '../../../styles';
+
+.timeline-navigation {
+  overflow-y: scroll;
+
+  &-wrapper {
+    width: 300px;
+    height: 100vh;
+    background-color: pal(dashboard, light);
+    position: fixed;
+    top: 0;
+    left: 120px;
+  }
+}

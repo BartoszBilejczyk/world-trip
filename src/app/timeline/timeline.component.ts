@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TimelineService } from "../services/timeline.service";
-import {HandleSubscription} from "../helpers/handle-subscriptions";
+import { TimelineService } from '../services/timeline.service';
+import {HandleSubscription} from '../helpers/handle-subscriptions';
 
 @Component({
   selector: 'app-timeline',

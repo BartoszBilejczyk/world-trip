@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { GeneralService } from "../services/general.service";
-import {HandleSubscription} from "../helpers/handle-subscriptions";
+import { GeneralService } from '../services/general.service';
+import {HandleSubscription} from '../helpers/handle-subscriptions';
 
-import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
+import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
 
 @Component({
   selector: 'app-dashboard',

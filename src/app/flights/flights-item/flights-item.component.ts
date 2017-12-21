@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FlightsService } from "../../services/flights.service";
-import { Flight } from "../../models/flight.model";
+import { FlightsService } from '../../services/flights.service';
+import { Flight } from '../../models/flight.model';
 
 @Component({
   selector: 'app-flights-item',

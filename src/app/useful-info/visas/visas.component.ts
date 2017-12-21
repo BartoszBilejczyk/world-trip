@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsefulService } from "../../services/useful.service";
-import {HandleSubscription} from "../../helpers/handle-subscriptions";
+import { UsefulService } from '../../services/useful.service';
+import {HandleSubscription} from '../../helpers/handle-subscriptions';
 
 @Component({
   selector: 'app-visas',

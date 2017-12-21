@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { AppCommonModule } from "../common/common.module";
+import { AppCommonModule } from '../common/common.module';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlightsComponent } from './flights.component';
 import { FlightsItemComponent } from './flights-item/flights-item.component';
 import { AirlinesComponent } from './airlines/airlines.component';

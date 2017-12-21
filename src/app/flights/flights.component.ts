@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FlightsService } from "../services/flights.service";
+import { FlightsService } from '../services/flights.service';
 
-import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
+import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
 import { MatDialog } from '@angular/material';
-import { FlightDialogComponent } from "../dialogs/flight-dialog/flight-dialog.component";
-import { HandleSubscription } from "../helpers/handle-subscriptions";
+import { FlightDialogComponent } from '../dialogs/flight-dialog/flight-dialog.component';
+import { HandleSubscription } from '../helpers/handle-subscriptions';
 
 @Component({
   selector: 'app-flights',

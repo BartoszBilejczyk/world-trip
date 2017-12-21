@@ -1,9 +1,9 @@
 import {Component, OnInit, OnDestroy, Renderer2} from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "angularfire2/firestore";
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from "rxjs/Observable";
-import { HandleSubscription } from "../../helpers/handle-subscriptions";
-import {Journey} from "../../models/journey.model";
+import { Observable } from 'rxjs/Observable';
+import { HandleSubscription } from '../../helpers/handle-subscriptions';
+import {Journey} from '../../models/journey.model';
 
 @Component({
   selector: 'app-journey-details',

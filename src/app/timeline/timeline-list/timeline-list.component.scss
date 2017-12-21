@@ -1,5 +1,8 @@
 @import '../../../styles.scss';
 
+.timeline-list {
+  margin-left: 300px;
+}
 
 .timeline {
   position: relative;
@@ -8,7 +11,7 @@
   &-middle {
     position: absolute;
     top: 0;
-    left: calc((100vw - 180px) / 2 - 30px);
+    left: calc((100vw - 580px) / 2 - 30px);
     width: 2px;
     background-color: pal(gray, light);
     height: 100%;
@@ -25,7 +28,7 @@
 }
 
 .wt-box {
-  width: calc((100vw - 180px) / 2 - 60px);
+  width: calc((100vw - 380px) / 2 - 60px - 100px);
 
   &:after {
     position: absolute;
@@ -39,7 +42,7 @@
   }
 
   &.odd {
-    margin-left: calc((100vw - 180px) / 2);
+    margin-left: calc((100vw - 580px) / 2);
 
     &:after {
       left: -30px;

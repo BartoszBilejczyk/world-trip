@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AirbnbService } from "../services/airbnb.service";
-import {HandleSubscription} from "../helpers/handle-subscriptions";
+import { AirbnbService } from '../services/airbnb.service';
+import {HandleSubscription} from '../helpers/handle-subscriptions';
 
 @Component({
   selector: 'app-airbnb',

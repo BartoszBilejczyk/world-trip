@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsefulService } from "../services/useful.service";
+import { UsefulService } from '../services/useful.service';
 
 @Component({
   selector: 'app-useful-info',

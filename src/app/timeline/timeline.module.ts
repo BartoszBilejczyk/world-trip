@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { AppCommonModule } from "../common/common.module";
+import { AppCommonModule } from '../common/common.module';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 
 import { TimelineListComponent } from './timeline-list/timeline-list.component';
 import { TimelineItemComponent } from './timeline-item/timeline-item.component';
 import { JourneyDetailsComponent } from './journey-details/journey-details.component';
+import { TimelineNavigationComponent } from './timeline-navigation/timeline-navigation.component';
 
 import { MatButtonModule } from '@angular/material/button';
 
@@ -19,7 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
   declarations: [
     TimelineListComponent,
     TimelineItemComponent,
-    JourneyDetailsComponent
+    JourneyDetailsComponent,
+    TimelineNavigationComponent
   ]
 })
 export class TimelineModule { }
