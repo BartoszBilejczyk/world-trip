@@ -11,7 +11,7 @@
   margin-top: 50px;
 
   h1 {
-    @include font(130, semi);
+    @include font(120, semi);
   }
 
   p {
@@ -26,8 +26,8 @@
   right: 0;
   height: 75vh;
   width: calc(55vw - 60px);
-  background-size: cover;
-  background-position: center center;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .sightseeing-wrapper {
@@ -51,7 +51,7 @@
   bottom: 0;
   height: 25vh;
   width: 25vw;
-  background: pal(red, x-light);
+  background: pal(red, ultra-light);
 }
 
 .back-to-timeline {

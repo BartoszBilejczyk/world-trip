@@ -1,0 +1,21 @@
+.cities-wrapper,
+.cities {
+  min-height: calc(100vh - 100px);
+  position: relative;
+}
+
+.cities {
+  padding: 30px 70px;
+}
+
+.cities-list {
+  margin-top: 40px;
+}
+
+.city {
+  margin: 10px 0;
+
+  > * {
+    margin-bottom: 20px;
+  }
+}

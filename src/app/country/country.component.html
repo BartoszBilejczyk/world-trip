@@ -1,16 +1,42 @@
-<app-country-map></app-country-map>
-
-<ul>
-  <li *ngFor="let country of countries">
-    {{ country.name }}
-    <hr>
-    <div>
-      <ul>
-        <li *ngFor="let city of country.cities">
-          {{ city.address }}
-          {{ city.name }}
-        </li>
-      </ul>
+<div class="cities-wrapper">
+  <div class="row">
+    <div class="col-5">
+      <app-country-map></app-country-map>
     </div>
-  </li>
-</ul>
+
+    <div class="col-7 cities">
+      <div class="col align-center justify-center" *ngIf="cities ; else loading">
+        <h1>Cities to visit in {{ countryName }}</h1>
+
+        <div class="cities-list row justify-center">
+          <div class="col-6" *ngFor="let city of cities">
+            <div class="wt-box city">
+              <img [src]="city.imageURL" alt="" class="image-thumbnail">
+              <p>{{ city.date }}</p>
+              <div class="row align-center justify-center flight">
+                {{ city.departure }}
+                -
+                <mat-icon>{{ city.type }}</mat-icon>
+                -
+                {{ city.arrival }}
+              </div>
+              <div>
+                <h1>{{ city.country }}, {{ city.city }}</h1>
+                <p>{{ city.address }}</p>
+              </div>
+              <p>{{ city.note }}</p>
+
+              <a [routerLink]="['/journey', city.city.toLowerCase()]">
+                <button mat-raised-button color="primary">More Details</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>

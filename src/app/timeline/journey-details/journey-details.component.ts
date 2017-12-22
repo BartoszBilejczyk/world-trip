@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy, Renderer2} from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Router, ActivatedRoute } from '@angular/router';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { HandleSubscription } from '../../helpers/handle-subscriptions';
 import {Journey} from '../../models/journey.model';
@@ -12,12 +12,11 @@ import {Journey} from '../../models/journey.model';
 })
 export class JourneyDetailsComponent extends HandleSubscription implements OnInit, OnDestroy {
   journey$: Observable<any>;
-  journeyName: any;
+  journeyName: string;
   journey: Journey
 
   constructor(
     private renderer: Renderer2,
-    private router: Router,
     private afs: AngularFirestore,
     private route: ActivatedRoute
   ) {
@@ -26,16 +25,14 @@ export class JourneyDetailsComponent extends HandleSubscription implements OnIni
     const sub = this.route.url.subscribe(url => {
       const name = url[1].path
       this.journeyName = name.charAt(0).toUpperCase() + name.slice(1);
-      console.log(this.journeyName)
     });
 
-    this.journey$ = this.afs.collection('journey', ref => ref.where('name', '==', this.journeyName)).valueChanges();
+    this.journey$ = this.afs.collection('timeline', ref => ref.where('city', '==', this.journeyName)).valueChanges();
   }
 
   ngOnInit() {
     this.renderer.addClass(document.body, 'overflow-hidden');
     const journeySubscription = this.journey$.subscribe(journey => {
-      console.log(journey[0])
       this.journey = journey[0]
     })
 

@@ -12,6 +12,7 @@ import { FlightDialogComponent } from '../dialogs/flight-dialog/flight-dialog.co
 import { VisaDialogComponent } from '../dialogs/visa-dialog/visa-dialog.component';
 import { VaccinationDialogComponent } from '../dialogs/vaccination-dialog/vaccination-dialog.component';
 import { EquipmentDialogComponent } from '../dialogs/equipment-dialog/equipment-dialog.component';
+import { TimelineItemDialogComponent } from './timeline-item-dialog/timeline-item-dialog.component';
 
 
 @NgModule({
@@ -30,12 +31,14 @@ import { EquipmentDialogComponent } from '../dialogs/equipment-dialog/equipment-
     VisaDialogComponent,
     VaccinationDialogComponent,
     EquipmentDialogComponent,
+    TimelineItemDialogComponent,
   ],
   entryComponents: [
     FlightDialogComponent,
     VisaDialogComponent,
     VaccinationDialogComponent,
     EquipmentDialogComponent,
+    TimelineItemDialogComponent
   ],
   exports: [
     MatDatepicker

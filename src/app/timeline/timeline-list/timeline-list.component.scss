@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
 .timeline-list {
-  margin-left: 300px;
+  margin-left: 350px;
 }
 
 .timeline {
@@ -20,15 +20,10 @@
   .flight > * {
     padding: 5px;
   }
-
-  .thumbnail {
-    margin: -20px 0 20px -20px;
-    width: calc(100% + 40px);
-  }
 }
 
 .wt-box {
-  width: calc((100vw - 380px) / 2 - 60px - 100px);
+  width: calc((100vw - 580px) / 2 - 60px);
 
   &:after {
     position: absolute;
@@ -49,3 +44,11 @@
     }
   }
 }
+
+.add-new {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  transform: translate(-50%);
+}
+

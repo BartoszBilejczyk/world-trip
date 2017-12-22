@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TimelineService } from '../../services/timeline.service';
 import {HandleSubscription} from '../../helpers/handle-subscriptions';
+import {MatDialog} from "@angular/material";
+import {TimelineItemDialogComponent} from "../../dialogs/timeline-item-dialog/timeline-item-dialog.component";
 
 @Component({
   selector: 'app-timeline-list',
@@ -10,17 +12,24 @@ import {HandleSubscription} from '../../helpers/handle-subscriptions';
 export class TimelineListComponent extends HandleSubscription implements OnInit {
   timelineItems: any;
 
-  constructor(private timelineService: TimelineService) {
+  constructor(
+    private timelineService: TimelineService,
+    private dialog: MatDialog
+  ) {
     super(null);
   }
 
   ngOnInit() {
     const sub = this.timelineService.getTimeline().subscribe(timelineItems => {
-      console.log(timelineItems)
+      // this.timelineItems = [];
       this.timelineItems = timelineItems
     })
 
     this.subscriptions.push(sub);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(TimelineItemDialogComponent);
   }
 
 }

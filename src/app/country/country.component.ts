@@ -1,32 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { CountriesService } from '../services/countries.service';
-import { ActivatedRoute } from '@angular/router';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { ActivatedRoute, Event, NavigationEnd, Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { HandleSubscription } from '../helpers/handle-subscriptions';
 
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.scss']
 })
-export class CountryComponent implements OnInit {
-  countries: any;
-  countryName;
+export class CountryComponent extends HandleSubscription implements OnInit {
+  country$: Observable<any>;
+  cities: any[];
+  countryName: string;
 
   constructor(
-    private countriesService: CountriesService,
-    private route: ActivatedRoute
+    private afs: AngularFirestore,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
+    super(null);
+
     const sub = this.route.url.subscribe(url => {
-      this.countryName = url[1].path;
-      console.log(this.countryName)
+      const name = url[1].path
+      this.countryName = name.charAt(0).toUpperCase() + name.slice(1);
     });
+
+    this.subscriptions.push(sub);
+
+    this.country$ = this.afs.collection('timeline', ref => ref.where('country', '==', this.countryName)).valueChanges();
   }
 
   ngOnInit() {
-    this.countriesService.getCountries().subscribe(countries => {
-      console.log(countries);
-      this.countries = countries.filter(country => country.name.toLowerCase() === this.countryName);
-      console.log(this.countries);
-    });
-    console.log('ngOnInit')
+    const journeySubscription = this.country$.subscribe(cities => {
+      this.cities = cities
+    })
+    this.subscriptions.push(journeySubscription);
   }
+
 }
