@@ -1,24 +1,37 @@
 <section class="wt-dashboard">
-  dakjhdsakjldsa
-</section>
+  <div class="row">
+    <h1>Projected costs</h1>
+    <div class="wt-box row align-center justify-center col-12">
+      <div id="budgetChart">
+        <mat-spinner *ngIf="!budgetChart"></mat-spinner>
+      </div>
+    </div>
 
-<div id="budgetChart">
-  <mat-spinner *ngIf="!budgetChart"></mat-spinner>
-</div>
+    <div class="col-7">
+      <h1>Cost cover</h1>
+      <div class="wt-box row align-center justify-center ">
+        <div id="costGaugeChart">
+          <mat-spinner *ngIf="!costGaugeChart"></mat-spinner>
+        </div>
+      </div>
+    </div>
 
-<div class="row">
-  <div id="costGaugeChart">
-    <mat-spinner *ngIf="!costGaugeChart"></mat-spinner>
-  </div>
-
-  <div class="days-left" *ngIf="budgetChart && costGaugeChart">
-    <mat-spinner *ngIf="!budgetChart && !costGaugeChart"></mat-spinner>
-    <div class="value">
-      <p>
-        899
-        <br>
-        <span class="small">days left</span>
-      </p>
+    <div class="col-5">
+      <h1>Days to departure</h1>
+      <div class="wt-box row align-center justify-center ">
+        <div class="days-left" *ngIf="budgetChart && costGaugeChart ; else loading">
+          <div class="value">
+            <p>
+              899
+              <br>
+              <span class="small">days left</span>
+            </p>
+          </div>
+        </div>
+        <ng-template #loading>
+          <mat-spinner></mat-spinner>
+        </ng-template>
+      </div>
     </div>
   </div>
-</div>
+</section>

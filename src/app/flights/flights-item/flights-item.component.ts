@@ -21,13 +21,13 @@ export class FlightsItemComponent implements OnInit {
     this.flightsService.deleteFlight(flight)
   }
 
+  updateFlight(flight) {
+    this.flightsService.updateFlight(flight)
+  }
+
   editFlight(event, item) {
     this.editState = !this.editState;
     this.flightToEdit = item;
-  }
-
-  updateFlight(flight) {
-    this.flightsService.updateFlight(flight)
   }
 
 }
