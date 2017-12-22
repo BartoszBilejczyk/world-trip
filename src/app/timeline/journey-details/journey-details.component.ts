@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy, Renderer2} from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { HandleSubscription } from '../../helpers/handle-subscriptions';
@@ -12,7 +12,7 @@ import {Journey} from '../../models/journey.model';
 })
 export class JourneyDetailsComponent extends HandleSubscription implements OnInit, OnDestroy {
   journey$: Observable<any>;
-  journeyName: any;
+  journeyName: string;
   journey: Journey
 
   constructor(
@@ -29,13 +29,12 @@ export class JourneyDetailsComponent extends HandleSubscription implements OnIni
       console.log(this.journeyName)
     });
 
-    this.journey$ = this.afs.collection('journey', ref => ref.where('name', '==', this.journeyName)).valueChanges();
+    this.journey$ = this.afs.collection('timeline', ref => ref.where('city', '==', this.journeyName)).valueChanges();
   }
 
   ngOnInit() {
     this.renderer.addClass(document.body, 'overflow-hidden');
     const journeySubscription = this.journey$.subscribe(journey => {
-      console.log(journey[0])
       this.journey = journey[0]
     })
 

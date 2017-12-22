@@ -8,10 +8,10 @@ import { TimelineItem } from '../models/timeline.model';
 export class TimelineService {
   timelineCollection: AngularFirestoreCollection<any>;
   timeline: Observable<any>;
-  timelineDoc: AngularFirestoreDocument<TimelineItem>
+  timelineDoc: AngularFirestoreDocument<TimelineItem>;
 
   constructor(private afs: AngularFirestore) {
-    this.timelineCollection = this.afs.collection('timeline')
+    this.timelineCollection = this.afs.collection('timeline');
 
     this.timeline = this.timelineCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
@@ -25,15 +25,15 @@ export class TimelineService {
   getTimeline() {
     return this.timeline;
   }
-  //
-  // addTimeline(timeline) {
-  //   this.timelineCollection.add(timeline)
-  // }
-  //
-  // deleteTimeline(timeline) {
-  //   this.timelineDoc = this.afs.doc(`timeline/${timeline.id}`);
-  //   this.timelineDoc.delete();
-  // }
+
+  addTimelineItem(timeline) {
+    this.timelineCollection.add(timeline)
+  }
+
+  deleteTimelineItem(timeline) {
+    this.timelineDoc = this.afs.doc(`timeline/${timeline.id}`);
+    this.timelineDoc.delete();
+  }
   //
   // updateTimeline(timeline: Timeline) {
   //   this.timelineDoc = this.afs.doc(`timeline/${timeline.id}`);

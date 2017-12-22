@@ -10,8 +10,7 @@
   </div>
 
   <div class="row align-center">
-    <mat-icon>attach_money</mat-icon>
-    <p>{{ item.price | currency:'PLN' }}</p>
+    <p>{{ item.price | currency:' PLN' }}</p>
 
     <a [href]="item.link" target="_blank">
       <mat-icon>info_outline</mat-icon>

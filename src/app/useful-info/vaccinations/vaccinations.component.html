@@ -7,8 +7,7 @@
   <p>{{ vaccination.name }}</p>
 
   <div class="row align-center">
-    <mat-icon>attach_money</mat-icon>
-    <p>{{ vaccination.price | currency:'PLN' }}</p>
+    <p>{{ vaccination.price | currency:' PLN' }}</p>
 
     <a [href]="vaccination.link" target="_blank">
       <mat-icon>info_outline</mat-icon>
