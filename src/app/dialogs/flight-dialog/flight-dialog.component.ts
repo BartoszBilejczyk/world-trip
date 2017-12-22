@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { FlightsService } from "../../services/flights.service";
-import { Flight } from "../../models/flight.model";
+import { FlightsService } from '../../services/flights.service';
+import { Flight } from '../../models/flight.model';
 import { MatDialogRef } from '@angular/material';
 
 import * as _moment from 'moment';

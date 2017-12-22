@@ -1,8 +1,8 @@
 import { Injectable }    from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "angularfire2/firestore";
-import { Observable } from "rxjs/Observable";
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
 import '../rxjs-extensions';
-import { Airbnb } from "../models/airbnb.model";
+import { Airbnb } from '../models/airbnb.model';
 
 @Injectable()
 export class AirbnbService {

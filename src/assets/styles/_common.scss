@@ -3,6 +3,7 @@
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   min-height: 250px;
+  background-color: pal(white);
 }
 
 .mat-spinner {
@@ -11,3 +12,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/*
+ router animations
+ width is smaller because of container (90%) and navigation (120px)
+ */
+//
+//router-outlet ~ * {
+//  position: absolute;
+//  width: calc(90% - 120px) ;
+//  min-height: calc(100vh - 100px) ;
+//}

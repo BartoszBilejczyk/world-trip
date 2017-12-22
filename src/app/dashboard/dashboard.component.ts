@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { GeneralService } from "../services/general.service";
-import {HandleSubscription} from "../helpers/handle-subscriptions";
+import { GeneralService } from '../services/general.service';
+import {HandleSubscription} from '../helpers/handle-subscriptions';
 
-import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
+import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +11,8 @@ import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 })
 export class DashboardComponent extends HandleSubscription implements OnInit, OnDestroy {
   generalInfo: any;
-  private budgetChart: AmChart;
-  private costGaugeChart: AmChart;
+  budgetChart: AmChart = null;
+  costGaugeChart: AmChart = null;
 
   constructor(
     private AmCharts: AmChartsService,
@@ -34,6 +34,7 @@ export class DashboardComponent extends HandleSubscription implements OnInit, On
 
 
   createBudgetChart() {
+    console.log(this.budgetChart)
     console.log(this.generalInfo.accountState)
     this.budgetChart = this.AmCharts.makeChart("budgetChart", {
       "type": "serial",
@@ -43,6 +44,7 @@ export class DashboardComponent extends HandleSubscription implements OnInit, On
       "autoMarginOffset": 20,
       "mouseWheelZoomEnabled":true,
       "dataDateFormat": "YYYY-MM-DD",
+      "color": "#888",
       "valueAxes": [{
         "id": "v1",
         "axisAlpha": 0,
@@ -91,27 +93,13 @@ export class DashboardComponent extends HandleSubscription implements OnInit, On
         "valueField": "projected",
         "balloonText": "<span style='font-size:13px;'>[[value]]</span>"
       }],
-      "chartScrollbar": {
-        "graph": "g1",
-        "oppositeAxis":false,
-        "offset":30,
-        "scrollbarHeight": 80,
-        "backgroundAlpha": 0,
-        "selectedBackgroundAlpha": 0.1,
-        "selectedBackgroundColor": "#888888",
-        "graphFillAlpha": 0,
-        "graphLineAlpha": 0.5,
-        "selectedGraphFillAlpha": 0,
-        "selectedGraphLineAlpha": 1,
-        "autoGridCount":true,
-        "color":"#AAAAAA"
-      },
+      "chartScrollbar": false,
       "chartCursor": {
         "pan": true,
         "valueLineEnabled": true,
         "valueLineBalloonEnabled": true,
         "cursorAlpha":1,
-        "cursorColor":"#258cbb",
+        "cursorColor":"#de9174",
         "limitToGraph":"g1",
         "valueLineAlpha":0.2,
         "valueZoomable":true
@@ -124,8 +112,8 @@ export class DashboardComponent extends HandleSubscription implements OnInit, On
       "categoryField": "date",
       "categoryAxis": {
         "parseDates": true,
-        "dashLength": 1,
-        "minorGridEnabled": true
+        // "dashLength": 1,
+        // "minorGridEnabled": false
       },
       "export": {
         "enabled": true

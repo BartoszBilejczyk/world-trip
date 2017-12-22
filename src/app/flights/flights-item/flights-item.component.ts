@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FlightsService } from "../../services/flights.service";
-import { Flight } from "../../models/flight.model";
+import { FlightsService } from '../../services/flights.service';
+import { Flight } from '../../models/flight.model';
 
 @Component({
   selector: 'app-flights-item',
@@ -21,13 +21,13 @@ export class FlightsItemComponent implements OnInit {
     this.flightsService.deleteFlight(flight)
   }
 
+  updateFlight(flight) {
+    this.flightsService.updateFlight(flight)
+  }
+
   editFlight(event, item) {
     this.editState = !this.editState;
     this.flightToEdit = item;
-  }
-
-  updateFlight(flight) {
-    this.flightsService.updateFlight(flight)
   }
 
 }

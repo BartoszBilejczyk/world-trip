@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
+import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
 
 @Component({
   selector: 'app-costs',

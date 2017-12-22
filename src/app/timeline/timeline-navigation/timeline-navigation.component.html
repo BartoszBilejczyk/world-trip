@@ -1,0 +1,49 @@
+<div class="timeline-navigation-wrapper">
+  <div class="timeline-navigation">
+    <ul>
+      <li *ngFor="let item of timelineItems" class="timeline-item">
+        <a [routerLink]="['/journey', item.arrival.toLowerCase()]">
+          <div class="row align-center justify-center timeline-item-content">
+            <div class="col-4">
+              {{ item.departure.toUpperCase() }}
+            </div>
+            <div class="col-4">
+              <mat-icon>{{ item.type }}</mat-icon>
+            </div>
+            <div class="col-4">
+              {{ item.arrival.toUpperCase() }}
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li *ngFor="let item of timelineItems" class="timeline-item">
+        <div class="row align-center justify-center timeline-item-content">
+          <div class="col-4">
+            {{ item.departure }}
+          </div>
+          <div class="col-4">
+            <mat-icon>{{ item.type }}</mat-icon>
+          </div>
+          <div class="col-4">
+            {{ item.arrival }}
+          </div>
+        </div>
+      </li>
+      <li *ngFor="let item of timelineItems" class="timeline-item">
+        <div class="row align-center justify-center timeline-item-content">
+          <div class="col-4">
+            {{ item.departure }}
+          </div>
+          <div class="col-4">
+            <mat-icon>{{ item.type }}</mat-icon>
+          </div>
+          <div class="col-4">
+            {{ item.arrival }}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <mat-spinner *ngIf="!timelineItems" [diameter]="40"></mat-spinner>
+</div>

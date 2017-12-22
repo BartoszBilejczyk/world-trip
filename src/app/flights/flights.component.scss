@@ -2,13 +2,14 @@
 
 ul.flights {
   min-height: 200px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px;
+  margin: 30px auto 0;
   @include font (16, 500)
 
   li {
     padding: 10px;
+    background-color: pal(white);
+    border-bottom: 1px solid pal(gray, x-light);
+    transition: 0.3s ease;
   }
 }
 
@@ -17,18 +18,10 @@ ul.flights {
   max-height: 400px;
 }
 
-.odd {
-  background-color: pal(dashboard, light);
-}
-
-.even {
-  background-color: pal(dashboard, x-light);
-}
-
 .flights-table-wrapper {
   padding: 10px;
-  background-color: pal(gray, dark);
-  color: pal(gray, light);
+  background-color: pal(gray, light);
+  color: pal(dashboard, dark);
 
   > div {
     flex-basis: 10%;

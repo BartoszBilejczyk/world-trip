@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // import { ActivatedRoute } from '@angular/router';
-// import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
+// import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
 
 
 @Component({

@@ -5,9 +5,10 @@ import { CostsComponent } from './costs/costs.component';
 import { CountryComponent } from './country/country.component';
 import { FlightsComponent } from './flights/flights.component';
 import { MapComponent } from './map/map.component';
-import { TimelineComponent } from './timeline/timeline.component';
+import { TimelineListComponent } from './timeline/timeline-list/timeline-list.component';
 import { UsefulInfoComponent } from './useful-info/useful-info.component';
- 
+import { JourneyDetailsComponent } from './timeline/journey-details/journey-details.component';
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'airbnb', component: AirbnbComponent },
@@ -15,7 +16,8 @@ const appRoutes: Routes = [
   { path: 'country/:id', component: CountryComponent },
   { path: 'flights', component: FlightsComponent },
   { path: 'map', component: MapComponent },
-  { path: 'timeline', component: TimelineComponent },
+  { path: 'timeline', component: TimelineListComponent },
+  { path: 'journey/:journey', component: JourneyDetailsComponent },
   { path: 'info', component: UsefulInfoComponent },
 ];
 
