@@ -9,6 +9,9 @@ export class UsefulService {
   vaccinationsCollection: AngularFirestoreCollection<any>;
   equipmentCollection: AngularFirestoreCollection<any>;
   visasCollection: AngularFirestoreCollection<any>;
+  vaccinationDoc: AngularFirestoreDocument<any>;
+  equipmentDoc: AngularFirestoreDocument<any>;
+  visaDoc: AngularFirestoreDocument<any>;
   equipment: Observable<any>;
   vaccinations: Observable<any>;
   visas: Observable<any>;
@@ -49,11 +52,43 @@ export class UsefulService {
   getEquipment() {
     return this.equipment;
   }
+
   getVisas() {
     return this.visas;
   }
+
   getVaccinations() {
     return this.vaccinations;
   }
+
+  addVisa(visa) {
+    this.visasCollection.add(visa)
+  }
+
+  deleteVisa(visa) {
+    this.visaDoc = this.afs.doc(`useful/niNijrJydxrN3QNvvBpn/visas/${visa.id}`);
+    this.visaDoc.delete();
+  }
+
+  addVaccination(vaccination) {
+    this.vaccinationsCollection.add(vaccination)
+  }
+
+  deleteVaccination(vaccination) {
+    console.log(vaccination);
+    this.vaccinationDoc = this.afs.doc(`useful/niNijrJydxrN3QNvvBpn/vaccinations/${vaccination.id}`);
+    this.vaccinationDoc.delete();
+  }
+
+  addEquipment(equipment) {
+    this.equipmentCollection.add(equipment)
+  }
+
+  deleteEquipment(equipment) {
+    console.log(equipment)
+    this.equipmentDoc = this.afs.doc(`useful/niNijrJydxrN3QNvvBpn/equipment/${equipment.id}`);
+    this.equipmentDoc.delete();
+  }
+
 }
 

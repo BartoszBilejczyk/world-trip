@@ -17,6 +17,7 @@ import { TimelineModule } from './timeline/timeline.module';
 
 import { AppComponent } from './app.component';
 
+import { DialogsModule } from "./dialogs/dialogs.module";
 
 // firebase
 
@@ -40,6 +41,7 @@ import { AirbnbService } from './services/airbnb.service';
     RouterModule,
     AppCommonModule,
     AppRoutingModule,
+    DialogsModule,
     UsefulInfoModule,
     FlightsModule,
     CountryModule,
