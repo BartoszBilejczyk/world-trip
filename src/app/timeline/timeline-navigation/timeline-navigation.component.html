@@ -2,20 +2,20 @@
   <div class="timeline-navigation">
     <ul>
       <li *ngFor="let item of timelineItems" class="timeline-item row align-center justify-between">
-        <a [routerLink]="['/journey', item.city.toLowerCase()]" class="col-9">
-          <div class="row align-center justify-center timeline-item-content">
-            <div class="col-4">
+        <a [routerLink]="['/journey', item.city.toLowerCase()]" class="col-10">
+          <div class="row align-center timeline-item-content">
+            <div class="col-5">
               {{ item.departure.toUpperCase() }}
             </div>
-            <div class="col-3">
+            <div class="col-2">
               <mat-icon>{{ item.type }}</mat-icon>
             </div>
-            <div class="col-4">
+            <div class="col-5">
               {{ item.arrival.toUpperCase() }}
             </div>
           </div>
         </a>
-        <div class="col-2">
+        <div class="col-1">
           <mat-icon (click)="deleteTimelineItem($event, item)">delete</mat-icon>
         </div>
       </li>

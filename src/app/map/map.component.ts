@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
 
@@ -22,17 +22,20 @@ export class MapComponent implements OnInit, OnDestroy {
   constructor(
     private AmCharts: AmChartsService,
     private router: Router,
+    private ngZone: NgZone
   ) { }
 
   handleCountryClick = el => {
-    // setTimeout(() => {
+    setTimeout(() => {
       let selectedCountry = el.chart.selectedObject.title.toLowerCase();
-      this.router.navigate([`country/${selectedCountry}`]);
-    // }, 1000)
+      this.ngZone.run(() => {
+        this.router.navigate([`country/${selectedCountry}`]);
+      });
+    }, 1200)
   };
 
   ngOnInit() {
-    this.chart = this.AmCharts.makeChart( "chartdiv", {
+    this.chart = this.AmCharts.makeChart( "worldMap", {
       "type": "map",
       "theme": "light",
       "projection": "miller",

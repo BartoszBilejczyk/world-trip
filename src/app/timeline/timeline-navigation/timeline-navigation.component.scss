@@ -4,7 +4,7 @@
   overflow-y: scroll;
 
   &-wrapper {
-    width: 300px;
+    width: 350px;
     height: 100vh;
     background-color: pal(dashboard, light);
     position: fixed;
@@ -18,6 +18,7 @@
   text-align: left;
   border-top: 1px solid pal(gray, mid-light);
   transition: 0.3s ease;
+  padding: 0 10px;
 
   &:last-of-type {
     border-bottom: 1px solid pal(gray, mid-light);

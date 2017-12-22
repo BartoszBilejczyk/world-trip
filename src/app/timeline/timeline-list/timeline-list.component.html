@@ -8,7 +8,7 @@
       <div class="wt-box" *ngFor="let item of timelineItems let even = even; let odd = odd"
            [ngClass]="{odd: odd, even: even}">
         <!--<img [src]="item.imageURL" alt="" class="thumbnail">-->
-        <img [src]="item.imageURL" alt="" class="thumbnail">
+        <img [src]="item.imageURL" alt="" class="image-thumbnail">
         {{ item.date }}
         <div class="row align-center flight">
           {{ item.departure }}
