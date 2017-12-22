@@ -38,4 +38,7 @@ export class CountryComponent extends HandleSubscription implements OnInit {
     this.subscriptions.push(journeySubscription);
   }
 
+  getImagePath() {
+    return `/assets/images/countries/${this.countryName.toLowerCase()}Low.svg`
+  }
 }
