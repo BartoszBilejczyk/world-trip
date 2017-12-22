@@ -1,5 +1,5 @@
 export interface Vaccination {
-  link?: number;
+  link?: string;
   name: string;
   price: number;
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppCommonModule } from '../common/common.module';
 
 import { UsefulInfoRoutingModule } from './useful-info-routing.module';
+import { MatButtonModule } from "@angular/material";
 
 import { UsefulInfoComponent } from './useful-info.component';
 import { EquipmentComponent } from './equipment/equipment.component';
@@ -14,7 +15,8 @@ import { UsefulService } from '../services/useful.service';
   imports: [
     CommonModule,
     AppCommonModule,
-    UsefulInfoRoutingModule
+    UsefulInfoRoutingModule,
+    MatButtonModule
   ],
   declarations: [
     UsefulInfoComponent,
