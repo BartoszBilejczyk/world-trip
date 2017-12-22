@@ -18,8 +18,9 @@ export class CountryMapComponent {
     private AmCharts: AmChartsService,
     private route: ActivatedRoute,
   ) {
-    this.sub = this.route.paramMap.subscribe(params => {
-      this.countryName = params.params.id + 'Low';
+    console.log(this.route)
+    this.sub = this.route.params.subscribe(params => {
+      this.countryName = params.id + 'Low';
     });
   }
 
