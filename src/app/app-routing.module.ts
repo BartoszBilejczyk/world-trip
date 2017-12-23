@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AirbnbComponent } from './airbnb/airbnb.component';
 import { CostsComponent } from './costs/costs.component';
 import { CountryComponent } from './country/country.component';
 import { FlightsComponent } from './flights/flights.component';
@@ -11,7 +10,6 @@ import { JourneyDetailsComponent } from './timeline/journey-details/journey-deta
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'airbnb', component: AirbnbComponent },
   { path: 'costs', component: CostsComponent },
   { path: 'country/:id', component: CountryComponent },
   { path: 'flights', component: FlightsComponent },

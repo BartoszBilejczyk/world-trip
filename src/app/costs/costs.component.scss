@@ -1,22 +1,11 @@
-.costs-dashboard {
-  height: 50%;
+.costs {
+  height: calc(100vh - 100px);
 }
 
-.divided-costs {
-  height: 50%;
-}
-
-#xCostChart {
-  width: 300px;
-  height: 300px;
-}
-
-#xCostChart2 {
-  width: 300px;
-  height: 300px;
-}
-
+#xCostChart,
+#xCostChart2,
 #xCostChart3 {
-  width: 300px;
-  height: 300px;
+  margin-top: 30px;
+  width: 400px;
+  height: 400px;
 }

@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
   navigationItems: object[] = [
     { name: 'dashboard', title: 'Dashboard', icon: 'dashboard'},
-    { name: 'airbnb', title: 'Airbnb', icon: 'home'},
     { name: 'costs', title: 'Costs', icon: 'attach_money'},
     { name: 'flights', title: 'Flights', icon: 'flight_takeoff'},
     { name: 'map', title: 'Map', icon: 'map'},
