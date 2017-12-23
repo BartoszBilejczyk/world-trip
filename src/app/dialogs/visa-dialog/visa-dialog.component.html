@@ -1,0 +1,21 @@
+<div>
+  <form (ngSubmit)="onSubmit()" #visaForm="ngForm" class="col">
+    <mat-form-field>
+      <input matInput name="flag" placeholder="flag" [(ngModel)]="visa.flag" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="country" placeholder="Country" [(ngModel)]="visa.country" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="price" placeholder="price" [(ngModel)]="visa.price" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="difficulty" placeholder="difficulty" [(ngModel)]="visa.difficulty" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="link" placeholder="link" [(ngModel)]="visa.link" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent">Add Visa</button>
+  </form>
+</div>

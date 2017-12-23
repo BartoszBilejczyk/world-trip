@@ -1,0 +1,18 @@
+<div>
+  <form (ngSubmit)="onSubmit()" #equipmentForm="ngForm" class="col">
+    <mat-form-field>
+      <input matInput name="imageURL" placeholder="Image URL" [(ngModel)]="equipment.imageURL" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="name" placeholder="Name" [(ngModel)]="equipment.name" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="price" placeholder="Price" [(ngModel)]="equipment.price" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="link" placeholder="Link" [(ngModel)]="equipment.link" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="secondary">Add Equipment</button>
+  </form>
+</div>

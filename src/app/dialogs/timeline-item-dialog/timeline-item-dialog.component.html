@@ -1,0 +1,33 @@
+<div>
+  <form (ngSubmit)="onSubmit()" #timelineItemForm="ngForm" class="col">
+    <mat-form-field>
+      <input matInput name="date" placeholder="Date" [(ngModel)]="timelineItem.date" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="departure" placeholder="Departure" [(ngModel)]="timelineItem.departure" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="arrival" placeholder="Arrival" [(ngModel)]="timelineItem.arrival" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="type" placeholder="Type" [(ngModel)]="timelineItem.type" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="country" placeholder="Country" [(ngModel)]="timelineItem.country" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="city" placeholder="Country" [(ngModel)]="timelineItem.city" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="address" placeholder="Address" [(ngModel)]="timelineItem.address" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="note" placeholder="Note" [(ngModel)]="timelineItem.note" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="imageURL" placeholder="Image URL" [(ngModel)]="timelineItem.imageURL" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Add New Journey Stop</button>
+  </form>
+</div>
