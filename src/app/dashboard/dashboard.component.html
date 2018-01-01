@@ -1,6 +1,6 @@
 <section class="wt-dashboard">
   <div class="row">
-    <h1>Projected costs</h1>
+    <h1>Projected budget</h1>
     <div class="wt-box row align-center justify-center col-12">
       <div id="budgetChart">
         <mat-spinner *ngIf="!budgetChart"></mat-spinner>
@@ -22,7 +22,7 @@
         <div class="days-left" *ngIf="budgetChart && costGaugeChart ; else loading">
           <div class="value">
             <p>
-              899
+              {{ daysLeft }}
               <br>
               <span class="small">days left</span>
             </p>

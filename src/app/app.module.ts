@@ -29,6 +29,7 @@ export const firebaseConfig = environment.firebaseConfig;
 import { AngularFireModule }         from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { TimelineService} from './services/timeline.service';
+import {CostsService} from "./services/costs.service";
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { TimelineService} from './services/timeline.service';
   providers: [
     FlightsService,
     TimelineService,
+    CostsService
   ],
   bootstrap: [AppComponent]
 })
