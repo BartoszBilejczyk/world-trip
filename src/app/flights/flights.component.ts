@@ -4,6 +4,9 @@ import { FlightsService } from '../services/flights.service';
 import { MatDialog } from '@angular/material';
 import { FlightDialogComponent } from '../dialogs/flight-dialog/flight-dialog.component';
 import { HandleSubscription } from '../helpers/handle-subscriptions';
+import {Store} from "@ngrx/store";
+import * as flightsActions from '../store/flights/flights.actions';
+import {Flight} from "../models/flight.model";
 
 @Component({
   selector: 'app-flights',
@@ -11,7 +14,7 @@ import { HandleSubscription } from '../helpers/handle-subscriptions';
   styleUrls: ['./flights.component.scss']
 })
 export class FlightsComponent extends HandleSubscription implements OnInit, OnDestroy {
-  flights;
+  flights: Flight[] = [];
   minCostTotal = 0;
   maxCostTotal = 0;
   luggageCostTotal = 0;
@@ -20,17 +23,23 @@ export class FlightsComponent extends HandleSubscription implements OnInit, OnDe
 
   constructor(
     private flightsService: FlightsService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private store: Store<any>
   ) {
     super(null)
   }
 
   ngOnInit() {
-    const sub = this.flightsService.getFlights().subscribe( flights => {
-      this.flights = flights;
+    const sub = this.store
+      .select('state', 'flights', 'data')
+      .subscribe( flights => {
+        this.flights = flights;
+        this.calculateTotals();
+       })
 
-      this.calculateTotals();
-    })
+    if(!this.flights.length) {
+      this.store.dispatch(new flightsActions.LoadFlights(''));
+    }
 
     this.subscriptions.push(sub);
   }

@@ -6,6 +6,7 @@ import {TimelineItem} from "../models/timeline.model";
 import {Store} from "@ngrx/store";
 import * as timelineActions from '../store/timeline/timeline.actions';
 import {Subscription} from "rxjs/Subscription";
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-timeline',
@@ -23,8 +24,14 @@ export class TimelineComponent extends HandleSubscription implements OnInit, OnD
     super(null);
 
     this.timelineSubscription = store
-      .select('state', 'timeline', 'timeline')
-      .subscribe(timelineItems => this.timelineItems = timelineItems);
+      .select('state', 'timeline', 'data')
+      .subscribe(timelineItems => {
+        this.timelineItems = timelineItems
+
+        this.timelineItems.forEach(item => {
+          item.date = moment(item.date).format('L')
+        })
+      });
   }
 
   ngOnInit() {

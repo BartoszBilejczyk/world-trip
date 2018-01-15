@@ -17,5 +17,5 @@
   </div>
 </div>
 
-<mat-spinner *ngIf="!vaccinations" [diameter]="25"></mat-spinner>
+<mat-spinner *ngIf="vaccinations.length === 0" [diameter]="25"></mat-spinner>
 

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import {MatDialogRef} from "@angular/material";
 import {TimelineService} from "../../services/timeline.service";
 import {TimelineItem} from "../../models/timeline.model";
+import * as moment from 'moment'
 
 @Component({
     selector: 'app-timeline-item-dialog',
@@ -13,15 +14,15 @@ export class TimelineItemDialogComponent {
     @ViewChild('timelineItemForm') timelineItemForm: NgForm;
 
     timelineItem: TimelineItem = {
-      address: '',
+      address: 'Address',
       arrival: '',
       city: '',
-      country: '',
+      country: 'United States',
       date: '',
       departure: '',
-      imageURL: '',
-      note: '',
-      type: ''
+      imageURL: 'http://lorempixel.com/400/200/sports/',
+      note: 'Note',
+      type: 'flight'
     }
 
     constructor(
@@ -31,9 +32,11 @@ export class TimelineItemDialogComponent {
 
     onSubmit() {
         if(!this.timelineItemForm.valid) {
+          console.log(this.timelineItemForm)
             return
         }
 
+        this.timelineItem.date = this.timelineItemForm.value.date._d;
         this.usefulService.addTimelineItem(this.timelineItem);
         this.dialogRef.close();
     }

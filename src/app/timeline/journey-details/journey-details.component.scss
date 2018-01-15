@@ -11,7 +11,7 @@
   margin-top: 50px;
 
   h1 {
-    @include font(120, semi);
+    @include font(80, semi);
   }
 
   p {
@@ -51,7 +51,7 @@
   bottom: 0;
   height: 25vh;
   width: 25vw;
-  background: pal(red, ultra-light);
+  background: pal(gray, ultra-light);
 }
 
 .back-to-timeline {

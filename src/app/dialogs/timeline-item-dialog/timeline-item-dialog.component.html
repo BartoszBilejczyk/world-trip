@@ -1,7 +1,10 @@
 <div>
   <form (ngSubmit)="onSubmit()" #timelineItemForm="ngForm" class="col">
     <mat-form-field>
-      <input matInput name="date" placeholder="Date" [(ngModel)]="timelineItem.date" required>
+      <!--<input matInput name="date" placeholder="Date" [(ngModel)]="timelineItem.date" required>-->
+      <input (click)="date.open()" matInput name="date" [matDatepicker]="date" placeholder="Date of flight" [(ngModel)]="timelineItem.date">
+      <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+      <mat-datepicker #date></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
       <input matInput name="departure" placeholder="Departure" [(ngModel)]="timelineItem.departure" required>
@@ -16,7 +19,7 @@
       <input matInput name="country" placeholder="Country" [(ngModel)]="timelineItem.country" required>
     </mat-form-field>
     <mat-form-field>
-      <input matInput name="city" placeholder="Country" [(ngModel)]="timelineItem.city" required>
+      <input matInput name="city" placeholder="City" [(ngModel)]="timelineItem.city" required>
     </mat-form-field>
     <mat-form-field>
       <input matInput name="address" placeholder="Address" [(ngModel)]="timelineItem.address" required>

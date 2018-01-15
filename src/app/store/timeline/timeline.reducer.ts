@@ -1,7 +1,7 @@
 import * as timelineActions from './timeline.actions';
 
 const initialState: any = {
-  timeline: []
+  data: []
 };
 
 export function timelineReducer(state = initialState, action: timelineActions.actions) {
@@ -9,7 +9,7 @@ export function timelineReducer(state = initialState, action: timelineActions.ac
     case timelineActions.LOAD_TIMELINE_SUCCESS:
       return {
         ...state,
-        timeline: action.payload
+        data: action.payload
       };
     default:
       return state;

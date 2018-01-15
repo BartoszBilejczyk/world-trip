@@ -19,7 +19,7 @@ export class DashboardComponent extends HandleSubscription implements OnInit, On
 
   constructor(
     private AmCharts: AmChartsService,
-    private generalService: GeneralService
+    private generalService: GeneralService,
   ) {
     super(null);
   }

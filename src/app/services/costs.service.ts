@@ -66,7 +66,7 @@ export class CostsService {
 
   }
 
-  getFLights() {
+  getFlights() {
     return this.flights
   }
 

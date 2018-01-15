@@ -1,7 +1,7 @@
 import * as countriesActions from './countries.actions';
 
 const initialState: any = {
-  countries: []
+  data: []
 };
 
 export function countriesReducer(state = initialState, action: countriesActions.actions) {
@@ -9,7 +9,7 @@ export function countriesReducer(state = initialState, action: countriesActions.
     case countriesActions.LOAD_COUNTRIES_SUCCESS:
       return {
         ...state,
-        countries: action.payload
+        data: action.payload
       };
     default:
       return state;

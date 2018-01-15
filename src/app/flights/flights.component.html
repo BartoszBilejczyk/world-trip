@@ -6,7 +6,7 @@
 
   <ul class="flights">
     <app-flights-nav></app-flights-nav>
-    <div class="flights-content" *ngIf="flights ; else loading ">
+    <div class="flights-content" *ngIf="flights.length !== 0 ; else loading ">
        <li
         *ngFor="let flight of flights let even = even; let odd = odd"
         [ngClass]="{odd: odd, even: even}">

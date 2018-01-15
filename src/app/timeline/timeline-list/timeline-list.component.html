@@ -23,7 +23,7 @@
         </a>
       </div>
     </div>
-    <mat-spinner *ngIf="!timelineItems"></mat-spinner>
+    <mat-spinner *ngIf="timelineItems.length === 0"></mat-spinner>
   </div>
 
   <button mat-raised-button color="primary" class="add-new" (click)="openDialog()">Add New Stop</button>

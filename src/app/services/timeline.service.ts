@@ -11,7 +11,7 @@ export class TimelineService {
   timelineDoc: AngularFirestoreDocument<TimelineItem>;
 
   constructor(private afs: AngularFirestore) {
-    this.timelineCollection = this.afs.collection('timeline');
+    this.timelineCollection = this.afs.collection('timeline', ref => ref.orderBy('date', 'asc'));
 
     this.timeline = this.timelineCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
