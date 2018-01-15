@@ -31,6 +31,13 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { TimelineService} from './services/timeline.service';
 import {CostsService} from "./services/costs.service";
 
+// ngrx
+import {StoreModule} from "@ngrx/store";
+import {timelineReducer} from "./store/timeline/timeline.reducer";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {EffectsModule} from "@ngrx/effects";
+import {timelineEffects} from "./store/timeline/timeline.effects";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +55,15 @@ import {CostsService} from "./services/costs.service";
     DashboardModule,
     TimelineModule,
     AmChartsModule,
+    StoreModule.forRoot({
+      state: timelineReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 //  Retains last 25 states
+    }),
+    EffectsModule.forRoot([
+      timelineEffects
+    ]),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule
   ],

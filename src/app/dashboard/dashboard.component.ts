@@ -3,7 +3,7 @@ import { GeneralService } from '../services/general.service';
 import {HandleSubscription} from '../helpers/handle-subscriptions';
 
 import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
-import moment from 'moment'
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-dashboard',
@@ -168,8 +168,8 @@ export class DashboardComponent extends HandleSubscription implements OnInit, On
         "innerRadius": "35%",
         "nailRadius": 0,
         "radius": "170%",
-        "value": (3775 / this.budget) * 100;
-      }]
+        "value": (3775 / this.budget) * 100,
+      }],
     });
   }
 

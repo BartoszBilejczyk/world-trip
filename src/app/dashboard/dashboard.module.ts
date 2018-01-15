@@ -5,7 +5,6 @@ import { AppCommonModule } from '../common/common.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import { DashboardComponent } from './dashboard.component';
-import { TimelineComponent } from '../timeline/timeline.component';
 import { MapComponent } from '../map/map.component';
 import { CostsComponent } from '../costs/costs.component';
 
@@ -20,13 +19,11 @@ import { GeneralService } from '../services/general.service';
   ],
   declarations: [
     DashboardComponent,
-    TimelineComponent,
     MapComponent,
     CostsComponent,
   ],
   exports: [
     DashboardComponent,
-    TimelineComponent,
     MapComponent,
     CostsComponent,
   ],
