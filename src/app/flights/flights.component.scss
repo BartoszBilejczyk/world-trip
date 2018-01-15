@@ -15,7 +15,7 @@ ul.flights {
 
 .flights-content {
   overflow: scroll;
-  max-height: 400px;
+  max-height: 600px;
 }
 
 .flights-table-wrapper {
@@ -32,9 +32,4 @@ ul.flights {
       cursor: pointer;
     }
   }
-}
-
-#flightCostChart {
-  width: 300px;
-  height: 300px;
 }

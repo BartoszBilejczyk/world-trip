@@ -29,7 +29,20 @@ export const firebaseConfig = environment.firebaseConfig;
 import { AngularFireModule }         from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { TimelineService} from './services/timeline.service';
-import { AirbnbService } from './services/airbnb.service';
+import {CostsService} from "./services/costs.service";
+
+// ngrx
+import {StoreModule} from "@ngrx/store";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {EffectsModule} from "@ngrx/effects";
+import {TimelineEffects} from "./store/timeline/timeline.effects";
+import {UsefulEffects} from "./store/useful/useful.effects";
+import {GeneralEffects} from "./store/general/general.effects";
+import {FlightsEffects} from "./store/flights/flights.effects";
+import {CountriesEffects} from "./store/countries/countries.effects";
+import {CostsEffects} from "./store/costs/costs.effects";
+import {reducers} from "./store/index";
+import {timelineReducer} from "./store/timeline/timeline.reducer";
 
 @NgModule({
   declarations: [
@@ -48,13 +61,27 @@ import { AirbnbService } from './services/airbnb.service';
     DashboardModule,
     TimelineModule,
     AmChartsModule,
+    StoreModule.forRoot({
+      state: reducers
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 //  Retains last 25 states
+    }),
+    EffectsModule.forRoot([
+      TimelineEffects,
+      CostsEffects,
+      CountriesEffects,
+      FlightsEffects,
+      GeneralEffects,
+      UsefulEffects
+    ]),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule
   ],
   providers: [
     FlightsService,
     TimelineService,
-    AirbnbService
+    CostsService
   ],
   bootstrap: [AppComponent]
 })

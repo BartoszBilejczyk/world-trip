@@ -9,6 +9,7 @@ import { JourneyDetailsComponent } from './journey-details/journey-details.compo
 import { TimelineNavigationComponent } from './timeline-navigation/timeline-navigation.component';
 
 import { MatButtonModule } from '@angular/material/button';
+import {TimelineComponent} from "./timeline.component";
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
   ],
   declarations: [
+    TimelineComponent,
     TimelineListComponent,
     TimelineItemComponent,
     JourneyDetailsComponent,

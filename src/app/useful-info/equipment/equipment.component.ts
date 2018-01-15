@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsefulService } from '../../services/useful.service';
-import {HandleSubscription} from '../../helpers/handle-subscriptions';
-import {EquipmentDialogComponent} from "../../dialogs/equipment-dialog/equipment-dialog.component";
-import {MatDialog} from "@angular/material";
+import { HandleSubscription } from '../../helpers/handle-subscriptions';
+import { EquipmentDialogComponent } from "../../dialogs/equipment-dialog/equipment-dialog.component";
+import { MatDialog } from "@angular/material";
 
 @Component({
   selector: 'app-equipment',
@@ -34,5 +34,4 @@ export class EquipmentComponent extends HandleSubscription implements OnInit {
   deleteEquipment(event, equipment) {
     this.usefulService.deleteEquipment(equipment)
   }
-
 }

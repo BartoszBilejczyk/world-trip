@@ -3,6 +3,7 @@ import { GeneralService } from '../services/general.service';
 import {HandleSubscription} from '../helpers/handle-subscriptions';
 
 import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +14,8 @@ export class DashboardComponent extends HandleSubscription implements OnInit, On
   generalInfo: any;
   budgetChart: AmChart = null;
   costGaugeChart: AmChart = null;
+  daysLeft: number;
+  budget: number;
 
   constructor(
     private AmCharts: AmChartsService,
@@ -25,17 +28,20 @@ export class DashboardComponent extends HandleSubscription implements OnInit, On
     const sub = this.generalService.getGeneral().subscribe(generalInfo => {
       this.generalInfo = generalInfo[0];
 
+      const accountArray = this.generalInfo.accountState;
+      this.budget = accountArray[accountArray.length - 1].projected;
+      console.log(this.budget)
+
       this.createBudgetChart()
       this.createCostGaugeChart()
     })
 
     this.subscriptions.push(sub);
+
+    this.daysLeft = -(moment().diff( '2021-10-30', 'days'));
   }
 
-
   createBudgetChart() {
-    console.log(this.budgetChart)
-    console.log(this.generalInfo.accountState)
     this.budgetChart = this.AmCharts.makeChart("budgetChart", {
       "type": "serial",
       "theme": "light",
@@ -162,8 +168,8 @@ export class DashboardComponent extends HandleSubscription implements OnInit, On
         "innerRadius": "35%",
         "nailRadius": 0,
         "radius": "170%",
-        "value": 40
-      }]
+        "value": (3775 / this.budget) * 100,
+      }],
     });
   }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FlightsService } from '../services/flights.service';
 
-import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
 import { MatDialog } from '@angular/material';
 import { FlightDialogComponent } from '../dialogs/flight-dialog/flight-dialog.component';
 import { HandleSubscription } from '../helpers/handle-subscriptions';
@@ -12,7 +11,6 @@ import { HandleSubscription } from '../helpers/handle-subscriptions';
   styleUrls: ['./flights.component.scss']
 })
 export class FlightsComponent extends HandleSubscription implements OnInit, OnDestroy {
-  private flightsCostChart: AmChart;
   flights;
   minCostTotal = 0;
   maxCostTotal = 0;
@@ -21,7 +19,6 @@ export class FlightsComponent extends HandleSubscription implements OnInit, OnDe
   durationTotal = 0;
 
   constructor(
-    private AmCharts: AmChartsService,
     private flightsService: FlightsService,
     public dialog: MatDialog
   ) {
@@ -33,7 +30,6 @@ export class FlightsComponent extends HandleSubscription implements OnInit, OnDe
       this.flights = flights;
 
       this.calculateTotals();
-      this.createCostChart();
     })
 
     this.subscriptions.push(sub);
@@ -55,40 +51,6 @@ export class FlightsComponent extends HandleSubscription implements OnInit, OnDe
       this.airportToCityCostTotal += +item.airportToCityCost;
       this.durationTotal += +item.duration
     })
-  }
-
-  createCostChart() {
-    this.flightsCostChart = this.AmCharts.makeChart( "flightCostChart", {
-      "type": "pie",
-      "theme": "none",
-      "dataProvider": [
-        {
-          "title": "FlightCost",
-          "value": this.maxCostTotal,
-          "color": "#268298"
-        },
-        {
-          "title": "Luggage Cost",
-          "value": this.luggageCostTotal,
-          "color": "#d3d7dc"
-        },
-        {
-          "title": "Airport To City Cost",
-          "value": this.airportToCityCostTotal,
-          "color": "#d3d7dc"
-        }
-      ],
-      "titleField": "title",
-      "valueField": "value",
-      "labelRadius": 5,
-      "startDuration": 0,
-
-      "radius": "30%",
-      "innerRadius": "65%",
-      "export": {
-        "enabled": true
-      }
-    });
   }
 
 }
