@@ -1,16 +1,16 @@
 import { Action } from '@ngrx/store';
 
-export const LOAD_SITES = 'Sites loaded';
-export const LOAD_SITES_SUCCESS = 'Sites loaded success';
+export const LOAD_GENERAL = 'General loaded';
+export const LOAD_GENERAL_SUCCESS = 'General loaded success';
 
-export class LoadSites implements Action {
-  readonly type: string = LOAD_SITES;
+export class LoadGeneral implements Action {
+  readonly type: string = LOAD_GENERAL;
   constructor(public payload: any) { }
 }
 
-export class LoadSitesSuccess implements Action {
-  readonly type: string = LOAD_SITES_SUCCESS;
+export class LoadGeneralSuccess implements Action {
+  readonly type: string = LOAD_GENERAL_SUCCESS;
   constructor(public payload: any) { }
 }
 
-export type actions = LoadSites | LoadSitesSuccess;
+export type actions = LoadGeneral | LoadGeneralSuccess;

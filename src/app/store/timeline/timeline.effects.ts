@@ -6,7 +6,7 @@ import { TimelineService } from '../../services/timeline.service';
 import 'rxjs/add/operator/switchMap';
 
 @Injectable()
-export class timelineEffects {
+export class TimelineEffects {
   constructor(
     private actions$: Actions,
     private service: TimelineService
@@ -14,8 +14,8 @@ export class timelineEffects {
 
   @Effect()
   load$ = this.actions$
-    .ofType(timelineActions.LOAD_SITES)
-    .map((action: timelineActions.LoadSites) => action.payload)
+    .ofType(timelineActions.LOAD_TIMELINE)
+    .map((action: timelineActions.LoadTimeline) => action.payload)
     .switchMap(() => this.service.getTimeline())
-    .map((sites) => new timelineActions.LoadSitesSuccess(sites));
+    .map((timeline) => new timelineActions.LoadTimelineSuccess(timeline));
 }

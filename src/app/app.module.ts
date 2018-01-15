@@ -36,7 +36,12 @@ import {StoreModule} from "@ngrx/store";
 import {timelineReducer} from "./store/timeline/timeline.reducer";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {EffectsModule} from "@ngrx/effects";
-import {timelineEffects} from "./store/timeline/timeline.effects";
+import {TimelineEffects} from "./store/timeline/timeline.effects";
+import {UsefulEffects} from "./store/useful/useful.effects";
+import {GeneralEffects} from "./store/general/general.effects";
+import {FlightsEffects} from "./store/flights/flights.effects";
+import {CountriesEffects} from "./store/countries/countries.effects";
+import {CostsEffects} from "./store/costs/costs.effects";
 
 @NgModule({
   declarations: [
@@ -62,7 +67,12 @@ import {timelineEffects} from "./store/timeline/timeline.effects";
       maxAge: 25 //  Retains last 25 states
     }),
     EffectsModule.forRoot([
-      timelineEffects
+      TimelineEffects,
+      CostsEffects,
+      CountriesEffects,
+      FlightsEffects,
+      GeneralEffects,
+      UsefulEffects
     ]),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule

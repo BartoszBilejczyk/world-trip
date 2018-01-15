@@ -6,7 +6,7 @@ const initialState: any = {
 
 export function timelineReducer(state = initialState, action: timelineActions.actions) {
   switch (action.type) {
-    case timelineActions.LOAD_SITES_SUCCESS:
+    case timelineActions.LOAD_TIMELINE_SUCCESS:
       return {
         ...state,
         timeline: action.payload

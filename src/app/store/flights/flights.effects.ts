@@ -1,21 +1,21 @@
 import {Injectable} from '@angular/core';
 import {Effect, Actions} from '@ngrx/effects';
 
-import * as timelineActions from './flights.actions';
-import { TimelineService } from '../../services/timeline.service';
+import * as flightsActions from './flights.actions';
+import {FlightsService} from '../../services/flights.service';
 import 'rxjs/add/operator/switchMap';
 
 @Injectable()
-export class timelineEffects {
+export class FlightsEffects {
   constructor(
     private actions$: Actions,
-    private service: TimelineService
+    private service: FlightsService
   ) {}
 
   @Effect()
   load$ = this.actions$
-    .ofType(timelineActions.LOAD_SITES)
-    .map((action: timelineActions.LoadSites) => action.payload)
-    .switchMap(() => this.service.getTimeline())
-    .map((sites) => new timelineActions.LoadSitesSuccess(sites));
+    .ofType(flightsActions.LOAD_FLIGHTS)
+    .map((action: flightsActions.LoadFlights) => action.payload)
+    .switchMap(() => this.service.getFlights())
+    .map((flights) => new flightsActions.LoadFlightsSuccess(flights));
 }

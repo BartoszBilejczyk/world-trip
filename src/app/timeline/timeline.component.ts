@@ -5,6 +5,7 @@ import {TimelineItemDialogComponent} from "../dialogs/timeline-item-dialog/timel
 import {TimelineItem} from "../models/timeline.model";
 import {Store} from "@ngrx/store";
 import * as timelineActions from '../store/timeline/timeline.actions';
+import * as flightsActions from '../store/flights/flights.actions';
 import {Subscription} from "rxjs/Subscription";
 
 @Component({
@@ -29,7 +30,7 @@ export class TimelineComponent extends HandleSubscription implements OnInit, OnD
 
   ngOnInit() {
     if(this.timelineItems.length == 0 ) {
-      this.store.dispatch(new timelineActions.LoadSites(''))
+      this.store.dispatch(new timelineActions.LoadTimeline(''))
       console.log('asd')
 
     }

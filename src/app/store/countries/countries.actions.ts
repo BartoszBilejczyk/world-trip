@@ -1,16 +1,16 @@
 import { Action } from '@ngrx/store';
 
-export const LOAD_SITES = 'Sites loaded';
-export const LOAD_SITES_SUCCESS = 'Sites loaded success';
+export const LOAD_COUNTRIES = 'Countries loaded';
+export const LOAD_COUNTRIES_SUCCESS = 'Countries loaded success';
 
-export class LoadSites implements Action {
-  readonly type: string = LOAD_SITES;
+export class LoadCountries implements Action {
+  readonly type: string = LOAD_COUNTRIES;
   constructor(public payload: any) { }
 }
 
-export class LoadSitesSuccess implements Action {
-  readonly type: string = LOAD_SITES_SUCCESS;
+export class LoadCountriesSuccess implements Action {
+  readonly type: string = LOAD_COUNTRIES_SUCCESS;
   constructor(public payload: any) { }
 }
 
-export type actions = LoadSites | LoadSitesSuccess;
+export type actions = LoadCountries | LoadCountriesSuccess;
