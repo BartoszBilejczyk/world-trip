@@ -37,7 +37,8 @@ export class CostsComponent extends HandleSubscription implements OnInit, OnDest
   calculateFlightsCosts() {
     const flightsSubscription = this.costsService.getFLights().subscribe(async flight => {
       await flight.forEach((item) => {
-        this.flightsCosts += +item.minCost;
+        // 100 is every flight luggage cost
+        this.flightsCosts += +item.minCost + 100;
       })
     });
     this.subscriptions.push(flightsSubscription);
