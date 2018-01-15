@@ -1,15 +1,27 @@
-import * as timelineActions from './useful.actions';
+import * as usefulActions from './useful.actions';
 
 const initialState: any = {
-  timeline: []
+  visas: [],
+  vaccinations: [],
+  equipment: []
 };
 
-export function timelineReducer(state = initialState, action: timelineActions.actions) {
+export function usefulReducer(state = initialState, action: usefulActions.actions) {
   switch (action.type) {
-    case timelineActions.LOAD_SITES_SUCCESS:
+    case usefulActions.LOAD_VISAS_SUCCESS:
       return {
         ...state,
-        timeline: action.payload
+        visas: action.payload
+      };
+    case usefulActions.LOAD_VACCINATIONS_SUCCESS:
+      return {
+        ...state,
+        vaccinations: action.payload
+      };
+    case usefulActions.LOAD_EQUIPMENT_SUCCESS:
+      return {
+        ...state,
+        equipment: action.payload
       };
     default:
       return state;

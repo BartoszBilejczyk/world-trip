@@ -1,15 +1,15 @@
-import * as timelineActions from './countries.actions';
+import * as countriesActions from './countries.actions';
 
 const initialState: any = {
-  timeline: []
+  countries: []
 };
 
-export function timelineReducer(state = initialState, action: timelineActions.actions) {
+export function countriesReducer(state = initialState, action: countriesActions.actions) {
   switch (action.type) {
-    case timelineActions.LOAD_SITES_SUCCESS:
+    case countriesActions.LOAD_COUNTRIES_SUCCESS:
       return {
         ...state,
-        timeline: action.payload
+        countries: action.payload
       };
     default:
       return state;

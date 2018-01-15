@@ -1,15 +1,15 @@
-import * as timelineActions from './flights.actions';
+import * as flightsActions from './flights.actions';
 
 const initialState: any = {
-  timeline: []
+  flights: []
 };
 
-export function timelineReducer(state = initialState, action: timelineActions.actions) {
+export function flightsReducer(state = initialState, action: flightsActions.actions) {
   switch (action.type) {
-    case timelineActions.LOAD_SITES_SUCCESS:
+    case flightsActions.LOAD_FLIGHTS_SUCCESS:
       return {
         ...state,
-        timeline: action.payload
+        flights: action.payload
       };
     default:
       return state;

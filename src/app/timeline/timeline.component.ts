@@ -5,7 +5,6 @@ import {TimelineItemDialogComponent} from "../dialogs/timeline-item-dialog/timel
 import {TimelineItem} from "../models/timeline.model";
 import {Store} from "@ngrx/store";
 import * as timelineActions from '../store/timeline/timeline.actions';
-import * as flightsActions from '../store/flights/flights.actions';
 import {Subscription} from "rxjs/Subscription";
 
 @Component({
@@ -15,7 +14,7 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class TimelineComponent extends HandleSubscription implements OnInit, OnDestroy {
   timelineItems: TimelineItem[];
-  timelineSubscription: Subscription
+  timelineSubscription: Subscription;
 
   constructor(
     private dialog: MatDialog,
@@ -24,15 +23,13 @@ export class TimelineComponent extends HandleSubscription implements OnInit, OnD
     super(null);
 
     this.timelineSubscription = store
-      .select('state', 'timeline')
+      .select('state', 'timeline', 'timeline')
       .subscribe(timelineItems => this.timelineItems = timelineItems);
   }
 
   ngOnInit() {
     if(this.timelineItems.length == 0 ) {
-      this.store.dispatch(new timelineActions.LoadTimeline(''))
-      console.log('asd')
-
+      this.store.dispatch(new timelineActions.LoadTimeline(''));
     }
   }
 

@@ -1,15 +1,15 @@
-import * as timelineActions from './costs.actions';
+import * as costsActions from './costs.actions';
 
 const initialState: any = {
-  timeline: []
+  costs: []
 };
 
-export function timelineReducer(state = initialState, action: timelineActions.actions) {
+export function costsReducer(state = initialState, action: costsActions.actions) {
   switch (action.type) {
-    case timelineActions.LOAD_SITES_SUCCESS:
+    case costsActions.LOAD_COSTS_SUCCESS:
       return {
         ...state,
-        timeline: action.payload
+        costs: action.payload
       };
     default:
       return state;

@@ -1,15 +1,15 @@
-import * as timelineActions from './general.actions';
+import * as generalActions from './general.actions';
 
 const initialState: any = {
-  timeline: []
+  general: []
 };
 
-export function timelineReducer(state = initialState, action: timelineActions.actions) {
+export function generalReducer(state = initialState, action: generalActions.actions) {
   switch (action.type) {
-    case timelineActions.LOAD_SITES_SUCCESS:
+    case generalActions.LOAD_GENERAL_SUCCESS:
       return {
         ...state,
-        timeline: action.payload
+        general: action.payload
       };
     default:
       return state;
