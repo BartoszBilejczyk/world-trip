@@ -2,6 +2,7 @@
 
 .timeline-navigation {
   overflow-y: scroll;
+  @include font(12, medium)
 
   &-wrapper {
     width: 350px;

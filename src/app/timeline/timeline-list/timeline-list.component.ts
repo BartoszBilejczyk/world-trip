@@ -21,7 +21,11 @@ export class TimelineListComponent {
   ) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(TimelineItemDialogComponent);
+    const dialogRef = this.dialog.open(TimelineItemDialogComponent, {
+      data: {
+        timelineItem: {}
+      }
+    });
   }
 
 }

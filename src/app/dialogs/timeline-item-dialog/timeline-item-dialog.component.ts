@@ -1,6 +1,7 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, Inject, Input, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {MatDialogRef} from "@angular/material";
+import {MAT_DIALOG_DATA} from "@angular/material";
 import {TimelineService} from "../../services/timeline.service";
 import {TimelineItem} from "../../models/timeline.model";
 import * as moment from 'moment'
@@ -12,32 +13,41 @@ import * as moment from 'moment'
 })
 export class TimelineItemDialogComponent {
     @ViewChild('timelineItemForm') timelineItemForm: NgForm;
+    // timelineItem: TimelineItem;
+    // isBeingUpdated = false
 
-    timelineItem: TimelineItem = {
-      address: 'Address',
-      arrival: '',
-      city: '',
-      country: 'United States',
-      date: '',
-      departure: '',
-      imageURL: 'http://lorempixel.com/400/200/sports/',
-      note: 'Note',
-      type: 'flight'
-    }
+    // timelineItem: TimelineItem = {
+    //   address: 'Address',
+    //   arrival: '',
+    //   city: '',
+    //   country: 'United States',
+    //   date: '',
+    //   departure: '',
+    //   imageURL: 'http://lorempixel.com/400/200/sports/',
+    //   note: 'Note',
+    //   type: 'flight'
+    // }
 
     constructor(
-        private usefulService: TimelineService,
+        private timelineService: TimelineService,
         public dialogRef: MatDialogRef<TimelineItemDialogComponent>,
-    ) { }
+        @Inject(MAT_DIALOG_DATA) public data
+    ) {}
 
-    onSubmit() {
-        if(!this.timelineItemForm.valid) {
-          console.log(this.timelineItemForm)
-            return
-        }
+    onSubmit(){
+      if(!this.timelineItemForm.valid) {
+        return;
+      }
 
-        this.timelineItem.date = this.timelineItemForm.value.date._d;
-        this.usefulService.addTimelineItem(this.timelineItem);
-        this.dialogRef.close();
+      this.data.timelineItem.date = this.timelineItemForm.value.date._d;
+
+      if(this.data.isBeingUpdated) {
+        this.timelineService.updateTimeline(this.data.timelineItem);
+      } else {
+        this.timelineService.addTimelineItem(this.data.timelineItem)
+      }
+      this.dialogRef.close();
     }
+
+
 }

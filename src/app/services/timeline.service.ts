@@ -34,10 +34,10 @@ export class TimelineService {
     this.timelineDoc = this.afs.doc(`timeline/${timeline.id}`);
     this.timelineDoc.delete();
   }
-  //
-  // updateTimeline(timeline: Timeline) {
-  //   this.timelineDoc = this.afs.doc(`timeline/${timeline.id}`);
-  //   this.timelineDoc.update(timeline);
-  // }
+
+  updateTimeline(timeline) {
+    this.timelineDoc = this.afs.doc(`timeline/${timeline.id}`);
+    this.timelineDoc.update(timeline);
+  }
 
 }

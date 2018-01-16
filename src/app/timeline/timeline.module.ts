@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppCommonModule } from '../common/common.module';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -14,6 +15,7 @@ import {TimelineComponent} from "./timeline.component";
 @NgModule({
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     AppCommonModule,
     RouterModule,
     MatButtonModule,
