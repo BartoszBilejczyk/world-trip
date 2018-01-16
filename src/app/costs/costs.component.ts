@@ -32,17 +32,19 @@ export class CostsComponent extends HandleSubscription implements OnInit, OnDest
   }
 
   ngOnInit() {
-    this.store.dispatch(new flightsActions.LoadFlights(''));
-    this.store.dispatch(new timelineActions.LoadTimeline(''));
-    this.store.dispatch(new usefulActions.LoadVisas(''));
-    this.store.dispatch(new usefulActions.LoadVaccinations(''));
-    this.store.dispatch(new usefulActions.LoadEquipment(''));
-
     this.calculateFlightsCosts();
     this.calculateAirbnbCosts();
     this.calculateEquipmentCosts();
     this.calculateVisasCosts();
     this.calculateVaccinationsCosts();
+
+    if(this.flightsCosts === 0) {
+      this.store.dispatch(new flightsActions.LoadFlights(''));
+      this.store.dispatch(new timelineActions.LoadTimeline(''));
+      this.store.dispatch(new usefulActions.LoadVisas(''));
+      this.store.dispatch(new usefulActions.LoadVaccinations(''));
+      this.store.dispatch(new usefulActions.LoadEquipment(''));
+    }
   }
 
   calculateFlightsCosts() {
