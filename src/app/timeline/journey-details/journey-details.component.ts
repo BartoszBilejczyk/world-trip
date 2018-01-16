@@ -59,9 +59,9 @@ import {animate, keyframes, state, style, transition, trigger, sequence, query, 
         query('.reveal-and-hide', style({opacity: 0})),
 
         query('.reveal-and-hide', [
-          animate('2.5s 0.5s ease', keyframes([
-            style({opacity: 1, offset: 0.45}),
-            style({opacity: 1, offset: 0.75}),
+          animate('2.8s 0.5s ease', keyframes([
+            style({opacity: 1, offset: 0.35}),
+            style({opacity: 1, offset: 0.80}),
             style({opacity: 0, offset: 1})
         ]))
       ])
