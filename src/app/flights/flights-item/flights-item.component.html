@@ -1,72 +1,134 @@
-<div class="flights-table-wrapper row justify-between">
-  <div>
-    <p>{{ flight.date }}</p>
-  </div>
-  <div>
-    <p>{{ flight.from }}</p>
-  </div>
-  <div>
-    <p>{{ flight.to }}</p>
-  </div>
-  <div>
-    <p>{{ flight.minCost }}</p>
-  </div>
-  <div>
-    <p>{{ flight.maxCost }}</p>
-  </div>
-  <div>
-    <p>{{ flight.luggageCost}}</p>
-  </div>
-  <div>
-    <p>{{ flight.airportToCityCost }}</p>
-  </div>
-  <div>
-    <p>{{ flight.duration }}</p>
-  </div>
-  <div>
-    <p>{{ flight.airline }}</p>
-  </div>
-  <div class="row align-center">
-    <mat-icon (click)="deleteFlight($event, flight)">delete</mat-icon>
-  </div>
-  <div class="row align-center">
-    <mat-icon (click)="editFlight($event, flight)">mode_edit</mat-icon>
-  </div>
-</div>
+<!--<div class="flights-table-wrapper row justify-between">-->
+  <!--<div>-->
+    <!--<p>{{ flight.date }}</p>-->
+  <!--</div>-->
+  <!--<div>-->
+    <!--<p>{{ flight.from }}</p>-->
+  <!--</div>-->
+  <!--<div>-->
+    <!--<p>{{ flight.to }}</p>-->
+  <!--</div>-->
+  <!--<div>-->
+    <!--<p>{{ flight.minCost }}</p>-->
+  <!--</div>-->
+  <!--<div>-->
+    <!--<p>{{ flight.maxCost }}</p>-->
+  <!--</div>-->
+  <!--<div>-->
+    <!--<p>{{ flight.luggageCost}}</p>-->
+  <!--</div>-->
+  <!--<div>-->
+    <!--<p>{{ flight.airportToCityCost }}</p>-->
+  <!--</div>-->
+  <!--<div>-->
+    <!--<p>{{ flight.duration }}</p>-->
+  <!--</div>-->
+  <!--<div>-->
+    <!--<p>{{ flight.airline }}</p>-->
+  <!--</div>-->
+  <!--<div class="row align-center">-->
+    <!--<mat-icon (click)="deleteFlight($event, flight)">delete</mat-icon>-->
+  <!--</div>-->
+  <!--<div class="row align-center">-->
+    <!--<mat-icon (click)="editFlight($event, flight)">mode_edit</mat-icon>-->
+  <!--</div>-->
+<!--</div>-->
 
-<div *ngIf="editState && flightToEdit.id == flight.id">
-  <form (ngSubmit)="updateFlight(flight)" class="row">
+<!--<div *ngIf="editState && flightToEdit.id == flight.id">-->
+  <!--<form (ngSubmit)="updateFlight(flight)" class="row">-->
+    <!--&lt;!&ndash;<mat-form-field>&ndash;&gt;-->
+      <!--&lt;!&ndash;<input (click)="date.open()" matInput name="date" [matDatepicker]="date" placeholder="Date of flight" [(ngModel)]="flight.date">&ndash;&gt;-->
+      <!--&lt;!&ndash;<mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>&ndash;&gt;-->
+      <!--&lt;!&ndash;<mat-datepicker #date></mat-datepicker>&ndash;&gt;-->
+    <!--&lt;!&ndash;</mat-form-field>&ndash;&gt;-->
     <!--<mat-form-field>-->
-      <!--<input (click)="date.open()" matInput name="date" [matDatepicker]="date" placeholder="Date of flight" [(ngModel)]="flight.date">-->
-      <!--<mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>-->
-      <!--<mat-datepicker #date></mat-datepicker>-->
+      <!--<input matInput name="from" placeholder="From" [(ngModel)]="flight.from" required>-->
     <!--</mat-form-field>-->
-    <mat-form-field>
-      <input matInput name="from" placeholder="From" [(ngModel)]="flight.from" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput name="to" placeholder="To" [(ngModel)]="flight.to" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput name="minCost" placeholder="Minimum Cost" [(ngModel)]="flight.minCost" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput name="maxCost" placeholder="Maximum Cost" [(ngModel)]="flight.maxCost" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput name="luggageCost" placeholder="Luggage Cost" [(ngModel)]="flight.luggageCost" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput name="airportToCityCost" placeholder="Airport 2 City Cost" [(ngModel)]="flight.airportToCityCost" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput name="duration" placeholder="Duration" [(ngModel)]="flight.duration" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput name="airline" placeholder="Airline" [(ngModel)]="flight.airline" required>
-    </mat-form-field>
+    <!--<mat-form-field>-->
+      <!--<input matInput name="to" placeholder="To" [(ngModel)]="flight.to" required>-->
+    <!--</mat-form-field>-->
+    <!--<mat-form-field>-->
+      <!--<input matInput name="minCost" placeholder="Minimum Cost" [(ngModel)]="flight.minCost" required>-->
+    <!--</mat-form-field>-->
+    <!--<mat-form-field>-->
+      <!--<input matInput name="maxCost" placeholder="Maximum Cost" [(ngModel)]="flight.maxCost" required>-->
+    <!--</mat-form-field>-->
+    <!--<mat-form-field>-->
+      <!--<input matInput name="luggageCost" placeholder="Luggage Cost" [(ngModel)]="flight.luggageCost" required>-->
+    <!--</mat-form-field>-->
+    <!--<mat-form-field>-->
+      <!--<input matInput name="airportToCityCost" placeholder="Airport 2 City Cost" [(ngModel)]="flight.airportToCityCost" required>-->
+    <!--</mat-form-field>-->
+    <!--<mat-form-field>-->
+      <!--<input matInput name="duration" placeholder="Duration" [(ngModel)]="flight.duration" required>-->
+    <!--</mat-form-field>-->
+    <!--<mat-form-field>-->
+      <!--<input matInput name="airline" placeholder="Airline" [(ngModel)]="flight.airline" required>-->
+    <!--</mat-form-field>-->
 
-    <button mat-raised-button color="secondary">Update Flight</button>
+    <!--<button mat-raised-button color="secondary">Update Flight</button>-->
 
-  </form>
+  <!--</form>-->
+<!--</div>-->
+
+
+<div class="flight">
+  <div class="date-wrapper">
+    <p class="date">Monday, 10<sup>th</sup> January 2020</p>
+    <div class="date-underline">
+      <div class="date-underline--active"></div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="flight-box">
+      <div class="row">
+        <div class="col-4 row align-center justify-center">
+          <div class="col departure">
+            <p>DEPARTURE</p>
+            <p class="airport-name">SDF</p>
+          </div>
+        </div>
+        <div class="col-4 row align-center justify-center">
+          <div class="flight-description col">
+            <img src="/assets/images/journey.png" alt="" class="journey-icon">
+            <div class="row justify-between">
+              <p>Price</p>
+              <p>{{ flight.maxCost}} </p>
+            </div>
+            <div class="row justify-between">
+              <p>Duration</p>
+              <p>12h</p>
+            </div>
+            <div class="row justify-between">
+              <p>Airline</p>
+              <p>{{ flight.airline }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 row align-center justify-center">
+          <div class="arrival">
+            <p>ARRIVAL</p>
+            <p class="airport-name">TAI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flight-box-additional">
+      <div class="row">
+        <div class="col-3 row align-center justify-center">
+          Check-in
+        </div>
+        <div class="col-3 row align-center justify-center">
+          Boarding Pass
+        </div>
+        <div class="col-3 row align-center justify-center">
+          Departure details
+        </div>
+        <div class="col-3 row align-center justify-center">
+          Arrival details
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
