@@ -63,7 +63,8 @@ import {animate, keyframes, state, style, transition, trigger, sequence, query, 
             style({opacity: 1, offset: 0.35}),
             style({opacity: 1, offset: 0.80}),
             style({opacity: 0, offset: 1})
-        ]))
+          ]))
+        ])
       ])
     ])
   ]
