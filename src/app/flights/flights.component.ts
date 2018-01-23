@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FlightsService } from '../services/flights.service';
+import {Component, OnInit} from '@angular/core';
 
 import { MatDialog } from '@angular/material';
 import { FlightDialogComponent } from '../dialogs/flight-dialog/flight-dialog.component';
@@ -13,18 +12,19 @@ import {Flight} from "../models/flight.model";
   templateUrl: './flights.component.html',
   styleUrls: ['./flights.component.scss']
 })
-export class FlightsComponent extends HandleSubscription implements OnInit, OnDestroy {
+export class FlightsComponent extends HandleSubscription implements OnInit {
   flights: Flight[] = [];
   minCostTotal = 0;
   maxCostTotal = 0;
   luggageCostTotal = 0;
   airportToCityCostTotal = 0;
   durationTotal = 0;
+  test = 200;
+  imageUrl: string;
 
   constructor(
-    private flightsService: FlightsService,
     public dialog: MatDialog,
-    private store: Store<any>
+    private store: Store<any>,
   ) {
     super(null)
   }
@@ -62,4 +62,9 @@ export class FlightsComponent extends HandleSubscription implements OnInit, OnDe
     })
   }
 
+  action(e) {
+    if (e.value) {
+      this.imageUrl = `/assets/images/${e.target.children[0].children[1].children[0].children[0].children[1].children[0].children[3].children[1].innerText}.png`
+    }
+  }
 }

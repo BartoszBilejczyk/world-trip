@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FlightsService } from '../../services/flights.service';
 import { Flight } from '../../models/flight.model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-flights-item',
@@ -12,9 +13,11 @@ export class FlightsItemComponent implements OnInit {
   editState: boolean = false;
   flightToEdit: Flight;
 
+
   constructor(private flightsService: FlightsService) { }
 
   ngOnInit() {
+    this.flight.date = moment(this.flight.date).format('dddd, LL');
   }
 
   deleteFlight(event, flight) {

@@ -1,64 +1,21 @@
-<!--<div class="container">-->
-  <!--<div class="row align-center justify-between">-->
-    <!--<h1>Flights</h1>-->
-    <!--<button mat-raised-button color="primary" (click)="openDialog()">Add Flight</button>-->
-  <!--</div>-->
-
-  <!--<ul class="flights">-->
-    <!--<app-flights-nav></app-flights-nav>-->
-    <!--<div class="flights-content" *ngIf="flights.length !== 0 ; else loading ">-->
-       <!--<li-->
-        <!--*ngFor="let flight of flights let even = even; let odd = odd"-->
-        <!--[ngClass]="{odd: odd, even: even}">-->
-        <!--<app-flights-item-->
-          <!--[flight]="flight">-->
-        <!--</app-flights-item>-->
-      <!--</li>-->
-    <!--</div>-->
-    <!--<div>-->
-      <!--<div class="flights-table-wrapper row justify-between" *ngIf="flights">-->
-        <!--<div></div>-->
-        <!--<div></div>-->
-        <!--<div></div>-->
-        <!--<div>-->
-          <!--<p>{{ minCostTotal }}</p>-->
-        <!--</div>-->
-        <!--<div>-->
-          <!--<p>{{ maxCostTotal }}</p>-->
-        <!--</div>-->
-        <!--<div>-->
-          <!--<p>{{ luggageCostTotal }}</p>-->
-        <!--</div>-->
-        <!--<div>-->
-          <!--<p>{{ airportToCityCostTotal }}</p>-->
-        <!--</div>-->
-        <!--<div>-->
-          <!--<p>{{ durationTotal }}</p>-->
-        <!--</div>-->
-        <!--<div></div>-->
-        <!--<div></div>-->
-        <!--<div></div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</ul>-->
-<!--</div>-->
-
-<!--<ng-template #loading>-->
-  <!--<mat-spinner></mat-spinner>-->
-<!--</ng-template>-->
-
 <section class="airline">
-  <app-airlines-item></app-airlines-item>
+  <app-airlines-item
+    [image]="imageUrl"></app-airlines-item>
+  {{ imageUrl }}
 </section>
 
-
-<div class="flights-wrapper" *ngIf="flights.length !== 0 ; else loading ">
+<div
+  class="flights-wrapper" id="flights-wrapper"
+  *ngIf="flights.length !== 0 ; else loading">
   <div
-    *ngFor="let flight of flights let even = even; let odd = odd"
-    [ngClass]="{odd: odd, even: even}"
-    class="flight-wrapper">
+    class="flight-wrapper"
+    *ngFor="let flight of flights"
+    >
     <app-flights-item
-      [flight]="flight">
+      [flight]="flight"
+      class="flight-item"
+      in-viewport
+      (inViewportAction)="action($event)">
     </app-flights-item>
   </div>
 </div>

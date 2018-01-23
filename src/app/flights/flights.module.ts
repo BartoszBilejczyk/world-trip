@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { AppCommonModule } from '../common/common.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InViewportModule } from "ng-in-viewport";
 import { FlightsComponent } from './flights.component';
 import { FlightsItemComponent } from './flights-item/flights-item.component';
 import { AirlinesComponent } from './airlines/airlines.component';
@@ -10,10 +11,10 @@ import { FlightsNavComponent } from './flights-nav/flights-nav.component';
 
 import { MatButtonModule } from '@angular/material/button';
 
-
 @NgModule({
   imports: [
     CommonModule,
+    InViewportModule.forRoot(),
     AppCommonModule,
     FormsModule,
     ReactiveFormsModule,

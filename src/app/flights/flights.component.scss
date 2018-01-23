@@ -52,12 +52,5 @@
 }
 
 .flight-wrapper {
-  margin: 150px 0;
-
-  &:first-of-type {
-    margin-top: 80px;
-  }
-  &:last-of-type {
-    margin-bottom: 80px;
-  }
+  height: 100vh;
 }

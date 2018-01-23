@@ -74,7 +74,7 @@
 
 <div class="flight">
   <div class="date-wrapper">
-    <p class="date">Monday, 10<sup>th</sup> January 2020</p>
+    <p class="date">{{ flight.date }}</p>
     <div class="date-underline">
       <div class="date-underline--active"></div>
     </div>
@@ -86,7 +86,7 @@
         <div class="col-4 row align-center justify-center">
           <div class="col departure">
             <p>DEPARTURE</p>
-            <p class="airport-name">SDF</p>
+            <p class="airport-name">{{ flight.from.slice(0, 3).toUpperCase() }}</p>
           </div>
         </div>
         <div class="col-4 row align-center justify-center">
@@ -109,7 +109,7 @@
         <div class="col-4 row align-center justify-center">
           <div class="arrival">
             <p>ARRIVAL</p>
-            <p class="airport-name">TAI</p>
+            <p class="airport-name">{{ flight.to.slice(0, 3).toUpperCase() }}</p>
           </div>
         </div>
       </div>
