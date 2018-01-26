@@ -3,15 +3,14 @@
 .journey-wrapper {
   max-height: 100vh;
   overflow-y: hidden;
-  position: relative;
 }
 
-.description {
+.content {
   width: calc(35vw - 60px);
   margin-top: 50px;
 
   h1 {
-    @include font(120, semi);
+    @include font(80, semi);
   }
 
   p {
@@ -20,17 +19,24 @@
   }
 }
 
+.back {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 150px;
+}
+
 .landscape {
   position: fixed;
   top: 0;
   right: 0;
-  height: 75vh;
+  height: 100vh;
   width: calc(55vw - 60px);
   object-fit: cover;
   object-position: 50% 50%;
 }
 
-.sightseeing-wrapper {
+.sightseeing {
   position: fixed;
   height: 100vh;
   left: 45vw;
@@ -51,11 +57,23 @@
   bottom: 0;
   height: 25vh;
   width: 25vw;
-  background: pal(red, ultra-light);
+  background: pal(gray, ultra-light);
 }
 
 .back-to-timeline {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.reveal-and-hide {
+  @include font(200, bold);
+  color: pal(white);
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 100;
+  text-shadow: 1px 1px 5px pal(black);
 }

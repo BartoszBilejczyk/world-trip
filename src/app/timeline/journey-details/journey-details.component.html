@@ -1,67 +1,36 @@
 <div class="row journey-wrapper" *ngIf="journey; else loading">
-  <div class="description col align-center relative">
-    <a routerLink="/timeline" class="back-to-timeline">
-      <div class="row align-center">
-        <mat-icon>chevron_left</mat-icon>
-        Back to timeline
-      </div>
-    </a>
+  <div class="content-wrapper" [@content]>
+    <div class="content col align-center relative">
+      <a routerLink="/timeline" class="back-to-timeline">
+        <div class="row align-center back">
+          <mat-icon>chevron_left</mat-icon>
+          Back to timeline
+        </div>
+      </a>
 
-    <h1>{{ journey.city }}</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aut, beatae distinctio dolorem doloribus eius facere fuga illum ipsum mollitia neque nihil nostrum officiis pariatur quibusdam rerum voluptates, voluptatum.</p>
+      <h1>{{ journey.city }}</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aut, beatae distinctio dolorem doloribus eius facere fuga illum ipsum mollitia neque nihil nostrum officiis pariatur quibusdam rerum voluptates, voluptatum.</p>
+    </div>
   </div>
 
-  <div>
+  <div [@imageAnimation]>
     <img [src]="journey.imageURL" alt="" class="landscape">
   </div>
 
-  <div class="sightseeing-wrapper container">
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
-    <h2>Information about something</h2>
-    <br>
+  <div class="sightseeing-wrapper" [@sightseeingBox]>
+  <!--<div class="sightseeing-wrapper">-->
+    <div class="sightseeing container">
+      <h2 class="test" *ngFor="let i of test">Information about something</h2>
+      <br>
+    </div>
   </div>
-  <div class="more"></div>
+  <div class="more-wrapper" [@moreBox]>
+    <div class="more"></div>
+  </div>
+
+  <div [@revealAndHide] class="reveal-and-hide-wrapper">
+    <p class="reveal-and-hide">{{ journey.city }}</p>
+  </div>
 </div>
 
 <ng-template #loading>

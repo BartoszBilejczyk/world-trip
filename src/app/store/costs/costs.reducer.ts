@@ -1,7 +1,7 @@
 import * as costsActions from './costs.actions';
 
 const initialState: any = {
-  costs: []
+  data: []
 };
 
 export function costsReducer(state = initialState, action: costsActions.actions) {
@@ -9,7 +9,7 @@ export function costsReducer(state = initialState, action: costsActions.actions)
     case costsActions.LOAD_COSTS_SUCCESS:
       return {
         ...state,
-        costs: action.payload
+        data: action.payload
       };
     default:
       return state;

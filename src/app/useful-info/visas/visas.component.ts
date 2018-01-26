@@ -3,6 +3,9 @@ import { UsefulService } from '../../services/useful.service';
 import {HandleSubscription} from '../../helpers/handle-subscriptions';
 import {MatDialog} from "@angular/material";
 import {VisaDialogComponent} from "../../dialogs/visa-dialog/visa-dialog.component";
+import {Store} from "@ngrx/store";
+import {Visa} from "../../models/visa.model";
+import * as usefulActions from '../../store/useful/useful.actions';
 
 @Component({
   selector: 'app-visas',
@@ -10,20 +13,24 @@ import {VisaDialogComponent} from "../../dialogs/visa-dialog/visa-dialog.compone
   styleUrls: ['./visas.component.scss']
 })
 export class VisasComponent extends HandleSubscription implements OnInit {
-  visas;
+  visas: Visa[];
 
   constructor(
     private usefulService: UsefulService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private store: Store<any>
   ) {
     super(null);
   }
 
   ngOnInit() {
-    const sub = this.usefulService.getVisas().subscribe(visas => {
-      this.visas = [];
+    const sub = this.store.select('state', 'useful', 'visas').subscribe(visas => {
       this.visas = visas;
     })
+
+    if(!this.visas.length) {
+      this.store.dispatch(new usefulActions.LoadVisas(''));
+    }
 
     this.subscriptions.push(sub);
   }

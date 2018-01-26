@@ -38,7 +38,7 @@ export class FlightDialogComponent {
       return
     }
 
-    this.flight.date = moment(this.flightForm.value.date._d).format('L');
+    this.flight.date = this.flightForm.value.date._d;
     this.flightsService.addFlight(this.flight)
     this.dialogRef.close();
   }

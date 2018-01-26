@@ -3,6 +3,9 @@ import { UsefulService } from '../../services/useful.service';
 import { HandleSubscription } from '../../helpers/handle-subscriptions';
 import { EquipmentDialogComponent } from "../../dialogs/equipment-dialog/equipment-dialog.component";
 import { MatDialog } from "@angular/material";
+import {Equipment} from "../../models/equipment.model";
+import {Store} from "@ngrx/store";
+import * as usefulActions from '../../store/useful/useful.actions';
 
 @Component({
   selector: 'app-equipment',
@@ -10,19 +13,24 @@ import { MatDialog } from "@angular/material";
   styleUrls: ['./equipment.component.scss']
 })
 export class EquipmentComponent extends HandleSubscription implements OnInit {
-  equipment: any;
+  equipment: Equipment[];
 
   constructor(
     private usefulService: UsefulService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private store: Store<any>
   ) {
     super(null);
   }
 
   ngOnInit() {
-    const sub = this.usefulService.getEquipment().subscribe(eq => {
+    const sub = this.store.select('state', 'useful', 'equipment').subscribe(eq => {
       this.equipment = eq;
     })
+
+    if(!this.equipment.length) {
+      this.store.dispatch(new usefulActions.LoadEquipment(''));
+    }
 
     this.subscriptions.push(sub);
   }

@@ -20,5 +20,5 @@
   </div>
 </div>
 
-<mat-spinner *ngIf="!equipment" [diameter]="25"></mat-spinner>
+<mat-spinner *ngIf="equipment.length === 0" [diameter]="25"></mat-spinner>
 

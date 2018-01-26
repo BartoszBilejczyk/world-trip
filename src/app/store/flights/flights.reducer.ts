@@ -1,7 +1,7 @@
 import * as flightsActions from './flights.actions';
 
 const initialState: any = {
-  flights: []
+  data: []
 };
 
 export function flightsReducer(state = initialState, action: flightsActions.actions) {
@@ -9,7 +9,7 @@ export function flightsReducer(state = initialState, action: flightsActions.acti
     case flightsActions.LOAD_FLIGHTS_SUCCESS:
       return {
         ...state,
-        flights: action.payload
+        data: action.payload
       };
     default:
       return state;

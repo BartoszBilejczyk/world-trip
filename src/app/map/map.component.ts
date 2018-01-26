@@ -346,7 +346,7 @@ export class MapComponent implements OnInit, OnDestroy {
         "unlistedAreasColor": "#fff"
       },
       "imagesSettings": {
-        "color": "red",
+        "color": "black",
         "rollOverColor": "#fff",
         "selectedColor": "#fff",
         "pauseDuration": 0.4,
@@ -354,7 +354,7 @@ export class MapComponent implements OnInit, OnDestroy {
         "adjustAnimationSpeed": true
       },
       "linesSettings": {
-        "color": "red",
+        "color": "black",
         "alpha": 0.4
       },
       "listeners": [{

@@ -1,7 +1,7 @@
 import * as generalActions from './general.actions';
 
 const initialState: any = {
-  general: []
+  data: []
 };
 
 export function generalReducer(state = initialState, action: generalActions.actions) {
@@ -9,7 +9,7 @@ export function generalReducer(state = initialState, action: generalActions.acti
     case generalActions.LOAD_GENERAL_SUCCESS:
       return {
         ...state,
-        general: action.payload
+        data: action.payload
       };
     default:
       return state;

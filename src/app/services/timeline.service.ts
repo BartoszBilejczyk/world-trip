@@ -11,7 +11,7 @@ export class TimelineService {
   timelineDoc: AngularFirestoreDocument<TimelineItem>;
 
   constructor(private afs: AngularFirestore) {
-    this.timelineCollection = this.afs.collection('timeline');
+    this.timelineCollection = this.afs.collection('timeline', ref => ref.orderBy('date', 'asc'));
 
     this.timeline = this.timelineCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
@@ -34,10 +34,10 @@ export class TimelineService {
     this.timelineDoc = this.afs.doc(`timeline/${timeline.id}`);
     this.timelineDoc.delete();
   }
-  //
-  // updateTimeline(timeline: Timeline) {
-  //   this.timelineDoc = this.afs.doc(`timeline/${timeline.id}`);
-  //   this.timelineDoc.update(timeline);
-  // }
+
+  updateTimeline(timeline) {
+    this.timelineDoc = this.afs.doc(`timeline/${timeline.id}`);
+    this.timelineDoc.update(timeline);
+  }
 
 }

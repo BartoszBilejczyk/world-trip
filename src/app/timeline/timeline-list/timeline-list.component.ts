@@ -18,13 +18,14 @@ export class TimelineListComponent {
 
   constructor(
     private dialog: MatDialog,
-  ) {
-  }
-
-
+  ) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(TimelineItemDialogComponent);
+    const dialogRef = this.dialog.open(TimelineItemDialogComponent, {
+      data: {
+        timelineItem: {}
+      }
+    });
   }
 
 }

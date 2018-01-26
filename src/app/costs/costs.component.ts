@@ -3,6 +3,10 @@ import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
 import { CostsService } from "../services/costs.service";
 
 import { HandleSubscription } from "../helpers/handle-subscriptions";
+import {Store} from "@ngrx/store";
+import * as flightsActions from '../store/flights/flights.actions';
+import * as timelineActions from '../store/timeline/timeline.actions';
+import * as usefulActions from '../store/useful/useful.actions';
 
 @Component({
   selector: 'app-costs',
@@ -21,7 +25,8 @@ export class CostsComponent extends HandleSubscription implements OnInit, OnDest
 
   constructor(
     private AmCharts: AmChartsService,
-    private costsService: CostsService
+    private costsService: CostsService,
+    private store: Store<any>
   ) {
     super(null);
   }
@@ -32,11 +37,19 @@ export class CostsComponent extends HandleSubscription implements OnInit, OnDest
     this.calculateEquipmentCosts();
     this.calculateVisasCosts();
     this.calculateVaccinationsCosts();
+
+    if(this.flightsCosts === 0) {
+      this.store.dispatch(new flightsActions.LoadFlights(''));
+      this.store.dispatch(new timelineActions.LoadTimeline(''));
+      this.store.dispatch(new usefulActions.LoadVisas(''));
+      this.store.dispatch(new usefulActions.LoadVaccinations(''));
+      this.store.dispatch(new usefulActions.LoadEquipment(''));
+    }
   }
 
   calculateFlightsCosts() {
-    const flightsSubscription = this.costsService.getFLights().subscribe(async flight => {
-      await flight.forEach((item) => {
+    const flightsSubscription = this.store.select('state', 'flights', 'data').subscribe( flight => {
+      flight.forEach((item) => {
         // 100 is every flight luggage cost
         this.flightsCosts += +item.minCost + 100;
       })
@@ -44,32 +57,32 @@ export class CostsComponent extends HandleSubscription implements OnInit, OnDest
     this.subscriptions.push(flightsSubscription);
   }
   calculateAirbnbCosts() {
-    const timelineSubscription = this.costsService.getTimeline().subscribe(async journey => {
-      await journey.forEach((item) => {
+    const timelineSubscription = this.store.select('state', 'timeline', 'data').subscribe( journey => {
+      journey.forEach((item) => {
         this.airbnbCosts += +item.pricePerNight;
       })
     });
     this.subscriptions.push(timelineSubscription);
   }
   calculateEquipmentCosts() {
-    const equipmentSubscription = this.costsService.getEquipment().subscribe(async eqItem => {
-      await eqItem.forEach((item) => {
+    const equipmentSubscription = this.store.select('state', 'useful', 'equipment').subscribe( eqItem => {
+      eqItem.forEach((item) => {
         this.equipmentCosts += +item.price;
       })
     });
     this.subscriptions.push(equipmentSubscription);
   }
   calculateVisasCosts() {
-    const visasSubscription = this.costsService.getVisas().subscribe(async visa => {
-      await visa.forEach((item) => {
+    const visasSubscription = this.store.select('state', 'useful', 'visas').subscribe( visa => {
+      visa.forEach((item) => {
         this.visasCosts += +item.price;
       })
     });
     this.subscriptions.push(visasSubscription);
   }
   calculateVaccinationsCosts() {
-    const vaccinationsSubscription = this.costsService.getVaccinations().subscribe(async vaccination => {
-      await vaccination.forEach((item) => {
+    const vaccinationsSubscription = this.store.select('state', 'useful', 'vaccinations').subscribe( vaccination => {
+      vaccination.forEach((item) => {
         this.vaccinationsCosts += +item.price;
       })
     });
