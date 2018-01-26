@@ -1,47 +1,13 @@
 @import '../../styles.scss';
 
-//ul.flights {
-//  min-height: 200px;
-//  margin: 30px auto 0;
-//  @include font (16, 500)
-//
-//  li {
-//    padding: 10px;
-//    background-color: pal(white);
-//    border-bottom: 1px solid pal(gray, x-light);
-//    transition: 0.3s ease;
-//  }
-//}
-//
-//.flights-content {
-//  overflow: scroll;
-//  max-height: 600px;
-//}
-//
-//.flights-table-wrapper {
-//  padding: 10px;
-//  background-color: pal(gray, light);
-//  color: pal(dashboard, dark);
-//
-//  > div {
-//    flex-basis: 10%;
-//
-//    &:nth-of-type(10),
-//    &:nth-of-type(11) {
-//      flex-basis: 5%;
-//      cursor: pointer;
-//    }
-//  }
-//}
-
-
 .airline {
   position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
   width: 300px;
-  background: #ffb300;
+  background: white;
+  transition: 0.4s;
 }
 
 .flights-wrapper {
@@ -53,4 +19,5 @@
 
 .flight-wrapper {
   height: 100vh;
+  margin-top: 25vh;
 }

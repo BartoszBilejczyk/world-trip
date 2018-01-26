@@ -1,7 +1,6 @@
-<section class="airline">
+<section class="airline" [style.background]="currentColor">
   <app-airlines-item
     [image]="imageUrl"></app-airlines-item>
-  {{ imageUrl }}
 </section>
 
 <div
@@ -15,7 +14,8 @@
       [flight]="flight"
       class="flight-item"
       in-viewport
-      (inViewportAction)="action($event)">
+      [inViewportOptions]="{ partial: true }"
+      (inViewportAction)="action($event, flight)">
     </app-flights-item>
   </div>
 </div>

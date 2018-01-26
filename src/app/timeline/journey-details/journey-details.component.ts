@@ -74,9 +74,6 @@ export class JourneyDetailsComponent extends HandleSubscription implements OnIni
   journey$: Observable<any>;
   journeyName: string;
   journey: Journey;
-  test = [
-    1, 2, 3, 4, 5
-  ]
 
   constructor(
     private renderer: Renderer2,
@@ -85,25 +82,31 @@ export class JourneyDetailsComponent extends HandleSubscription implements OnIni
   ) {
     super(null);
 
-    const sub = this.route.url.subscribe(url => {
-      const name = url[1].path;
-      this.journeyName = name.charAt(0).toUpperCase() + name.slice(1);
+    const journeyNameSubscription = this.route.url.subscribe(url => {
+      let name = url[1].path;
+      let splitName = name.split('-');
+      let finalName = splitName[0].charAt(0).toUpperCase() + splitName[0].slice(1);
+      if (splitName[1]) {
+        finalName = finalName + ' ' + splitName[1].charAt(0).toUpperCase() + splitName[1].slice(1)
+      }
+      if (splitName[2]) {
+        finalName = finalName + ' ' + splitName[2].charAt(0).toUpperCase() + splitName[2].slice(1)
+      }
+      // this.journeyName = name.charAt(0).toUpperCase() + name.slice(1);
+      // this.journeyName = name.split('-') name.charAt(0).toUpperCase() + name.slice(1);
+      this.journeyName = finalName
     });
 
     this.journey$ = this.afs.collection('timeline', ref => ref.where('city', '==', this.journeyName)).valueChanges();
   }
 
   ngOnInit() {
-    this.renderer.addClass(document.body, 'overflow-hidden');
+
     const journeySubscription = this.journey$.subscribe(journey => {
       this.journey = journey[0]
-      console.log(this.journey)
     })
 
-    this.subscriptions.push(journeySubscription);
-  }
 
-  ngOnDestroy() {
-    this.renderer.removeClass(document.body, 'overflow-hidden');
+    this.subscriptions.push(journeySubscription);
   }
 }
