@@ -40,9 +40,7 @@ import {UsefulEffects} from "./store/useful/useful.effects";
 import {GeneralEffects} from "./store/general/general.effects";
 import {FlightsEffects} from "./store/flights/flights.effects";
 import {CountriesEffects} from "./store/countries/countries.effects";
-import {CostsEffects} from "./store/costs/costs.effects";
 import {reducers} from "./store/index";
-import {timelineReducer} from "./store/timeline/timeline.reducer";
 
 @NgModule({
   declarations: [
@@ -69,7 +67,6 @@ import {timelineReducer} from "./store/timeline/timeline.reducer";
     }),
     EffectsModule.forRoot([
       TimelineEffects,
-      CostsEffects,
       CountriesEffects,
       FlightsEffects,
       GeneralEffects,

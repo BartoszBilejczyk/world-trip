@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-airlines-item',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./airlines-item.component.scss']
 })
 export class AirlinesItemComponent implements OnInit {
+  @Input() image: string;
 
   constructor() { }
 

@@ -19,13 +19,8 @@ export class CostsComponent extends HandleSubscription implements OnInit, OnDest
   equipmentCosts = 0;
   visasCosts = 0;
   vaccinationsCosts = 0;
-  usefulCosts = 0;
-
-
 
   constructor(
-    private AmCharts: AmChartsService,
-    private costsService: CostsService,
     private store: Store<any>
   ) {
     super(null);

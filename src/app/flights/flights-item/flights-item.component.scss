@@ -1,12 +1,41 @@
-.flights-table-wrapper {
-  > div {
-    flex-basis: 10%;
+@import '../../../styles.scss';
 
-    &:nth-of-type(10),
-    &:nth-of-type(11) {
-      flex-basis: 5%;
-      cursor: pointer;
+.date {
+  @include font(24, medium);
+
+  &-underline {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    background-color: pal(gray, light);
+
+    &--active {
+      position: absolute;
+      width: 300px;
+      height: 3px;
+      left: 0;
+      top: 0;
+      background-color: pal(blue, x-dark);
     }
+  }
+
+  &-wrapper {
+    margin-bottom: 20px;
   }
 }
 
+.flight-box,
+.flight-box-additional {
+  background-color: pal(gray, light);
+  border: 1px solid pal(gray, mid-light);
+  padding: 15px;
+}
+
+.journey-icon {
+  width: 90px;
+  height: auto;
+}
+
+.airport-name {
+  @include font(65, bold);
+}

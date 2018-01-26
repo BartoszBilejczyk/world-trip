@@ -27,7 +27,7 @@
               </div>
               <p>{{ city.note }}</p>
 
-              <a [routerLink]="['/journey', city.city.toLowerCase()]">
+              <a [routerLink]="['/journey', city.city.toLowerCase().split(' ').join('-')]">
                 <button mat-raised-button color="primary">More Details</button>
               </a>
             </div>

@@ -2,7 +2,7 @@
   <div class="timeline-navigation">
     <ul>
       <li *ngFor="let item of timelineItems" class="timeline-item row align-center justify-between">
-        <a [routerLink]="['/journey', item.city.toLowerCase()]" class="col-9">
+        <a [routerLink]="['/journey', item.city.toLowerCase().split(' ').join('-')]" class="col-9">
           <div class="row align-center timeline-item-content">
             <div class="col-5">
               {{ item.departure.toUpperCase() }}

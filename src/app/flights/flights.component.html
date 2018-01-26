@@ -1,46 +1,23 @@
-<div class="container">
-  <div class="row align-center justify-between">
-    <h1>Flights</h1>
-    <button mat-raised-button color="primary" (click)="openDialog()">Add Flight</button>
-  </div>
+<section class="airline" [style.background]="currentColor">
+  <app-airlines-item
+    [image]="imageUrl"></app-airlines-item>
+</section>
 
-  <ul class="flights">
-    <app-flights-nav></app-flights-nav>
-    <div class="flights-content" *ngIf="flights.length !== 0 ; else loading ">
-       <li
-        *ngFor="let flight of flights let even = even; let odd = odd"
-        [ngClass]="{odd: odd, even: even}">
-        <app-flights-item
-          [flight]="flight">
-        </app-flights-item>
-      </li>
-    </div>
-    <div>
-      <div class="flights-table-wrapper row justify-between" *ngIf="flights">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div>
-          <p>{{ minCostTotal }}</p>
-        </div>
-        <div>
-          <p>{{ maxCostTotal }}</p>
-        </div>
-        <div>
-          <p>{{ luggageCostTotal }}</p>
-        </div>
-        <div>
-          <p>{{ airportToCityCostTotal }}</p>
-        </div>
-        <div>
-          <p>{{ durationTotal }}</p>
-        </div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  </ul>
+<div
+  class="flights-wrapper" id="flights-wrapper"
+  *ngIf="flights.length !== 0 ; else loading">
+  <div
+    class="flight-wrapper"
+    *ngFor="let flight of flights"
+    >
+    <app-flights-item
+      [flight]="flight"
+      class="flight-item"
+      in-viewport
+      [inViewportOptions]="{ partial: true }"
+      (inViewportAction)="action($event, flight)">
+    </app-flights-item>
+  </div>
 </div>
 
 <ng-template #loading>

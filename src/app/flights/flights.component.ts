@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FlightsService } from '../services/flights.service';
+import { Component, DoCheck, OnInit} from '@angular/core';
 
 import { MatDialog } from '@angular/material';
 import { FlightDialogComponent } from '../dialogs/flight-dialog/flight-dialog.component';
@@ -13,35 +12,52 @@ import {Flight} from "../models/flight.model";
   templateUrl: './flights.component.html',
   styleUrls: ['./flights.component.scss']
 })
-export class FlightsComponent extends HandleSubscription implements OnInit, OnDestroy {
+export class FlightsComponent extends HandleSubscription implements OnInit, DoCheck {
   flights: Flight[] = [];
   minCostTotal = 0;
   maxCostTotal = 0;
   luggageCostTotal = 0;
   airportToCityCostTotal = 0;
   durationTotal = 0;
+  test = 200;
+  imageUrl: string;
+  currentColor: string;
+  currentFlight: Flight;
 
   constructor(
-    private flightsService: FlightsService,
     public dialog: MatDialog,
-    private store: Store<any>
+    private store: Store<any>,
   ) {
     super(null)
   }
 
   ngOnInit() {
-    const sub = this.store
+    const flightsSubscription = this.store
       .select('state', 'flights', 'data')
       .subscribe( flights => {
         this.flights = flights;
         this.calculateTotals();
        })
 
+
     if(!this.flights.length) {
       this.store.dispatch(new flightsActions.LoadFlights(''));
     }
 
-    this.subscriptions.push(sub);
+    this.subscriptions.push(flightsSubscription);
+
+    const airlineColorSubscription = this.store
+      .select('state', 'flights', 'currentFlight')
+      .subscribe( currentFlight => {
+        console.log('asd')
+        this.currentFlight = currentFlight;
+        this.currentColor = this.setColor();
+      })
+    this.subscriptions.push(airlineColorSubscription);
+  }
+
+  ngDoCheck() {
+
   }
 
   openDialog(): void {
@@ -62,4 +78,23 @@ export class FlightsComponent extends HandleSubscription implements OnInit, OnDe
     })
   }
 
+  action(e, flight) {
+    if (e.value) {
+      this.imageUrl = `/assets/images/${e.target.children[0].children[1].children[0].children[0].children[1].children[0].children[3].children[1].innerText}.png`
+    }
+    this.store.dispatch(new flightsActions.SetCurrentFlight(flight));
+  }
+
+  setColor() {
+    switch (this.currentFlight.airline) {
+      case 'Ryanair':
+        return '#0c388E';
+      case 'Lot':
+        return 'white';
+      case 'Air China':
+        return 'white';
+      case 'Lufthansa':
+        return '#ffb300';
+    }
+  }
 }

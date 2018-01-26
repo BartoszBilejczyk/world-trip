@@ -58,6 +58,9 @@
     "spec": {
       "component": false
     },
-    "component": {}
+    "component": {},
+    "serve": {
+      "port": 6969
+    }
   }
 }
