@@ -1,6 +1,8 @@
 <section class="wt-dashboard">
   <div class="row">
-    <h1>Projected budget</h1>
+    <h1>
+      Projected budget
+    </h1>
     <div class="wt-box row align-center justify-center col-12">
       <div id="budgetChart">
         <mat-spinner *ngIf="!budgetChart"></mat-spinner>
@@ -8,7 +10,9 @@
     </div>
 
     <div class="col-7">
-      <h1>Cost cover</h1>
+      <h1>
+        Cost cover
+      </h1>
       <div class="wt-box row align-center justify-center ">
         <div id="costGaugeChart">
           <mat-spinner *ngIf="!costGaugeChart"></mat-spinner>
@@ -17,14 +21,21 @@
     </div>
 
     <div class="col-5">
-      <h1>Days to departure</h1>
+      <h1>
+        Days to departure
+      </h1>
       <div class="wt-box row align-center justify-center ">
-        <div class="days-left" *ngIf="budgetChart && costGaugeChart ; else loading">
+        <div
+          class="days-left"
+          *ngIf="budgetChart && costGaugeChart ; else loading"
+        >
           <div class="value">
             <p>
               {{ daysLeft }}
               <br>
-              <span class="small">days left</span>
+              <span class="small">
+                days left
+              </span>
             </p>
           </div>
         </div>

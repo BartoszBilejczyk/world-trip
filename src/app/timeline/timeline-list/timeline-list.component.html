@@ -1,29 +1,57 @@
  <div class="timeline-list">
-    <h1>Journey Timeline</h1>
+    <h1>
+      Journey Timeline
+    </h1>
     <div class="timeline">
       <div class="timeline-middle"></div>
-      <div class="wt-box" *ngFor="let item of timelineItems let even = even; let odd = odd"
-           [ngClass]="{odd: odd, even: even}">
-        <!--<img [src]="item.imageURL" alt="" class="thumbnail">-->
-        <img [src]="item.imageURL" alt="" class="image-thumbnail">
-        {{ item.date }}
+      <div
+        class="wt-box"
+        *ngFor="let item of timelineItems let even = even; let odd = odd"
+        [ngClass]="{odd: odd, even: even}"
+      >
+        <img
+          [src]="item.imageURL"
+          alt=""
+          class="image-thumbnail image-thumbnail-big"
+        >
+          {{ item.date }}
         <div class="row align-center flight">
           {{ item.departure }}
           -
-          <mat-icon>{{ item.type }}</mat-icon>
+          <mat-icon>
+            {{ item.type }}
+          </mat-icon>
           -
           {{ item.arrival }}
         </div>
-        <h1>{{ item.country }}, {{ item.city }}</h1>
-        <p>{{ item.address }}</p>
-        <p>{{ item.note }}</p>
+        <h1>
+          {{ item.country }}, {{ item.city }}
+        </h1>
+        <p>
+          {{ item.address }}
+        </p>
+        <p>
+          {{ item.note }}
+        </p>
 
         <a [routerLink]="['/journey', item.city.toLowerCase().split(' ').join('-')]">
-          <button mat-raised-button color="primary">More Details</button>
+          <button
+            mat-raised-button
+            color="primary"
+          >
+            More Details
+          </button>
         </a>
       </div>
     </div>
     <mat-spinner *ngIf="timelineItems.length === 0"></mat-spinner>
   </div>
 
-  <button mat-raised-button color="primary" class="add-new" (click)="openDialog()">Add New Stop</button>
+  <button
+    mat-raised-button
+    color="primary"
+    class="add-new"
+    (click)="openDialog()"
+  >
+    Add New Stop
+  </button>

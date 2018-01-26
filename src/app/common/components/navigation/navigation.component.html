@@ -1,9 +1,20 @@
 <nav class="wt-navigation-wrapper">
   <ul class="wt-navigation">
-    <li *ngFor="let item of navigationItems" routerLinkActive="active" class="wt-navigation__item">
-      <a [routerLink]="item.name" class="col align-center justify-center">
-        <mat-icon>{{ item.icon }}</mat-icon>
-        <p>{{ item.title }}</p>
+    <li
+      *ngFor="let item of navigationItems"
+      routerLinkActive="active"
+      class="wt-navigation__item"
+    >
+      <a
+        [routerLink]="item.name"
+        class="col align-center justify-center"
+      >
+        <mat-icon>
+          {{ item.icon }}
+        </mat-icon>
+        <p>
+          {{ item.title }}
+        </p>
       </a>
     </li>
   </ul>
