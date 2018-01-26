@@ -1,8 +1,14 @@
 <div class="timeline-navigation-wrapper">
   <div class="timeline-navigation">
     <ul>
-      <li *ngFor="let item of timelineItems" class="timeline-item row align-center justify-between">
-        <a [routerLink]="['/journey', item.city.toLowerCase().split(' ').join('-')]" class="col-9">
+      <li
+        *ngFor="let item of timelineItems"
+        class="timeline-item row align-center justify-between"
+      >
+        <a
+          [routerLink]="['/journey', item.city.toLowerCase().split(' ').join('-')]"
+          class="col-9"
+        >
           <div class="row align-center timeline-item-content">
             <div class="col-5">
               {{ item.departure.toUpperCase() }}
@@ -16,13 +22,20 @@
           </div>
         </a>
         <div class="col-1">
-          <mat-icon (click)="deleteTimelineItem($event, item)">delete</mat-icon>
+          <mat-icon (click)="deleteTimelineItem($event, item)">
+            delete
+          </mat-icon>
         </div>
         <div class="col-1">
-          <mat-icon (click)="editTimelineItem($event, item)">mode_edit</mat-icon>
+          <mat-icon (click)="editTimelineItem($event, item)">
+            mode_edit
+          </mat-icon>
         </div>
       </li>
     </ul>
   </div>
-  <mat-spinner *ngIf="timelineItems.length === 0" [diameter]="40"></mat-spinner>
+  <mat-spinner
+    *ngIf="timelineItems.length === 0"
+    [diameter]="40"
+  ></mat-spinner>
 </div>

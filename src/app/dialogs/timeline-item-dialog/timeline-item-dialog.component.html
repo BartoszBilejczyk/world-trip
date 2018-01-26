@@ -1,7 +1,6 @@
 <div>
   <form (ngSubmit)="onSubmit()" #timelineItemForm="ngForm" class="col">
     <mat-form-field>
-      <!--<input matInput name="date" placeholder="Date" [(ngModel)]="data.timelineItem.date" required>-->
       <input (click)="date.open()" matInput name="date" [matDatepicker]="date" placeholder="Date of flight" [(ngModel)]="data.timelineItem.date">
       <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
       <mat-datepicker #date></mat-datepicker>

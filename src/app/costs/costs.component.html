@@ -1,10 +1,13 @@
 <div class="costs row align-center">
   <div class="col-12">
     <div class="wt-box col justify-between">
-      <h1 class="cost-heading">Cost analysis</h1>
+      <h1 class="cost-heading">
+        Cost analysis
+      </h1>
       <div class="progressbar-background">
         <div class="progressbar progressbar-flights"
-             [ngStyle]="{'width': (flightsCosts / (flightsCosts + airbnbCosts + visasCosts + vaccinationsCosts + equipmentCosts) * 100) + '%' }"></div>
+             [ngStyle]="{'width': (flightsCosts / (flightsCosts + airbnbCosts + visasCosts + vaccinationsCosts + equipmentCosts) * 100) + '%' }"
+        ></div>
         <div class="progressbar progressbar-airbnb"
              [ngStyle]="{
                'width': (airbnbCosts / (flightsCosts + airbnbCosts + visasCosts + vaccinationsCosts + equipmentCosts) * 100) + '%',
@@ -12,11 +15,17 @@
              }">
         </div>
         <div class="progressbar progressbar-equipment-other"
-             [ngStyle]="{'width': ((visasCosts + vaccinationsCosts + equipmentCosts) / (flightsCosts + airbnbCosts + visasCosts + vaccinationsCosts + equipmentCosts) * 100) + '%'}"></div>
+             [ngStyle]="{'width': ((visasCosts + vaccinationsCosts + equipmentCosts) / (flightsCosts + airbnbCosts + visasCosts + vaccinationsCosts + equipmentCosts) * 100) + '%'}"
+        ></div>
       </div>
 
       <div class="totals justify-end">
-        <span class="value">{{ flightsCosts + airbnbCosts + visasCosts + vaccinationsCosts + equipmentCosts }}</span><span class="currency">PLN</span>
+        <span class="value">
+          {{ flightsCosts + airbnbCosts + visasCosts + vaccinationsCosts + equipmentCosts }}
+        </span>
+        <span class="currency">
+          PLN
+        </span>
       </div>
     </div>
   </div>
@@ -28,7 +37,12 @@
           <div class="col">
             <h1 class="cost-heading">Flights</h1>
             <div>
-              <span class="value">{{ flightsCosts }}</span><span class="currency">PLN</span>
+              <span class="value">
+                {{ flightsCosts }}
+              </span>
+              <span class="currency">
+                PLN
+              </span>
             </div>
           </div>
         </div>
@@ -54,7 +68,12 @@
           <div class="col">
             <h1 class="cost-heading">Equipment and Other</h1>
             <div>
-              <span class="value">{{ visasCosts + vaccinationsCosts + equipmentCosts }}</span><span class="currency">PLN</span>
+              <span class="value">
+                {{ visasCosts + vaccinationsCosts + equipmentCosts }}
+              </span>
+              <span class="currency">
+                PLN
+              </span>
             </div>
           </div>
         </div>

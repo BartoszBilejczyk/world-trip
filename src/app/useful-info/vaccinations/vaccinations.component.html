@@ -1,21 +1,46 @@
 <div class="row align-center justify-between">
-  <h1>Vaccinations</h1>
-  <button mat-raised-button color="primary" (click)="openDialog()">Add Vaccination</button>
+  <h1>
+    Vaccinations
+  </h1>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="openDialog()"
+  >
+    Add Vaccination
+  </button>
 </div>
 
-<div class="vaccination row align-center justify-between" *ngFor="let vaccination of vaccinations">
-  <p>{{ vaccination.name }}</p>
+<div
+  class="vaccination row align-center justify-between"
+  *ngFor="let vaccination of vaccinations"
+>
+  <p>
+    {{ vaccination.name }}
+  </p>
 
   <div class="row align-center">
-    <p>{{ vaccination.price | currency:' PLN' }}</p>
+    <p>
+      {{ vaccination.price | currency:' PLN' }}
+    </p>
 
-    <a [href]="vaccination.link" target="_blank">
-      <mat-icon>info_outline</mat-icon>
+    <a
+      [href]="vaccination.link"
+      target="_blank"
+    >
+      <mat-icon>
+        info_outline
+      </mat-icon>
     </a>
 
-    <mat-icon (click)="deleteVaccination($event, vaccination)">delete</mat-icon>
+    <mat-icon (click)="deleteVaccination($event, vaccination)">
+      delete
+    </mat-icon>
   </div>
 </div>
 
-<mat-spinner *ngIf="vaccinations.length === 0" [diameter]="25"></mat-spinner>
+<mat-spinner
+  *ngIf="vaccinations.length === 0"
+  [diameter]="25"
+></mat-spinner>
 

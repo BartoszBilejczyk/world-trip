@@ -1,27 +1,59 @@
 <div class="row align-center justify-between">
-  <h1>Visas</h1>
-  <button mat-raised-button color="primary" (click)="openDialog()">Add Visa</button>
+  <h1>
+    Visas
+  </h1>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="openDialog()"
+  >
+    Add Visa
+  </button>
 </div>
 
-<div class="visa row align-center justify-between" *ngFor="let visa of visas">
+<div
+  class="visa row align-center justify-between"
+  *ngFor="let visa of visas"
+>
   <div class="row align-center">
-    <img [src]="visa.flag" alt="" class="flag">
-    <p>{{ visa.country }}</p>
+    <img
+      [src]="visa.flag"
+      alt="Country flag"
+      class="flag">
+    <p>
+      {{ visa.country }}
+    </p>
   </div>
 
   <div class="row align-center">
-    <p>{{ visa.price | currency:' PLN' }}</p>
+    <p>
+      {{ visa.price | currency:' PLN' }}
+    </p>
 
-    <mat-icon>access_time</mat-icon>
-    <p>{{ visa.difficulty }} days</p>
+    <mat-icon>
+      access_time
+    </mat-icon>
+    <p>
+      {{ visa.difficulty }} days
+    </p>
 
-    <a [href]="visa.link" target="_blank">
-      <mat-icon>info_outline</mat-icon>
+    <a
+      [href]="visa.link"
+      target="_blank"
+    >
+      <mat-icon>
+        info_outline
+      </mat-icon>
     </a>
 
-    <mat-icon (click)="deleteVisa($event, visa)">delete</mat-icon>
+    <mat-icon (click)="deleteVisa($event, visa)">
+      delete
+    </mat-icon>
   </div>
 </div>
 
-<mat-spinner *ngIf="visas.length === 0" [diameter]="25"></mat-spinner>
+<mat-spinner
+  *ngIf="visas.length === 0"
+  [diameter]="25"
+></mat-spinner>
 
