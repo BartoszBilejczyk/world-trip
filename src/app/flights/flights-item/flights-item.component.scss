@@ -1,5 +1,10 @@
 @import '../../../styles.scss';
 
+.flight {
+  max-width: 70vw;
+  margin: 0 auto;
+}
+
 .date {
   @include font(24, medium);
 
@@ -26,9 +31,9 @@
 
 .flight-box,
 .flight-box-additional {
-  background-color: pal(gray, light);
-  border: 1px solid pal(gray, mid-light);
-  padding: 15px;
+  background-color: pal(white);
+  border-radius: 10px;
+  height: 500px;
 }
 
 .journey-icon {
@@ -37,5 +42,38 @@
 }
 
 .airport-name {
-  @include font(65, bold);
+  @include font(90, semi);
+}
+
+.flight-image {
+  width: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px 0 0 10px;
+
+}
+
+.flight-details {
+  padding: 30px;
+  width: 50%;
+  color: pal(gray, dark);
+
+  h5 {
+    @include font(30, normal);
+    color: pal(gray, semi-dark);
+
+    + span {
+      @include font(38, semi);
+      color: pal(gray, dark);
+    }
+  }
+
+  hr {
+    width: 80%;
+    margin: 0 auto;
+    background: pal(gray, light);
+    height: 1px;
+    border: none;
+  }
 }

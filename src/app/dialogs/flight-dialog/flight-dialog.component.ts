@@ -1,9 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import {Component, Inject, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { FlightsService } from '../../services/flights.service';
 import { Flight } from '../../models/flight.model';
-import { MatDialogRef } from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 import * as _moment from 'moment';
 const moment =  _moment;
@@ -15,32 +15,25 @@ const moment =  _moment;
 })
 export class FlightDialogComponent {
   @ViewChild('flightForm') flightForm: NgForm;
-
-  flight: Flight = {
-    date: '',
-    from: '',
-    to: '',
-    minCost: null,
-    maxCost: null,
-    luggageCost: 0,
-    airportToCityCost: 0,
-    duration: 0,
-    airline: '-'
-  }
-
   constructor(
     private flightsService: FlightsService,
     public dialogRef: MatDialogRef<FlightDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data
   ) { }
 
   onSubmit() {
+    console.log(this.data)
     if(!this.flightForm.valid) {
       return
     }
 
-    this.flight.date = this.flightForm.value.date._d;
-    this.flightsService.addFlight(this.flight)
+    this.data.flight.date = this.flightForm.value.date._d;
+
+    if(this.data.isBeingUpdated) {
+      this.flightsService.updateFlight(this.data.flight);
+    } else {
+      this.flightsService.addFlight(this.data.flight)
+    }
     this.dialogRef.close();
   }
-
 }

@@ -1,28 +1,28 @@
-<section
-  class="airline"
-  [style.background]="currentColor"
->
-  <app-airlines-item [image]="imageUrl"></app-airlines-item>
-</section>
+<!--<section-->
+<!--class="airline"-->
+<!--[style.background]="currentColor"-->
+<!--&gt;-->
+<!--<app-airlines-item [image]="imageUrl"></app-airlines-item>-->
+<!--</section>-->
 
 <div
   class="flights-wrapper"
   id="flights-wrapper"
   *ngIf="flights.length !== 0 ; else loading"
-  [ngStyle]="{'background-image': currentFlightImage}"
 >
   <div
     class="flight-wrapper"
     *ngFor="let flight of flights"
   >
-    <app-flights-item
-      [flight]="flight"
-      class="flight-item"
-      in-viewport
-      [inViewportOptions]="{partial: false }"
-      (inViewportAction)="action($event, flight)"
-    >
-    </app-flights-item>
+    <div class="flight-item">
+      <app-flights-item
+        [flight]="flight"
+        in-viewport
+        [inViewportOptions]="{partial: false }"
+        (inViewportAction)="action($event, flight)"
+      >
+      </app-flights-item>
+    </div>
   </div>
 </div>
 

@@ -8,74 +8,73 @@
     </div>
   </div>
 
-  <div class="col">
-    <div class="flight-box">
-      <div class="row">
-        <div class="col-4 row align-center justify-center">
-          <div class="col departure">
-            <p>DEPARTURE</p>
-            <p class="airport-name">
-              {{ flight.from.slice(0, 3).toUpperCase() }}
-            </p>
-          </div>
+  <div class="flight-box row">
+    <div [ngStyle]="{'background-image': flightImage}" class="flight-image">
+
+    </div>
+    <div class="flight-details col justify-around">
+      <div class="row align-center justify-around">
+        <div class="col departure">
+          <p class="airport-name">
+            {{ flight.from.slice(0, 3).toUpperCase() }}
+          </p>
         </div>
-        <div class="col-4 row align-center justify-center">
-          <div class="flight-description col">
-            <img
-              src="/assets/images/journey.png"
-              alt=""
-              class="journey-icon">
-            <div class="row justify-between">
-              <p>
-                Price
-              </p>
-              <p>
-                {{ flight.maxCost}}
-              </p>
-            </div>
-            <div class="row justify-between">
-              <p>
-                Duration
-              </p>
-              <p>
-                12h
-              </p>
-            </div>
-            <div class="row justify-between">
-              <p>
-                Airline
-              </p>
-              <p>
-                {{ flight.airline }}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4 row align-center justify-center">
-          <div class="arrival">
-            <p>
-              ARRIVAL
-            </p>
-            <p class="airport-name">
-              {{ flight.to.slice(0, 3).toUpperCase() }}
-            </p>
-          </div>
+        <mat-icon>
+          flight_takeoff
+        </mat-icon>
+        <div class="arrival">
+          <p class="airport-name">
+            {{ flight.to.slice(0, 3).toUpperCase() }}
+          </p>
         </div>
       </div>
-    </div>
-    <div class="flight-box-additional">
-      <div class="row">
-        <div class="col-3 row align-center justify-center">
-          Check-in
+
+      <hr>
+
+      <div class="row align-center justify-around">
+        <div class="col-xs-6 col">
+          <h5>Airline</h5>
+          <span>{{ flight.airline}}</span>
         </div>
-        <div class="col-3 row align-center justify-center">
-          Boarding Pass
+        <div class="col-xs-6 col">
+          <h5>Price</h5>
+          <span>{{ flight.maxCost}}</span>
         </div>
-        <div class="col-3 row align-center justify-center">
-          Departure details
+        <div class="col-xs-6 col">
+          <h5>Duration</h5>
+          <span>{{ flight.duration}}</span>
         </div>
-        <div class="col-3 row align-center justify-center">
-          Arrival details
+      </div>
+
+      <hr>
+
+      <div class="row align-center justify-around">
+        <div class="col-xs-4">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="openDialog()"
+          >
+            Check-in
+          </button>
+        </div>
+        <div class="col-xs-4">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="openDialog()"
+          >
+            Boarding Pass
+          </button>
+        </div>
+        <div class="col-xs-4">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="openDialog()"
+          >
+            Details
+          </button>
         </div>
       </div>
     </div>
