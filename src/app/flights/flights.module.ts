@@ -25,7 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
     FlightsItemComponent,
     AirlinesComponent,
     AirlinesItemComponent,
-    FlightsNavComponent
+    FlightsNavComponent,
   ],
   exports: [
     FlightsComponent,

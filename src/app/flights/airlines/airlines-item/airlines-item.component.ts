@@ -1,16 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-airlines-item',
   templateUrl: './airlines-item.component.html',
   styleUrls: ['./airlines-item.component.scss']
 })
-export class AirlinesItemComponent implements OnInit {
+export class AirlinesItemComponent {
   @Input() image: string;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

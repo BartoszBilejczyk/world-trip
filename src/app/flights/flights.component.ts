@@ -1,10 +1,11 @@
-import { Component, DoCheck, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { MatDialog } from '@angular/material';
 import { FlightDialogComponent } from '../dialogs/flight-dialog/flight-dialog.component';
 import { HandleSubscription } from '../helpers/handle-subscriptions';
 import {Store} from "@ngrx/store";
 import * as flightsActions from '../store/flights/flights.actions';
+import * as timelineActions from '../store/timeline/timeline.actions';
 import {Flight} from "../models/flight.model";
 
 @Component({
@@ -12,7 +13,7 @@ import {Flight} from "../models/flight.model";
   templateUrl: './flights.component.html',
   styleUrls: ['./flights.component.scss']
 })
-export class FlightsComponent extends HandleSubscription implements OnInit, DoCheck {
+export class FlightsComponent extends HandleSubscription implements OnInit {
   flights: Flight[] = [];
   minCostTotal = 0;
   maxCostTotal = 0;
@@ -23,6 +24,7 @@ export class FlightsComponent extends HandleSubscription implements OnInit, DoCh
   imageUrl: string;
   currentColor: string;
   currentFlight: Flight;
+  currentFlightImage: string;
 
   constructor(
     public dialog: MatDialog,
@@ -42,6 +44,7 @@ export class FlightsComponent extends HandleSubscription implements OnInit, DoCh
 
     if(!this.flights.length) {
       this.store.dispatch(new flightsActions.LoadFlights(''));
+      this.store.dispatch(new timelineActions.LoadTimeline(''));
     }
 
     this.subscriptions.push(flightsSubscription);
@@ -54,10 +57,6 @@ export class FlightsComponent extends HandleSubscription implements OnInit, DoCh
         this.currentColor = this.setColor();
       })
     this.subscriptions.push(airlineColorSubscription);
-  }
-
-  ngDoCheck() {
-
   }
 
   openDialog(): void {
@@ -79,11 +78,15 @@ export class FlightsComponent extends HandleSubscription implements OnInit, DoCh
   }
 
   action(e, flight) {
+    console.log(e)
+    console.log(flight)
     if (e.value) {
-      this.imageUrl = `/assets/images/${e.target.children[0].children[1].children[0].children[0].children[1].children[0].children[3].children[1].innerText}.png`
-    }
-    this.store.dispatch(new flightsActions.SetCurrentFlight(flight));
-  }
+      this.store.dispatch(new flightsActions.SetCurrentFlight(flight));
+      this.imageUrl = `/assets/images/${this.currentFlight.airline}.png`
+      console.log(this.imageUrl);
+      this.currentFlightImage = `url('http://static.superiorwallpapers.com/images/lthumbs/2015-07/10259_Dubai-Dream-city-from-the-United-Arab-Emirates.jpg')`
+      console.log(this.currentFlightImage)
+    }}
 
   setColor() {
     switch (this.currentFlight.airline) {

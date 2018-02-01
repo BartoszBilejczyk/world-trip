@@ -9,6 +9,7 @@
   class="flights-wrapper"
   id="flights-wrapper"
   *ngIf="flights.length !== 0 ; else loading"
+  [ngStyle]="{'background-image': currentFlightImage}"
 >
   <div
     class="flight-wrapper"
@@ -18,7 +19,7 @@
       [flight]="flight"
       class="flight-item"
       in-viewport
-      [inViewportOptions]="{ partial: true }"
+      [inViewportOptions]="{partial: false }"
       (inViewportAction)="action($event, flight)"
     >
     </app-flights-item>
