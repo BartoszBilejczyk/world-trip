@@ -1,22 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { RouterModule } from '@angular/router';
-
 import { AmChartsModule } from '@amcharts/amcharts3-angular';
-
 import { AppRoutingModule } from './app-routing.module';
-
 import { UsefulInfoModule } from './useful-info/useful-info.module';
 import { FlightsModule } from './flights/flights.module';
 import { CountryModule } from './country/country.module';
 import { AppCommonModule } from './common/common.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { TimelineModule } from './timeline/timeline.module';
-
 import { AppComponent } from './app.component';
-
 import { DialogsModule } from "./dialogs/dialogs.module";
 
 // firebase
@@ -41,6 +35,7 @@ import {GeneralEffects} from "./store/general/general.effects";
 import {FlightsEffects} from "./store/flights/flights.effects";
 import {CountriesEffects} from "./store/countries/countries.effects";
 import {reducers} from "./store/index";
+
 
 @NgModule({
   declarations: [

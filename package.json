@@ -28,6 +28,7 @@
     "@ngrx/effects": "^4.1.1",
     "@ngrx/store": "^4.1.1",
     "@ngrx/store-devtools": "^4.1.1",
+    "@thisissoon/angular-inviewport": "^2.1.1",
     "angular-inport": "^1.0.3",
     "angularfire2": "^5.0.0-rc.4",
     "core-js": "^2.4.1",
@@ -36,6 +37,7 @@
     "intersection-observer": "^0.5.0",
     "moment": "^2.19.3",
     "ng-in-viewport": "^1.2.0",
+    "ngx-in-view": "^0.2.1",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },

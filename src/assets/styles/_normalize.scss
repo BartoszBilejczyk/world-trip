@@ -16,8 +16,8 @@ caption, tbody, tfoot, thead, tr, th, td {
 
 html, body {
   max-width: 100vw;
-  min-height: 100vh;
-  overflow-x: hidden;
+  max-height: 100vh;
+  overflow: hidden;
   color: pal(dashboard, dark);
   @include font(13, medium);
 
