@@ -30,6 +30,10 @@
   }
 }
 
+.mat-dialog-container {
+  min-width: 350px !important;
+}
+
 /*
  router animations
  width is smaller because of container (90%) and navigation (120px)

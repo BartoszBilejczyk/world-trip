@@ -1,47 +1,47 @@
 <section class="wt-dashboard">
   <div class="row">
-    <h1>
-      Projected budget
-    </h1>
-    <div class="wt-box row align-center justify-center col-12">
-      <div id="budgetChart">
-        <mat-spinner *ngIf="!budgetChart"></mat-spinner>
-      </div>
+    <div class="box row align-center justify-center col-8">
+      <h1>
+        Projected budget
+      </h1>
+      <canvas baseChart
+              class="chart"
+              [data]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+        <!--<mat-spinner *ngIf="!budgetChart"></mat-spinner>-->
     </div>
 
-    <div class="col-7">
-      <h1>
-        Cost cover
-      </h1>
-      <div class="wt-box row align-center justify-center ">
-        <div id="costGaugeChart">
-          <mat-spinner *ngIf="!costGaugeChart"></mat-spinner>
-        </div>
+    <div class="col-4 col">
+      <div class="col-12">
+        <app-costs></app-costs>
       </div>
-    </div>
-
-    <div class="col-5">
-      <h1>
-        Days to departure
-      </h1>
-      <div class="wt-box row align-center justify-center ">
-        <div
-          class="days-left"
-          *ngIf="budgetChart && costGaugeChart ; else loading"
-        >
-          <div class="value">
-            <p>
-              {{ daysLeft }}
-              <br>
-              <span class="small">
+      <div class="col-12">
+        <h1>
+          Days to departure
+        </h1>
+        <div class="box--small row align-center justify-center ">
+          <div
+            class="days-left"
+          >
+            <div class="value">
+              <p>
+                {{ daysLeft }}
+                <br>
+                <span class="small">
                 days left
               </span>
-            </p>
+              </p>
+            </div>
           </div>
+          <ng-template #loading>
+            <mat-spinner></mat-spinner>
+          </ng-template>
         </div>
-        <ng-template #loading>
-          <mat-spinner></mat-spinner>
-        </ng-template>
       </div>
     </div>
   </div>

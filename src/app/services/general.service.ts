@@ -16,7 +16,6 @@ export class GeneralService {
     this.general = this.generalCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data();
-        console.log(data);
         data.id = a.payload.doc.id;
         return data;
       })

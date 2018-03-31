@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { GeneralService } from '../services/general.service';
 import {HandleSubscription} from '../helpers/handle-subscriptions';
+import * as generalActions from '../store/general/general.actions'
 
-import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
 import * as moment from 'moment'
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,165 +13,115 @@ import * as moment from 'moment'
 })
 export class DashboardComponent extends HandleSubscription implements OnInit, OnDestroy {
   generalInfo: any;
-  budgetChart: AmChart = null;
-  costGaugeChart: AmChart = null;
   daysLeft: number;
   budget: number;
 
+  lineChartOptions:any = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      xAxes: [{
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 15,
+          autoSkip: true,
+          fontColor: '#aebac7',
+          fontSize: 14,
+          beginAtZero: true
+        }
+      }],
+      yAxes: [{
+        gridLines: {
+          color: '#eff2f4'
+        },
+        ticks: {
+          maxTicksLimit: 10,
+          padding: 20,
+          fontSize: 14,
+          beginAtZero: true
+        }
+      }]
+    },
+    legend: {
+      display: false
+    }
+  };
+
+  lineChartData: any = [];
+  lineChartLabels: any = [];
+  lineChartType = 'line';
+  lineChartColors:Array<any> = [
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: '#1565c0',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },
+    { // dark grey
+      backgroundColor: 'rgba(77,83,96,0.2)',
+      borderColor: 'rgba(77,83,96,1)',
+      pointBackgroundColor: '#16191c',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(77,83,96,1)'
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    }
+  ];
+
+
   constructor(
-    private AmCharts: AmChartsService,
     private generalService: GeneralService,
+    private store: Store<any>
   ) {
     super(null);
   }
 
   ngOnInit() {
+    this.store.dispatch(new generalActions.LoadGeneral(''));
+
+    const chartDataSub = this.generalService.getGeneral().subscribe(data => {
+      this.lineChartData[0] = data[0].accountState.map((state) => {
+        return state.actual
+      })
+      this.lineChartData[1] = data[0].accountState.map((state) => {
+        return state.projected
+      })
+      this.lineChartLabels = data[0].accountState.map((state) => {
+        return moment(state.date).format('D.M.Y');
+      })
+    })
+
     const sub = this.generalService.getGeneral().subscribe(generalInfo => {
       this.generalInfo = generalInfo[0];
 
       const accountArray = this.generalInfo.accountState;
       this.budget = accountArray[accountArray.length - 1].projected;
-      console.log(this.budget)
-
-      this.createBudgetChart()
-      this.createCostGaugeChart()
     })
 
     this.subscriptions.push(sub);
+    this.subscriptions.push(chartDataSub);
 
     this.daysLeft = -(moment().diff( '2021-10-30', 'days'));
   }
 
-  createBudgetChart() {
-    this.budgetChart = this.AmCharts.makeChart("budgetChart", {
-      "type": "serial",
-      "theme": "light",
-      "marginRight": 40,
-      "marginLeft": 40,
-      "autoMarginOffset": 20,
-      "mouseWheelZoomEnabled":true,
-      "dataDateFormat": "YYYY-MM-DD",
-      "color": "#888",
-      "valueAxes": [{
-        "id": "v1",
-        "axisAlpha": 0,
-        "position": "left",
-        "ignoreAxisWidth":true
-      }],
-      "balloon": {
-        "borderThickness": 1,
-        "shadowAlpha": 0
-      },
-      "graphs": [{
-        "id": "g1",
-        "balloon":{
-          "drop":true,
-          "adjustBorderColor":false,
-          "color":"#fff"
-        },
-        "bullet": "round",
-        "bulletBorderAlpha": 1,
-        "bulletColor": "#7c395c",
-        "bulletSize": 5,
-        "hideBulletsCount": 50,
-        "lineColor": "#7c395c",
-        "lineThickness": 3,
-        "title": "red line",
-        "useLineColorForBulletBorder": true,
-        "valueField": "actual",
-        "balloonText": "<span style='font-size:13px;'>[[value]]</span>"
-      },
-      {
-        "id": "g2",
-        "balloon":{
-          "drop":true,
-          "adjustBorderColor":false,
-          "color":"#fff",
-        },
-        "bullet": "round",
-        "bulletBorderAlpha": 1,
-        "bulletColor": "#de9174",
-        "bulletSize": 5,
-        "hideBulletsCount": 50,
-        "lineColor": "#de9174",
-        "lineThickness": 3,
-        "title": "red line",
-        "useLineColorForBulletBorder": true,
-        "valueField": "projected",
-        "balloonText": "<span style='font-size:13px;'>[[value]]</span>"
-      }],
-      "chartScrollbar": false,
-      "chartCursor": {
-        "pan": true,
-        "valueLineEnabled": true,
-        "valueLineBalloonEnabled": true,
-        "cursorAlpha":1,
-        "cursorColor":"#de9174",
-        "limitToGraph":"g1",
-        "valueLineAlpha":0.2,
-        "valueZoomable":true
-      },
-      "valueScrollbar":{
-        "oppositeAxis":false,
-        "offset":50,
-        "scrollbarHeight":10
-      },
-      "categoryField": "date",
-      "categoryAxis": {
-        "parseDates": true,
-        // "dashLength": 1,
-        // "minorGridEnabled": false
-      },
-      "export": {
-        "enabled": true
-      },
-      "dataProvider": this.generalInfo.accountState
-    });
-
-    this.budgetChart.addListener("rendered", this.zoomChart);
-
-    this.zoomChart();
+  // events
+  chartClicked(e:any):void {
+    console.log(e);
   }
 
-  zoomChart() {
-    this.budgetChart.zoomToIndexes(this.budgetChart.dataProvider.length - 40, this.budgetChart.dataProvider.length - 1);
+  chartHovered(e:any):void {
+    console.log(e);
   }
-
-  createCostGaugeChart() {
-    this.costGaugeChart = this.AmCharts.makeChart("costGaugeChart", {
-      "theme": "light",
-      "type": "gauge",
-      "axes": [{
-        "topTextFontSize": 20,
-        "topTextYOffset": 70,
-        "axisColor": "#de9174",
-        "axisThickness": 1,
-        "endValue": 100,
-        "gridInside": true,
-        "inside": true,
-        "radius": "50%",
-        "valueInterval": 10,
-        "tickColor": "#4e576e",
-        "startAngle": -90,
-        "endAngle": 90,
-        "unit": "%",
-        "bandOutlineAlpha": 0,
-        "bands": [{
-          "color": "#663264",
-          "endValue": 100,
-          "innerRadius": "105%",
-          "radius": "170%",
-          "startValue": 0
-        }]
-      }],
-      "arrows": [{
-        "alpha": 1,
-        "innerRadius": "35%",
-        "nailRadius": 0,
-        "radius": "170%",
-        "value": (3775 / this.budget) * 100,
-      }],
-    });
-  }
-
 }

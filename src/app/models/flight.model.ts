@@ -9,4 +9,5 @@ export interface Flight {
   airportToCityCost: number;
   duration: number;
   airline: string;
+  imageUrl: string;
 };

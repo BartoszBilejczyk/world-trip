@@ -9,13 +9,14 @@ import { MapComponent } from '../map/map.component';
 import { CostsComponent } from '../costs/costs.component';
 
 import { GeneralService } from '../services/general.service';
-
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 @NgModule({
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    AppCommonModule
+    AppCommonModule,
+    ChartsModule
   ],
   declarations: [
     DashboardComponent,

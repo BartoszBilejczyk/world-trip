@@ -11,13 +11,26 @@
 }
 
 .flights-wrapper {
-  height: calc(100vh - 100px);
-  max-height: calc(100vh - 100px);
   overflow-y: scroll;
-  margin-left: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: pal(gray, ultra-light);
 }
 
 .flight-wrapper {
+  padding: 100px;
+}
+
+.background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100vh;
-  margin-top: 25vh;
+  width: 100vw;
+  filter: blur(5px) saturate(0.5);
+  transition: 0.5s ease;
 }

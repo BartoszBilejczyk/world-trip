@@ -59,13 +59,6 @@ export class FlightsComponent extends HandleSubscription implements OnInit {
     this.subscriptions.push(airlineColorSubscription);
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(FlightDialogComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
 
   calculateTotals() {
     this.flights.forEach(item => {
@@ -84,7 +77,7 @@ export class FlightsComponent extends HandleSubscription implements OnInit {
       this.store.dispatch(new flightsActions.SetCurrentFlight(flight));
       this.imageUrl = `/assets/images/${this.currentFlight.airline}.png`
       console.log(this.imageUrl);
-      this.currentFlightImage = `url('http://static.superiorwallpapers.com/images/lthumbs/2015-07/10259_Dubai-Dream-city-from-the-United-Arab-Emirates.jpg')`
+      this.currentFlightImage = `url('${this.currentFlight.imageUrl}')`
       console.log(this.currentFlightImage)
     }}
 
