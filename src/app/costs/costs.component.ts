@@ -1,12 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
-import { CostsService } from "../services/costs.service";
 
 import { HandleSubscription } from "../helpers/handle-subscriptions";
 import {Store} from "@ngrx/store";
 import * as flightsActions from '../store/flights/flights.actions';
 import * as timelineActions from '../store/timeline/timeline.actions';
 import * as usefulActions from '../store/useful/useful.actions';
+import {FlightsService} from "../services/flights.service";
+import {TimelineService} from "../services/timeline.service";
+import {UsefulService} from "../services/useful.service";
 
 @Component({
   selector: 'app-costs',
@@ -14,14 +15,20 @@ import * as usefulActions from '../store/useful/useful.actions';
   styleUrls: ['./costs.component.scss']
 })
 export class CostsComponent extends HandleSubscription implements OnInit, OnDestroy {
-  flightsCosts = 0;
-  airbnbCosts = 0;
-  equipmentCosts = 0;
-  visasCosts = 0;
-  vaccinationsCosts = 0;
+  flightsCosts = 1;
+  airbnbCosts = 1;
+  equipmentCosts = 1;
+  visasCosts = 1;
+  vaccinationsCosts = 1;
+  doughnutChartLabels: string[] = ['Flights', 'Airbnb', 'Equipment', 'Visas', 'Vaccinations'];
+  doughnutChartData: number[] = [];
+  doughnutChartType: string = 'doughnut';
 
   constructor(
-    private store: Store<any>
+    private store: Store<any>,
+    private flightsService: FlightsService,
+    private airbnbService: TimelineService,
+    private usefulService: UsefulService
   ) {
     super(null);
   }
@@ -33,54 +40,70 @@ export class CostsComponent extends HandleSubscription implements OnInit, OnDest
     this.calculateVisasCosts();
     this.calculateVaccinationsCosts();
 
-    if(this.flightsCosts === 0) {
-      this.store.dispatch(new flightsActions.LoadFlights(''));
-      this.store.dispatch(new timelineActions.LoadTimeline(''));
-      this.store.dispatch(new usefulActions.LoadVisas(''));
-      this.store.dispatch(new usefulActions.LoadVaccinations(''));
-      this.store.dispatch(new usefulActions.LoadEquipment(''));
-    }
+    this.store.dispatch(new flightsActions.LoadFlights(''));
+    this.store.dispatch(new timelineActions.LoadTimeline(''));
+    this.store.dispatch(new usefulActions.LoadVisas(''));
+    this.store.dispatch(new usefulActions.LoadVaccinations(''));
+    this.store.dispatch(new usefulActions.LoadEquipment(''));
   }
 
   calculateFlightsCosts() {
-    const flightsSubscription = this.store.select('state', 'flights', 'data').subscribe( flight => {
+    const flightsSubscription = this.flightsService.getFlights().subscribe( flight => {
       flight.forEach((item) => {
         // 100 is every flight luggage cost
         this.flightsCosts += +item.minCost + 100;
       })
+      this.doughnutChartData.push(this.flightsCosts);
     });
     this.subscriptions.push(flightsSubscription);
   }
   calculateAirbnbCosts() {
-    const timelineSubscription = this.store.select('state', 'timeline', 'data').subscribe( journey => {
+    const timelineSubscription = this.airbnbService.getTimeline().subscribe( journey => {
       journey.forEach((item) => {
         this.airbnbCosts += +item.pricePerNight;
       })
+      this.doughnutChartData.push(30000);
     });
+
     this.subscriptions.push(timelineSubscription);
   }
   calculateEquipmentCosts() {
-    const equipmentSubscription = this.store.select('state', 'useful', 'equipment').subscribe( eqItem => {
+    const equipmentSubscription = this.usefulService.getEquipment().subscribe( eqItem => {
       eqItem.forEach((item) => {
         this.equipmentCosts += +item.price;
       })
+      this.doughnutChartData.push(this.equipmentCosts);
     });
+
     this.subscriptions.push(equipmentSubscription);
   }
   calculateVisasCosts() {
-    const visasSubscription = this.store.select('state', 'useful', 'visas').subscribe( visa => {
+    const visasSubscription = this.usefulService.getVisas().subscribe( visa => {
       visa.forEach((item) => {
         this.visasCosts += +item.price;
       })
+      this.doughnutChartData.push(this.visasCosts);
     });
+
     this.subscriptions.push(visasSubscription);
   }
   calculateVaccinationsCosts() {
-    const vaccinationsSubscription = this.store.select('state', 'useful', 'vaccinations').subscribe( vaccination => {
+    const vaccinationsSubscription = this.usefulService.getVaccinations().subscribe( vaccination => {
       vaccination.forEach((item) => {
         this.vaccinationsCosts += +item.price;
       })
+      this.doughnutChartData.push(this.vaccinationsCosts);
+      console.log(this.doughnutChartData)
     });
     this.subscriptions.push(vaccinationsSubscription);
+  }
+
+  // events
+  chartClicked(e:any):void {
+    console.log(e);
+  }
+
+  chartHovered(e:any):void {
+    console.log(e);
   }
 }
